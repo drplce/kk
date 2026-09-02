@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Kobus Kennedy. KK.">
+<meta name="description" content="Kobus Kennedy. An exhaustive analysis of one name, in seven chapters.">
 <meta name="theme-color" content="#EEECE6">
 <title>Kobus Kennedy</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -310,6 +310,177 @@
   .foot-row .top { border-bottom: 1px solid var(--rule); }
   .foot-row .top:hover { border-color: var(--accent); }
 
+  /* ---------- monograph additions ---------- */
+  .masthead {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin: 0 0 1rem;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 0.75rem;
+  }
+  .chapter { display: flex; align-items: baseline; gap: 0.75rem; margin: 0 0 2rem; }
+  .chapter .num {
+    font-family: "Bodoni Moda", "Didot", serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 0;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .muted { color: var(--muted); font-style: italic; }
+  .aside {
+    margin: 2.5rem 0 0;
+    max-width: 60ch;
+    color: var(--ink-2);
+    border-left: 2px solid var(--accent);
+    padding-left: 1.25rem;
+  }
+  .aside .palin { font-size: 1.6em; line-height: 1; letter-spacing: 0.02em; vertical-align: -0.1em; }
+
+  .toc { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+  .toc li { border-bottom: 1px solid var(--rule); }
+  .toc a {
+    display: grid;
+    grid-template-columns: 3.5rem 1fr auto;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 1.1rem 0;
+    transition: padding-left 250ms ease, color 250ms ease;
+  }
+  .toc a:hover { padding-left: 0.75rem; }
+  .toc a:hover .ttl { color: var(--accent); }
+  .toc .num { font-family: "Bodoni Moda", "Didot", serif; font-size: 1.25rem; color: var(--accent); }
+  .toc .ttl { font-size: clamp(1.75rem, 3.5vw, 2.75rem); font-weight: 500; line-height: 1; transition: color 250ms ease; }
+  .toc .sub { color: var(--muted); font-style: italic; text-align: right; }
+
+  .scansion {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 0 clamp(0.5rem, 2vw, 1.5rem);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 2rem 0 1.5rem;
+  }
+  .scansion .syl { display: grid; justify-items: center; gap: 0.25rem; }
+  .scansion .beat {
+    font-family: "Bodoni Moda", "Didot", serif;
+    font-size: 1.75rem;
+    line-height: 1;
+    color: var(--muted);
+  }
+  .scansion .stressed .beat { color: var(--accent); }
+  .scansion .display { font-size: clamp(3rem, 9vw, 7.5rem); font-weight: 400; line-height: 0.9; }
+  .scansion .stressed .display { font-weight: 700; }
+  .scansion .gap { width: clamp(1rem, 4vw, 3rem); }
+  .ipa { display: grid; gap: 1.25rem; margin-top: 2rem; }
+  .ipa dl { margin: 0; display: grid; grid-template-columns: 8rem 1fr; gap: 1rem; align-items: baseline; }
+  .ipa dd { margin: 0; font-size: 1.25rem; }
+
+  .anatomy { background: var(--bg-2); }
+  .guides {
+    position: relative;
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+    overflow: hidden;
+  }
+  .guides .lower {
+    position: relative;
+    margin: 0;
+    font-size: clamp(3.25rem, 11vw, 10rem);
+    font-weight: 400;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+    z-index: 1;
+  }
+  .guides .guide {
+    position: absolute;
+    left: 0; right: 0;
+    border-top: 1px dashed var(--accent);
+    opacity: 0.7;
+  }
+  .guides .guide .label {
+    position: absolute;
+    right: 0;
+    top: -1.1rem;
+    color: var(--accent);
+    background: var(--bg-2);
+    padding-left: 0.5rem;
+  }
+  .guides .asc  { top: calc(1rem + 0.30em * 1); }
+  .guides .xh   { top: calc(1rem + 0.575em * 1); }
+  .guides .base { top: calc(1rem + 1.0em * 1); }
+  .guides .desc { top: calc(1rem + 1.2em * 1); }
+  .guides .guide { font-size: clamp(3.25rem, 11vw, 10rem); }
+  .guides .guide .label { font-size: 0.75rem; }
+
+  .table-wrap { overflow-x: auto; border-top: 1px solid var(--rule); }
+  .figtable { width: 100%; border-collapse: collapse; }
+  .figtable th, .figtable td { padding: 0.9rem 0.5rem; border-bottom: 1px solid var(--rule); text-align: left; vertical-align: baseline; }
+  .figtable thead th { font-family: "Karla", sans-serif; font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+  .figtable tbody th { font-weight: 400; color: var(--ink-2); }
+  .figtable .n { text-align: right; font-family: "Bodoni Moda", "Didot", serif; font-size: 1.5rem; font-variant-numeric: tabular-nums; }
+  .figtable tbody td:last-child { color: var(--accent); }
+  .tiles { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-top: 2.5rem; }
+  .tile {
+    width: 3.25rem; height: 3.25rem;
+    display: grid; place-items: center;
+    border: 1px solid var(--rule);
+    background: var(--bg-2);
+    font-family: "Bodoni Moda", "Didot", serif;
+    font-size: 1.75rem;
+    font-weight: 600;
+    position: relative;
+    border-radius: 3px;
+  }
+  .tile sub {
+    position: absolute; right: 0.3rem; bottom: 0.25rem;
+    font-family: "Karla", sans-serif; font-size: 0.6rem; font-weight: 600; line-height: 1;
+    color: var(--muted);
+  }
+  .tile-gap { width: 1.25rem; }
+  .tile-sum { font-size: 2rem; margin-left: 0.75rem; color: var(--accent); }
+
+  .construct {
+    position: relative;
+    display: grid;
+    place-items: center;
+    padding: 2rem 0;
+    margin-bottom: 2rem;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .construct .monogram.small { font-size: clamp(7rem, 26vw, 18rem); animation: none; }
+  .construct .axis {
+    position: absolute; top: 0; bottom: 0; left: 50%;
+    border-left: 1px dashed var(--accent);
+    opacity: 0.7;
+  }
+  .construct .lozenge {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 0.30em; height: 0.30em;
+    font-size: clamp(7rem, 26vw, 18rem);
+    transform: translate(-50%, -46%) rotate(45deg);
+    border: 1px solid var(--accent);
+    opacity: 0.6;
+  }
+  .company-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    border-top: 1px solid var(--rule);
+    border-left: 1px solid var(--rule);
+  }
+  .company-grid article {
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 1.5rem 1.25rem;
+  }
+  .company-grid h3 { margin: 0 0 0.5rem; font-size: 1.75rem; font-weight: 500; line-height: 1.05; }
+  .company-grid p { margin: 0; color: var(--ink-2); }
+
   /* ---------- reveal ---------- */
   .reveal { transform: translateY(14px); transition: transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1); }
   .reveal.in { transform: none; }
@@ -322,6 +493,10 @@
     .specimen { grid-template-columns: repeat(4, 1fr); }
     .nav ul { gap: 1.1rem; }
     .nav ul a.hide-sm { display: none; }
+    .toc a { grid-template-columns: 2.5rem 1fr; }
+    .toc .sub { grid-column: 2; text-align: left; }
+    .ipa dl { grid-template-columns: 1fr; gap: 0.25rem; }
+    .masthead span:nth-child(2) { display: none; }
   }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
@@ -335,21 +510,23 @@
 <nav class="nav" aria-label="Page">
   <a class="mark" href="#top" aria-label="KK, back to top"><span>K</span><span class="flip" aria-hidden="true">K</span></a>
   <ul class="label">
-    <li><a href="#name">Name</a></li>
+    <li><a href="#contents">Contents</a></li>
     <li><a class="hide-sm" href="#origins">Origins</a></li>
-    <li><a href="#letters">Letters</a></li>
+    <li><a class="hide-sm" href="#sound">Sound</a></li>
+    <li><a href="#figures">Figures</a></li>
   </ul>
 </nav>
 
 <main id="top">
   <section class="hero">
     <div class="wrap hero-grid">
+      <p class="label masthead"><span>A monograph</span><span>Seven chapters</span><span>MMXXVI</span></p>
       <div class="monogram" aria-label="KK monogram" role="img">
         <span class="k">K</span><span class="k flip" aria-hidden="true">K</span>
       </div>
       <div class="hero-caption">
         <h1 class="display hero-name">Kobus Kennedy</h1>
-        <p>Two initials, set back to back. One name, set in full below.</p>
+        <p>An exhaustive analysis of one name: where it comes from, how it sounds, how it is built, and what it adds up to.</p>
       </div>
     </div>
   </section>
@@ -358,7 +535,7 @@
 
   <section id="name">
     <div class="wrap name-block">
-      <p class="label">The name</p>
+      <p class="label">The subject</p>
       <h2 class="display big-name reveal">
         <span class="line">Kobus</span>
         <span class="line surname">Kennedy</span>
@@ -369,8 +546,8 @@
           <dd>Twelve</dd>
         </dl>
         <dl>
-          <dt class="label">Pairs</dt>
-          <dd>K &middot; E &middot; N</dd>
+          <dt class="label">Syllables</dt>
+          <dd>Five</dd>
         </dl>
         <dl>
           <dt class="label">Set in</dt>
@@ -384,9 +561,24 @@
     </div>
   </section>
 
+  <section id="contents" class="contents">
+    <div class="wrap">
+      <p class="label">Contents</p>
+      <ol class="toc reveal">
+        <li><a href="#origins"><span class="num">I</span><span class="ttl display">Origins</span><span class="sub">Two languages, one name</span></a></li>
+        <li><a href="#sound"><span class="num">II</span><span class="ttl display">Sound</span><span class="sub">Five syllables, two stresses</span></a></li>
+        <li><a href="#anatomy"><span class="num">III</span><span class="ttl display">Anatomy</span><span class="sub">Ascenders, x-height, one descender</span></a></li>
+        <li><a href="#letters"><span class="num">IV</span><span class="ttl display">Letters</span><span class="sub">Twelve glyphs, three pairs</span></a></li>
+        <li><a href="#figures"><span class="num">V</span><span class="ttl display">Figures</span><span class="sub">What the name adds up to</span></a></li>
+        <li><a href="#mark"><span class="num">VI</span><span class="ttl display">Mark</span><span class="sub">The monogram, constructed</span></a></li>
+        <li><a href="#company"><span class="num">VII</span><span class="ttl display">Company</span><span class="sub">Others who carry the parts</span></a></li>
+      </ol>
+    </div>
+  </section>
+
   <section id="origins" class="origins">
     <div class="wrap">
-      <p class="label">Origins</p>
+      <p class="label chapter"><span class="num">I</span> Origins</p>
       <div class="origins-grid">
         <article class="origin reveal">
           <h2 class="display"><em>Kobus</em></h2>
@@ -399,14 +591,71 @@
           <p>The family took its name from a nephew of Brian Boru, High King of Ireland, in the tenth century.</p>
         </article>
       </div>
+      <p class="aside reveal">Put together, the name crosses two seas: a Dutch name that settled at the Cape, and an Irish one that left Munster. Neither half was born in English, and both are now read in it.</p>
+    </div>
+  </section>
+
+  <section id="sound">
+    <div class="wrap">
+      <p class="label chapter"><span class="num">II</span> Sound</p>
+      <div class="letters-head">
+        <h2 class="display">Five syllables</h2>
+        <p>A trochee, then a dactyl. Stress falls on the first beat of each word and nowhere else.</p>
+      </div>
+      <div class="scansion reveal" role="img" aria-label="Kobus Kennedy divided into syllables: KO-bus KEN-ne-dy, with stress on KO and KEN">
+        <div class="syl stressed"><span class="beat">/</span><span class="display">Ko</span></div>
+        <div class="syl"><span class="beat">˘</span><span class="display">bus</span></div>
+        <div class="gap" aria-hidden="true"></div>
+        <div class="syl stressed"><span class="beat">/</span><span class="display">Ken</span></div>
+        <div class="syl"><span class="beat">˘</span><span class="display">ne</span></div>
+        <div class="syl"><span class="beat">˘</span><span class="display">dy</span></div>
+      </div>
+      <div class="ipa reveal">
+        <dl>
+          <dt class="label">Afrikaans</dt>
+          <dd>/ˈkuə.bəs/ <span class="muted">roughly KOO-bus, with a long, rounded first vowel</span></dd>
+        </dl>
+        <dl>
+          <dt class="label">English</dt>
+          <dd>/ˈkɛn.ə.di/ <span class="muted">KEN-uh-dee, the middle vowel reduced almost to nothing</span></dd>
+        </dl>
+        <dl>
+          <dt class="label">Initial sound</dt>
+          <dd>/k/ twice <span class="muted">a voiceless velar stop, the hardest consonant in either language, opening both words</span></dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section id="anatomy" class="anatomy">
+    <div class="wrap">
+      <p class="label chapter"><span class="num">III</span> Anatomy</p>
+      <div class="letters-head">
+        <h2 class="display">Where the letters sit</h2>
+        <p>Set in lowercase, the name shows its skyline: four letters reach the ascender line, one drops below the baseline, seven stay within the x-height.</p>
+      </div>
+      <div class="guides reveal" role="img" aria-label="The name kobus kennedy in lowercase with ascender, x-height, baseline and descender guide lines">
+        <div class="guide asc"><span class="label">Ascender</span></div>
+        <div class="guide xh"><span class="label">x-height</span></div>
+        <div class="guide base"><span class="label">Baseline</span></div>
+        <div class="guide desc"><span class="label">Descender</span></div>
+        <p class="display lower">kobus kennedy</p>
+      </div>
+      <div class="name-meta reveal">
+        <dl><dt class="label">Ascenders</dt><dd>k &middot; b &middot; k &middot; d</dd></dl>
+        <dl><dt class="label">Descenders</dt><dd>y</dd></dl>
+        <dl><dt class="label">Within x-height</dt><dd>o &middot; u &middot; s &middot; e &middot; n &middot; n &middot; e</dd></dl>
+        <dl><dt class="label">Round letters</dt><dd>o &middot; b &middot; e &middot; e &middot; d</dd></dl>
+      </div>
     </div>
   </section>
 
   <section id="letters">
     <div class="wrap">
+      <p class="label chapter"><span class="num">IV</span> Letters</p>
       <div class="letters-head">
         <h2 class="display">Twelve letters</h2>
-        <p>Roman and italic alternate. The three letters that appear twice are picked out in claret.</p>
+        <p>Roman and italic alternate. The three letters that appear twice are picked out in claret. Eight consonants carry four vowels, a ratio of two to one.</p>
       </div>
       <div class="specimen reveal" role="img" aria-label="The letters of Kobus Kennedy set one per cell">
         <div class="cell r pair"><small>Kobus</small>K</div>
@@ -422,6 +671,91 @@
         <div class="cell r">D</div>
         <div class="cell i">Y</div>
       </div>
+      <p class="aside reveal">Inside the surname sits <span class="display palin">e<span class="accent">nn</span>e</span>, a four-letter palindrome. Read from either end, the middle of Kennedy is the same.</p>
+    </div>
+  </section>
+
+  <section id="figures" class="figures">
+    <div class="wrap">
+      <p class="label chapter"><span class="num">V</span> Figures</p>
+      <div class="letters-head">
+        <h2 class="display">What the name adds up to</h2>
+        <p>Every count that can be made of twelve letters, made.</p>
+      </div>
+      <div class="table-wrap reveal">
+        <table class="figtable">
+          <thead>
+            <tr><th scope="col">Measure</th><th scope="col" class="n">Kobus</th><th scope="col" class="n">Kennedy</th><th scope="col" class="n">Together</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Letters</th><td class="n">5</td><td class="n">7</td><td class="n">12</td></tr>
+            <tr><th scope="row">Vowels</th><td class="n">2</td><td class="n">2</td><td class="n">4</td></tr>
+            <tr><th scope="row">Consonants</th><td class="n">3</td><td class="n">5</td><td class="n">8</td></tr>
+            <tr><th scope="row">Syllables</th><td class="n">2</td><td class="n">3</td><td class="n">5</td></tr>
+            <tr><th scope="row">Distinct letters</th><td class="n">5</td><td class="n">5</td><td class="n">9</td></tr>
+            <tr><th scope="row">Alphabet positions, summed</th><td class="n">68</td><td class="n">78</td><td class="n">146</td></tr>
+            <tr><th scope="row">Scrabble score</th><td class="n">11</td><td class="n">15</td><td class="n">26</td></tr>
+            <tr><th scope="row">Letters with a vertical stem</th><td class="n">3</td><td class="n">5</td><td class="n">8</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tiles reveal" aria-label="Scrabble tiles for Kobus Kennedy">
+        <span class="tile">K<sub>5</sub></span><span class="tile">O<sub>1</sub></span><span class="tile">B<sub>3</sub></span><span class="tile">U<sub>1</sub></span><span class="tile">S<sub>1</sub></span>
+        <span class="tile-gap" aria-hidden="true"></span>
+        <span class="tile">K<sub>5</sub></span><span class="tile">E<sub>1</sub></span><span class="tile">N<sub>1</sub></span><span class="tile">N<sub>1</sub></span><span class="tile">E<sub>1</sub></span><span class="tile">D<sub>2</sub></span><span class="tile">Y<sub>4</sub></span>
+        <span class="tile-sum display">= 26</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="mark" class="markx">
+    <div class="wrap">
+      <p class="label chapter"><span class="num">VI</span> Mark</p>
+      <div class="letters-head">
+        <h2 class="display">The monogram, constructed</h2>
+        <p>Two capital K's share one axis. The second is reflected, so the four arms meet at the centre and enclose a lozenge of empty ground.</p>
+      </div>
+      <div class="construct reveal" role="img" aria-label="The KK monogram with its central axis and the lozenge formed between the arms marked">
+        <div class="axis" aria-hidden="true"></div>
+        <div class="lozenge" aria-hidden="true"></div>
+        <div class="monogram small">
+          <span class="k">K</span><span class="k flip" aria-hidden="true">K</span>
+        </div>
+      </div>
+      <div class="name-meta reveal">
+        <dl><dt class="label">Symmetry</dt><dd>Bilateral, about the vertical</dd></dl>
+        <dl><dt class="label">Stems</dt><dd>Two, outermost</dd></dl>
+        <dl><dt class="label">Arms</dt><dd>Four, meeting at centre</dd></dl>
+        <dl><dt class="label">Counter</dt><dd>One lozenge</dd></dl>
+      </div>
+    </div>
+  </section>
+
+  <section id="company" class="company">
+    <div class="wrap">
+      <p class="label chapter"><span class="num">VII</span> Company</p>
+      <div class="letters-head">
+        <h2 class="display">Others who carry the parts</h2>
+        <p>Nobody else carries the whole. Plenty carry a half.</p>
+      </div>
+      <div class="company-grid reveal">
+        <article>
+          <h3 class="display">Kobus Wiese</h3>
+          <p>Springbok lock, and a World Cup winner in 1995.</p>
+        </article>
+        <article>
+          <h3 class="display">Kobus Moolman</h3>
+          <p>South African poet, winner of the Ingrid Jonker Prize.</p>
+        </article>
+        <article>
+          <h3 class="display">John F. Kennedy</h3>
+          <p>Thirty-fifth president of the United States.</p>
+        </article>
+        <article>
+          <h3 class="display">Nigel Kennedy</h3>
+          <p>Violinist whose Four Seasons sold over two million copies.</p>
+        </article>
+      </div>
     </div>
   </section>
 
@@ -432,7 +766,7 @@
       <div class="foot-mark" aria-hidden="true"><span>K</span><span class="flip">K</span></div>
       <div class="foot-row">
         <span class="display">Kobus Kennedy</span>
-        <span class="label">MMXXVI</span>
+        <span class="label">Seven chapters &middot; MMXXVI</span>
         <a class="label top" href="#top">Back to top</a>
       </div>
     </div>
