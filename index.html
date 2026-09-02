@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Kobus Kennedy. KK.">
+<meta name="theme-color" content="#EEECE6">
+<title>Kobus Kennedy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Karla:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --bg: #EEECE6;
+    --bg-2: #E4E1D9;
+    --ink: #17181C;
+    --ink-2: #4A4A4C;
+    --muted: #7A7873;
+    --rule: #CFCBC1;
+    --accent: #7B1E2E;
+    --accent-soft: rgba(123, 30, 46, 0.10);
+    --nav-bg: rgba(238, 236, 230, 0.78);
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #141416;
+      --bg-2: #1C1C20;
+      --ink: #EAE7E0;
+      --ink-2: #BDB9B0;
+      --muted: #8E8B84;
+      --rule: #2E2E33;
+      --accent: #D67C8C;
+      --accent-soft: rgba(214, 124, 140, 0.12);
+      --nav-bg: rgba(20, 20, 22, 0.78);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #141416;
+    --bg-2: #1C1C20;
+    --ink: #EAE7E0;
+    --ink-2: #BDB9B0;
+    --muted: #8E8B84;
+    --rule: #2E2E33;
+    --accent: #D67C8C;
+    --accent-soft: rgba(214, 124, 140, 0.12);
+    --nav-bg: rgba(20, 20, 22, 0.78);
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Newsreader", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+    font-size: 1.125rem;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  ::selection { background: var(--accent); color: var(--bg); }
+
+  .display {
+    font-family: "Bodoni Moda", "Didot", "Bodoni 72", "Times New Roman", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    line-height: 0.95;
+    text-wrap: balance;
+  }
+  .label {
+    font-family: "Karla", "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .accent { color: var(--accent); }
+  a { color: inherit; text-decoration: none; }
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+  }
+
+  /* ---------- nav ---------- */
+  .nav {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.9rem clamp(1.25rem, 4vw, 3rem);
+    background: var(--nav-bg);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .nav .mark {
+    font-family: "Bodoni Moda", "Didot", serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.06em;
+    display: inline-flex;
+  }
+  .nav .mark .flip { display: inline-block; transform: scaleX(-1); }
+  .nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1.75rem;
+  }
+  .nav ul a {
+    padding-bottom: 2px;
+    border-bottom: 1px solid transparent;
+    transition: border-color 200ms ease, color 200ms ease;
+  }
+  .nav ul a:hover { color: var(--ink); border-color: var(--accent); }
+
+  /* ---------- shared section ---------- */
+  .wrap {
+    width: min(100% - 2 * clamp(1.25rem, 4vw, 3rem), 80rem);
+    margin-inline: auto;
+  }
+  section { padding-block: clamp(4rem, 10vw, 8rem); }
+  .rule { border: 0; border-top: 1px solid var(--rule); margin: 0; }
+
+  /* ---------- hero ---------- */
+  .hero {
+    padding-top: clamp(6rem, 14vw, 10rem);
+    padding-bottom: clamp(3rem, 8vw, 6rem);
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: end;
+  }
+  .monogram {
+    font-family: "Bodoni Moda", "Didot", "Bodoni 72", serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-size: clamp(9rem, 34vw, 26rem);
+    line-height: 0.82;
+    letter-spacing: -0.12em;
+    display: flex;
+    justify-content: center;
+    color: var(--ink);
+    user-select: none;
+    animation: settle 900ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+  .monogram .k { display: inline-block; }
+  .monogram .flip { transform: scaleX(-1); color: var(--accent); }
+  .hero-caption {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem 2rem;
+    border-top: 1px solid var(--rule);
+    padding-top: 1.25rem;
+  }
+  .hero-name {
+    font-size: clamp(2rem, 5vw, 3.75rem);
+    font-style: italic;
+    font-weight: 400;
+    margin: 0;
+  }
+  .hero-caption p { margin: 0; max-width: 26ch; color: var(--ink-2); }
+  @keyframes settle {
+    from { transform: translateY(0.06em); letter-spacing: -0.02em; }
+    to   { transform: translateY(0);      letter-spacing: -0.12em; }
+  }
+
+  /* ---------- the name ---------- */
+  .name-block {
+    display: grid;
+    gap: 2rem;
+  }
+  .big-name {
+    margin: 0;
+    font-size: clamp(3.5rem, 15.5vw, 15rem);
+    letter-spacing: -0.03em;
+    line-height: 0.9;
+  }
+  .big-name .line { display: block; }
+  .big-name .line.surname {
+    font-style: italic;
+    font-weight: 400;
+    padding-left: clamp(1rem, 12vw, 12rem);
+  }
+  .name-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    gap: 1.5rem 3rem;
+    border-top: 1px solid var(--rule);
+    padding-top: 1.5rem;
+  }
+  .name-meta dl { margin: 0; }
+  .name-meta dt { margin-bottom: 0.35rem; }
+  .name-meta dd {
+    margin: 0;
+    font-family: "Bodoni Moda", "Didot", serif;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ---------- on the name ---------- */
+  .origins { background: var(--bg-2); }
+  .origins-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    gap: clamp(2rem, 5vw, 4rem);
+  }
+  .origin h2 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    margin: 0.5rem 0 1.25rem;
+    font-weight: 500;
+  }
+  .origin h2 em { font-style: italic; color: var(--accent); font-weight: 400; }
+  .origin p { margin: 0 0 1rem; max-width: 60ch; color: var(--ink-2); }
+  .origin p:last-child { margin-bottom: 0; }
+  .origin .drop {
+    font-family: "Bodoni Moda", "Didot", serif;
+    font-size: 1.15em;
+    font-weight: 600;
+  }
+
+  /* ---------- letters ---------- */
+  .letters-head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem 2rem;
+    margin-bottom: 2.5rem;
+  }
+  .letters-head h2 {
+    margin: 0;
+    font-size: clamp(2rem, 4.5vw, 3.5rem);
+    font-weight: 500;
+  }
+  .letters-head p { margin: 0; color: var(--ink-2); max-width: 34ch; }
+  .specimen {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    border-top: 1px solid var(--rule);
+    border-left: 1px solid var(--rule);
+  }
+  .cell {
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    font-family: "Bodoni Moda", "Didot", serif;
+    font-optical-sizing: auto;
+    font-size: clamp(2.5rem, 8vw, 7rem);
+    line-height: 1;
+    position: relative;
+    transition: background 300ms ease, color 300ms ease;
+  }
+  .cell.i { font-style: italic; font-weight: 400; }
+  .cell.r { font-weight: 600; }
+  .cell.pair { color: var(--accent); }
+  .cell:hover { background: var(--accent-soft); }
+  .cell small {
+    position: absolute;
+    left: 0.6rem;
+    top: 0.5rem;
+    font-family: "Karla", sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ---------- footer ---------- */
+  footer { padding-block: clamp(3rem, 6vw, 5rem) 2rem; }
+  .foot {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr;
+  }
+  .foot-mark {
+    font-family: "Bodoni Moda", "Didot", serif;
+    font-weight: 700;
+    font-size: clamp(5rem, 14vw, 11rem);
+    line-height: 0.85;
+    letter-spacing: -0.12em;
+    display: inline-flex;
+  }
+  .foot-mark .flip { display: inline-block; transform: scaleX(-1); color: var(--accent); }
+  .foot-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem 2rem;
+    border-top: 1px solid var(--rule);
+    padding-top: 1.25rem;
+  }
+  .foot-row .display { font-size: 1.5rem; font-style: italic; font-weight: 400; }
+  .foot-row .top { border-bottom: 1px solid var(--rule); }
+  .foot-row .top:hover { border-color: var(--accent); }
+
+  /* ---------- reveal ---------- */
+  .reveal { transform: translateY(14px); transition: transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1); }
+  .reveal.in { transform: none; }
+
+  @media (min-width: 60rem) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .foot { grid-template-columns: auto 1fr; align-items: end; }
+  }
+  @media (max-width: 40rem) {
+    .specimen { grid-template-columns: repeat(4, 1fr); }
+    .nav ul { gap: 1.1rem; }
+    .nav ul a.hide-sm { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .monogram { animation: none; }
+    .reveal { transform: none; transition: none; }
+    .cell, .nav ul a { transition: none; }
+  }
+</style>
+</head>
+<body>
+<nav class="nav" aria-label="Page">
+  <a class="mark" href="#top" aria-label="KK, back to top"><span>K</span><span class="flip" aria-hidden="true">K</span></a>
+  <ul class="label">
+    <li><a href="#name">Name</a></li>
+    <li><a class="hide-sm" href="#origins">Origins</a></li>
+    <li><a href="#letters">Letters</a></li>
+  </ul>
+</nav>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="monogram" aria-label="KK monogram" role="img">
+        <span class="k">K</span><span class="k flip" aria-hidden="true">K</span>
+      </div>
+      <div class="hero-caption">
+        <h1 class="display hero-name">Kobus Kennedy</h1>
+        <p>Two initials, set back to back. One name, set in full below.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section id="name">
+    <div class="wrap name-block">
+      <p class="label">The name</p>
+      <h2 class="display big-name reveal">
+        <span class="line">Kobus</span>
+        <span class="line surname">Kennedy</span>
+      </h2>
+      <div class="name-meta reveal">
+        <dl>
+          <dt class="label">Letters</dt>
+          <dd>Twelve</dd>
+        </dl>
+        <dl>
+          <dt class="label">Pairs</dt>
+          <dd>K &middot; E &middot; N</dd>
+        </dl>
+        <dl>
+          <dt class="label">Set in</dt>
+          <dd>Bodoni Moda, 96pt optical size</dd>
+        </dl>
+        <dl>
+          <dt class="label">Initials</dt>
+          <dd>K<span class="accent">K</span></dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section id="origins" class="origins">
+    <div class="wrap">
+      <p class="label">Origins</p>
+      <div class="origins-grid">
+        <article class="origin reveal">
+          <h2 class="display"><em>Kobus</em></h2>
+          <p><span class="drop">An Afrikaans given name,</span> the short form of Jakobus, which is the Dutch form of Jacob. It sits in the same family as Jacques, Giacomo, Iago and James, each of them the same old name worn down differently by the language that carried it.</p>
+          <p>In South Africa it stands on its own as a full first name, not just a nickname.</p>
+        </article>
+        <article class="origin reveal">
+          <h2 class="display"><em>Kennedy</em></h2>
+          <p><span class="drop">An Irish surname,</span> anglicised from Ó Cinnéide, meaning descendant of Cinnéidigh. The old personal name joins <em>ceann</em>, head, with <em>éidigh</em>, and has been glossed over the centuries as both helmeted head and, less flatteringly, ugly head.</p>
+          <p>The family took its name from a nephew of Brian Boru, High King of Ireland, in the tenth century.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="letters">
+    <div class="wrap">
+      <div class="letters-head">
+        <h2 class="display">Twelve letters</h2>
+        <p>Roman and italic alternate. The three letters that appear twice are picked out in claret.</p>
+      </div>
+      <div class="specimen reveal" role="img" aria-label="The letters of Kobus Kennedy set one per cell">
+        <div class="cell r pair"><small>Kobus</small>K</div>
+        <div class="cell i">O</div>
+        <div class="cell r">B</div>
+        <div class="cell i">U</div>
+        <div class="cell r">S</div>
+        <div class="cell i pair"><small>Kennedy</small>K</div>
+        <div class="cell r pair">E</div>
+        <div class="cell i pair">N</div>
+        <div class="cell r pair">N</div>
+        <div class="cell i pair">E</div>
+        <div class="cell r">D</div>
+        <div class="cell i">Y</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <footer>
+    <div class="wrap foot">
+      <div class="foot-mark" aria-hidden="true"><span>K</span><span class="flip">K</span></div>
+      <div class="foot-row">
+        <span class="display">Kobus Kennedy</span>
+        <span class="label">MMXXVI</span>
+        <a class="label top" href="#top">Back to top</a>
+      </div>
+    </div>
+  </footer>
+</main>
+
+<script>
+  (function () {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(function (el) { el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -10% 0px' });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+</body>
+</html>
