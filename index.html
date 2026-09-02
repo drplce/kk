@@ -3,14 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Kobus Kennedy. An exhaustive analysis of one name, in seven chapters.">
-<meta name="theme-color" content="#EEECE6">
+<meta name="description" content="Kobus Kennedy. An exhaustive analysis of one name, in eight chapters. Nocturne edition.">
+<meta name="theme-color" content="#101114">
 <title>Kobus Kennedy</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Karla:wght@400;500;600&display=swap">
 <style>
+  /* Nocturne edition: the page is dark by default while the subject sleeps on it.
+     Daylight tokens are kept for an explicit light choice. */
   :root {
+    --bg: #101114;
+    --bg-2: #171820;
+    --ink: #E6E2D8;
+    --ink-2: #B9B4A9;
+    --muted: #857F76;
+    --rule: #2A2B33;
+    --accent: #C96A7A;
+    --accent-soft: rgba(201, 106, 122, 0.12);
+    --nav-bg: rgba(16, 17, 20, 0.78);
+    --moon: #D9D4C6;
+    --moon-shadow: #1C1D25;
+    color-scheme: dark;
+  }
+  :root[data-theme="light"] {
     --bg: #EEECE6;
     --bg-2: #E4E1D9;
     --ink: #17181C;
@@ -20,33 +36,9 @@
     --accent: #7B1E2E;
     --accent-soft: rgba(123, 30, 46, 0.10);
     --nav-bg: rgba(238, 236, 230, 0.78);
+    --moon: #17181C;
+    --moon-shadow: #D8D4CA;
     color-scheme: light;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --bg: #141416;
-      --bg-2: #1C1C20;
-      --ink: #EAE7E0;
-      --ink-2: #BDB9B0;
-      --muted: #8E8B84;
-      --rule: #2E2E33;
-      --accent: #D67C8C;
-      --accent-soft: rgba(214, 124, 140, 0.12);
-      --nav-bg: rgba(20, 20, 22, 0.78);
-      color-scheme: dark;
-    }
-  }
-  :root[data-theme="dark"] {
-    --bg: #141416;
-    --bg-2: #1C1C20;
-    --ink: #EAE7E0;
-    --ink-2: #BDB9B0;
-    --muted: #8E8B84;
-    --rule: #2E2E33;
-    --accent: #D67C8C;
-    --accent-soft: rgba(214, 124, 140, 0.12);
-    --nav-bg: rgba(20, 20, 22, 0.78);
-    color-scheme: dark;
   }
 
   * { box-sizing: border-box; }
@@ -481,6 +473,53 @@
   .company-grid h3 { margin: 0 0 0.5rem; font-size: 1.75rem; font-weight: 500; line-height: 1.05; }
   .company-grid p { margin: 0; color: var(--ink-2); }
 
+  /* ---------- nocturne additions ---------- */
+  .monogram { font-weight: 900; animation: settle 900ms cubic-bezier(0.2, 0.7, 0.2, 1) both, breathe 7s ease-in-out 1s infinite; }
+  @keyframes breathe {
+    0%, 100% { transform: translateY(0) scale(1); opacity: 1; }
+    50%      { transform: translateY(0.01em) scale(1.012); opacity: 0.86; }
+  }
+  .pending {
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    background: var(--bg-2);
+    padding-block: clamp(2rem, 4vw, 3rem);
+  }
+  .pending-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: center;
+  }
+  .moon { width: clamp(5rem, 12vw, 8rem); height: auto; display: block; }
+  .pending h2 {
+    margin: 0 0 0.5rem;
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    font-style: italic;
+    font-weight: 400;
+  }
+  .pending p { margin: 0; color: var(--ink-2); max-width: 60ch; }
+  .pending .status {
+    display: flex; flex-wrap: wrap; gap: 0.5rem 2rem;
+    margin-top: 1rem;
+  }
+  .pending .status span { display: inline-flex; gap: 0.5rem; align-items: baseline; }
+  .pending .status b { font-weight: 500; color: var(--ink); font-family: "Bodoni Moda", "Didot", serif; font-size: 1.1rem; letter-spacing: 0; text-transform: none; font-variant-numeric: tabular-nums; }
+  .weights { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+  .weights li {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .weights .display { font-size: clamp(2.25rem, 7vw, 6rem); line-height: 1; letter-spacing: -0.02em; }
+  .weights .how { color: var(--muted); font-style: italic; white-space: nowrap; }
+  .weights li:last-child .display { color: var(--accent); }
+  .w400 { font-weight: 400; } .w500 { font-weight: 500; } .w600 { font-weight: 600; }
+  .w700 { font-weight: 700; } .w800 { font-weight: 800; } .w900 { font-weight: 900; }
+
   /* ---------- reveal ---------- */
   .reveal { transform: translateY(14px); transition: transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1); }
   .reveal.in { transform: none; }
@@ -501,6 +540,7 @@
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .monogram { animation: none; }
+    .pending-grid { grid-template-columns: 1fr; }
     .reveal { transform: none; transition: none; }
     .cell, .nav ul a { transition: none; }
   }
@@ -520,18 +560,37 @@
 <main id="top">
   <section class="hero">
     <div class="wrap hero-grid">
-      <p class="label masthead"><span>A monograph</span><span>Seven chapters</span><span>MMXXVI</span></p>
+      <p class="label masthead"><span>A monograph</span><span>Eight chapters</span><span>Nocturne edition</span></p>
       <div class="monogram" aria-label="KK monogram" role="img">
         <span class="k">K</span><span class="k flip" aria-hidden="true">K</span>
       </div>
       <div class="hero-caption">
         <h1 class="display hero-name">Kobus Kennedy</h1>
-        <p>An exhaustive analysis of one name: where it comes from, how it sounds, how it is built, and what it adds up to.</p>
+        <p>The analysis has been delivered. The subject called it quite a responsibility, and is sleeping on it.</p>
       </div>
     </div>
   </section>
 
-  <hr class="rule">
+  <section class="pending" aria-labelledby="pending-title">
+    <div class="wrap pending-grid">
+      <svg class="moon" viewBox="-44 -44 88 88" role="img" aria-label="Tonight's moon phase">
+        <circle r="40" fill="var(--moon)"></circle>
+        <path id="moon-shadow" d="" fill="var(--moon-shadow)"></path>
+        <circle r="40" fill="none" stroke="var(--rule)" stroke-width="1"></circle>
+      </svg>
+      <div>
+        <p class="label">Status</p>
+        <h2 id="pending-title" class="display">Verdict pending. Expected on waking.</h2>
+        <p>Until then the page keeps the lights low, the monogram breathes in its sleep, and the moon above is drawn live for tonight.</p>
+        <p class="label status">
+          <span>Moon <b id="moon-name">—</b></span>
+          <span>Lit <b id="moon-lit">—</b></span>
+          <span>Sleeping since <b>2 September 2026</b></span>
+          <span>Your time <b id="local-time">—</b></span>
+        </p>
+      </div>
+    </div>
+  </section>
 
   <section id="name">
     <div class="wrap name-block">
@@ -572,6 +631,7 @@
         <li><a href="#figures"><span class="num">V</span><span class="ttl display">Figures</span><span class="sub">What the name adds up to</span></a></li>
         <li><a href="#mark"><span class="num">VI</span><span class="ttl display">Mark</span><span class="sub">The monogram, constructed</span></a></li>
         <li><a href="#company"><span class="num">VII</span><span class="ttl display">Company</span><span class="sub">Others who carry the parts</span></a></li>
+        <li><a href="#weight"><span class="num">VIII</span><span class="ttl display">Weight</span><span class="sub">Quite a responsibility</span></a></li>
       </ol>
     </div>
   </section>
@@ -759,6 +819,25 @@
     </div>
   </section>
 
+  <section id="weight" class="weight">
+    <div class="wrap">
+      <p class="label chapter"><span class="num">VIII</span> Weight</p>
+      <div class="letters-head">
+        <h2 class="display">Quite a responsibility</h2>
+        <p>A name gets heavier the more permanently it is set down. Bodoni Moda carries six weights, and the name is set in each, from a whisper to a carving.</p>
+      </div>
+      <ol class="weights reveal">
+        <li><span class="display w400">Kobus Kennedy</span><span class="how">whispered</span></li>
+        <li><span class="display w500">Kobus Kennedy</span><span class="how">spoken</span></li>
+        <li><span class="display w600">Kobus Kennedy</span><span class="how">written</span></li>
+        <li><span class="display w700">Kobus Kennedy</span><span class="how">signed</span></li>
+        <li><span class="display w800">Kobus Kennedy</span><span class="how">printed</span></li>
+        <li><span class="display w900">Kobus Kennedy</span><span class="how">carved</span></li>
+      </ol>
+      <p class="aside reveal">Which of these the subject wants to be is the open question. The subject is sleeping on it and will inform us.</p>
+    </div>
+  </section>
+
   <hr class="rule">
 
   <footer>
@@ -766,7 +845,7 @@
       <div class="foot-mark" aria-hidden="true"><span>K</span><span class="flip">K</span></div>
       <div class="foot-row">
         <span class="display">Kobus Kennedy</span>
-        <span class="label">Seven chapters &middot; MMXXVI</span>
+        <span class="label">Eight chapters &middot; Nocturne edition &middot; MMXXVI</span>
         <a class="label top" href="#top">Back to top</a>
       </div>
     </div>
@@ -774,6 +853,42 @@
 </main>
 
 <script>
+  (function () {
+    // Tonight's moon, drawn from the synodic month. Reference new moon: 2000-01-06 18:14 UTC.
+    var P = 29.530588853;
+    var ref = Date.UTC(2000, 0, 6, 18, 14);
+    var age = (((Date.now() - ref) / 864e5) % P + P) % P;
+    var phi = 2 * Math.PI * age / P;
+    var lit = (1 - Math.cos(phi)) / 2;
+    var R = 40, rx = Math.abs(Math.cos(phi)) * R;
+    var waxing = age < P / 2, crescent = lit < 0.5;
+    // Shadow: semicircle on the dark side, then the elliptical terminator back to the top.
+    var side = waxing ? 0 : 1;
+    var term = waxing ? (crescent ? 1 : 0) : (crescent ? 0 : 1);
+    var d = 'M0,' + (-R) + ' A' + R + ',' + R + ' 0 0 ' + side + ' 0,' + R +
+            ' A' + rx.toFixed(2) + ',' + R + ' 0 0 ' + term + ' 0,' + (-R) + ' Z';
+    var shadow = document.getElementById('moon-shadow');
+    if (shadow) shadow.setAttribute('d', d);
+    var name;
+    if (lit < 0.04) name = 'New moon';
+    else if (lit > 0.96) name = 'Full moon';
+    else if (Math.abs(lit - 0.5) < 0.06) name = waxing ? 'First quarter' : 'Last quarter';
+    else if (lit < 0.5) name = waxing ? 'Waxing crescent' : 'Waning crescent';
+    else name = waxing ? 'Waxing gibbous' : 'Waning gibbous';
+    var nameEl = document.getElementById('moon-name');
+    var litEl = document.getElementById('moon-lit');
+    if (nameEl) nameEl.textContent = name;
+    if (litEl) litEl.textContent = Math.round(lit * 100) + '%';
+    var timeEl = document.getElementById('local-time');
+    function tick() {
+      if (!timeEl) return;
+      var n = new Date();
+      timeEl.textContent = String(n.getHours()).padStart(2, '0') + ':' + String(n.getMinutes()).padStart(2, '0');
+    }
+    tick();
+    setInterval(tick, 30000);
+  })();
+
   (function () {
     var els = document.querySelectorAll('.reveal');
     if (!('IntersectionObserver' in window)) {
