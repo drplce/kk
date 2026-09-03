@@ -3,6 +3,7 @@
 A single-page site for Kobus Kennedy. Plain HTML and CSS in one file, no build step.
 
 - `index.html` is the whole site.
+- `beat-the-beat-1974.mp3` is a 40-second recording from the SABC radio show Beat the Beat, played by the custom player on the page.
 - Pushes to `main` deploy to GitHub Pages via `.github/workflows/pages.yml`.
 - Live at https://drplce.github.io/kk/
 

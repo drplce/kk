@@ -3,30 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Kobus Kennedy. An exhaustive analysis of one name, in eight chapters. Nocturne edition.">
-<meta name="theme-color" content="#101114">
+<meta name="description" content="Kobus Kennedy. An exhaustive analysis of one name, in nine chapters, with a recording from SABC radio.">
+<meta name="theme-color" content="#EEECE6">
 <title>Kobus Kennedy</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Karla:wght@400;500;600&display=swap">
 <style>
-  /* Nocturne edition: the page is dark by default while the subject sleeps on it.
-     Daylight tokens are kept for an explicit light choice. */
+  /* Dawn edition: the subject has woken and been heard on air, so the lights come back up.
+     The nocturne palette stays available as an explicit dark choice. */
   :root {
-    --bg: #101114;
-    --bg-2: #171820;
-    --ink: #E6E2D8;
-    --ink-2: #B9B4A9;
-    --muted: #857F76;
-    --rule: #2A2B33;
-    --accent: #C96A7A;
-    --accent-soft: rgba(201, 106, 122, 0.12);
-    --nav-bg: rgba(16, 17, 20, 0.78);
-    --moon: #D9D4C6;
-    --moon-shadow: #1C1D25;
-    color-scheme: dark;
-  }
-  :root[data-theme="light"] {
     --bg: #EEECE6;
     --bg-2: #E4E1D9;
     --ink: #17181C;
@@ -36,9 +22,25 @@
     --accent: #7B1E2E;
     --accent-soft: rgba(123, 30, 46, 0.10);
     --nav-bg: rgba(238, 236, 230, 0.78);
-    --moon: #17181C;
-    --moon-shadow: #D8D4CA;
+    --lamp: #C9862B;
+    --lamp-glow: rgba(201, 134, 43, 0.35);
+    --wave: #B7B2A6;
     color-scheme: light;
+  }
+  :root[data-theme="dark"] {
+    --bg: #101114;
+    --bg-2: #171820;
+    --ink: #E6E2D8;
+    --ink-2: #B9B4A9;
+    --muted: #857F76;
+    --rule: #2A2B33;
+    --accent: #C96A7A;
+    --accent-soft: rgba(201, 106, 122, 0.12);
+    --nav-bg: rgba(16, 17, 20, 0.78);
+    --lamp: #E0A045;
+    --lamp-glow: rgba(224, 160, 69, 0.35);
+    --wave: #4A4B55;
+    color-scheme: dark;
   }
 
   * { box-sizing: border-box; }
@@ -473,38 +475,136 @@
   .company-grid h3 { margin: 0 0 0.5rem; font-size: 1.75rem; font-weight: 500; line-height: 1.05; }
   .company-grid p { margin: 0; color: var(--ink-2); }
 
-  /* ---------- nocturne additions ---------- */
-  .monogram { font-weight: 900; animation: settle 900ms cubic-bezier(0.2, 0.7, 0.2, 1) both, breathe 7s ease-in-out 1s infinite; }
-  @keyframes breathe {
-    0%, 100% { transform: translateY(0) scale(1); opacity: 1; }
-    50%      { transform: translateY(0.01em) scale(1.012); opacity: 0.86; }
-  }
-  .pending {
+  /* ---------- weight chapter ---------- */
+  .monogram { font-weight: 900; }
+
+  /* ---------- on air: the broadcast player ---------- */
+  .onair {
     border-top: 1px solid var(--rule);
     border-bottom: 1px solid var(--rule);
     background: var(--bg-2);
-    padding-block: clamp(2rem, 4vw, 3rem);
+    padding-block: clamp(2rem, 4vw, 3.5rem);
   }
-  .pending-grid {
+  .onair-head {
+    display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline;
+    gap: 0.75rem 2rem; margin-bottom: 1.5rem;
+  }
+  .onair-head h2 { margin: 0; font-size: clamp(1.75rem, 4vw, 3rem); font-style: italic; font-weight: 400; }
+  .lamp {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    font-family: "Karla", sans-serif; font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .lamp i {
+    width: 0.7rem; height: 0.7rem; border-radius: 50%;
+    background: var(--rule);
+    box-shadow: 0 0 0 0 transparent;
+    transition: background 300ms ease, box-shadow 300ms ease;
+  }
+  .player.playing .lamp i { background: var(--lamp); box-shadow: 0 0 14px 2px var(--lamp-glow); animation: lamp 1.6s ease-in-out infinite; }
+  .player.playing .lamp { color: var(--ink); }
+  @keyframes lamp { 50% { box-shadow: 0 0 6px 0 var(--lamp-glow); } }
+
+  .player {
     display: grid;
     grid-template-columns: auto 1fr;
-    gap: clamp(1.5rem, 4vw, 3rem);
+    gap: clamp(1.25rem, 3vw, 2.5rem);
     align-items: center;
   }
-  .moon { width: clamp(5rem, 12vw, 8rem); height: auto; display: block; }
-  .pending h2 {
-    margin: 0 0 0.5rem;
-    font-size: clamp(1.75rem, 4vw, 3rem);
-    font-style: italic;
-    font-weight: 400;
+  .btn-play {
+    width: clamp(4.5rem, 10vw, 6.5rem); height: clamp(4.5rem, 10vw, 6.5rem);
+    border-radius: 50%;
+    border: 1px solid var(--ink);
+    background: var(--bg);
+    color: var(--ink);
+    display: grid; place-items: center;
+    cursor: pointer;
+    font: inherit;
+    transition: background 200ms ease, color 200ms ease, transform 200ms ease;
   }
-  .pending p { margin: 0; color: var(--ink-2); max-width: 60ch; }
-  .pending .status {
-    display: flex; flex-wrap: wrap; gap: 0.5rem 2rem;
-    margin-top: 1rem;
+  .btn-play:hover { background: var(--ink); color: var(--bg); }
+  .btn-play:active { transform: scale(0.97); }
+  .btn-play svg { width: 38%; height: 38%; fill: currentColor; display: block; }
+  .btn-play .ico-pause { display: none; }
+  .player.playing .btn-play .ico-play { display: none; }
+  .player.playing .btn-play .ico-pause { display: block; }
+
+  .wave-wrap { display: grid; gap: 0.6rem; min-width: 0; }
+  .wave {
+    position: relative; height: clamp(5rem, 12vw, 8rem);
+    cursor: pointer; user-select: none; touch-action: none;
   }
-  .pending .status span { display: inline-flex; gap: 0.5rem; align-items: baseline; }
-  .pending .status b { font-weight: 500; color: var(--ink); font-family: "Bodoni Moda", "Didot", serif; font-size: 1.1rem; letter-spacing: 0; text-transform: none; font-variant-numeric: tabular-nums; }
+  .wave canvas { width: 100%; height: 100%; display: block; }
+  .wave .clip-tag {
+    position: absolute; top: 0; transform: translateX(-50%);
+    font-family: "Karla", sans-serif; font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent); white-space: nowrap; pointer-events: none;
+  }
+  .readout {
+    display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem 1.5rem;
+  }
+  .readout .time {
+    font-family: "Bodoni Moda", "Didot", serif; font-size: 1.5rem; font-variant-numeric: tabular-nums; letter-spacing: 0.02em;
+  }
+  .readout .time span { color: var(--muted); }
+  .readout .now {
+    color: var(--ink-2); font-style: italic; font-size: 1.05rem; min-height: 1.5em;
+    flex: 1 1 20rem;
+  }
+  .readout .now b { font-style: normal; font-weight: 500; color: var(--accent); }
+  .cues {
+    list-style: none; margin: 1.5rem 0 0; padding: 0;
+    display: grid; gap: 0;
+    border-top: 1px solid var(--rule);
+    grid-column: 1 / -1;
+  }
+  .cues li {
+    display: grid; grid-template-columns: 4.5rem 1fr; gap: 1rem;
+    padding: 0.55rem 0; border-bottom: 1px solid var(--rule);
+    color: var(--ink-2); cursor: pointer;
+    transition: color 200ms ease, background 200ms ease;
+  }
+  .cues li:hover { color: var(--ink); }
+  .cues li.on { color: var(--ink); background: var(--accent-soft); }
+  .cues li.on .t { color: var(--accent); }
+  .cues .t { font-family: "Bodoni Moda", "Didot", serif; font-variant-numeric: tabular-nums; color: var(--muted); }
+  .cues .music { font-style: italic; color: var(--muted); }
+  .cues li.on .music { color: var(--ink-2); }
+  .cues .kk { color: var(--accent); font-weight: 500; }
+
+  /* ---------- broadcast chapter: tabs ---------- */
+  .tabs { display: flex; gap: 0; border-bottom: 1px solid var(--rule); margin-bottom: 2rem; overflow-x: auto; }
+  .tab {
+    appearance: none; background: none; border: 0; border-bottom: 2px solid transparent; margin-bottom: -1px;
+    padding: 0.75rem 1.25rem 0.75rem 0; margin-right: 1.5rem;
+    font-family: "Bodoni Moda", "Didot", serif; font-size: clamp(1.25rem, 2.5vw, 1.75rem); font-weight: 500;
+    color: var(--muted); cursor: pointer; white-space: nowrap;
+    transition: color 200ms ease, border-color 200ms ease;
+  }
+  .tab:hover { color: var(--ink); }
+  .tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent); }
+  .panel[hidden] { display: none; }
+  .panel { display: grid; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); gap: clamp(2rem, 5vw, 4rem); align-items: start; }
+  .panel h3 { margin: 0 0 1rem; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 500; line-height: 1; }
+  .panel h3 em { color: var(--accent); font-weight: 400; }
+  .panel p { margin: 0 0 1rem; color: var(--ink-2); max-width: 60ch; }
+  .panel p:last-child { margin-bottom: 0; }
+  .facts { margin: 0; display: grid; grid-template-columns: 9rem 1fr; gap: 0.6rem 1rem; align-items: baseline; border-top: 1px solid var(--rule); padding-top: 1rem; }
+  .facts dt { font-family: "Karla", sans-serif; font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+  .facts dd { margin: 0; font-family: "Bodoni Moda", "Didot", serif; font-size: 1.15rem; line-height: 1.3; }
+  .riddle {
+    border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+    padding: 1.5rem 0; margin: 0 0 1.5rem;
+    font-family: "Bodoni Moda", "Didot", serif; font-style: italic; font-size: clamp(1.5rem, 3.2vw, 2.25rem); line-height: 1.25;
+    text-wrap: balance;
+  }
+  .riddle mark { background: none; color: var(--accent); font-style: normal; }
+  .callers { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+  .callers li { display: grid; grid-template-columns: 1fr auto; gap: 1rem; padding: 0.7rem 0; border-bottom: 1px solid var(--rule); align-items: baseline; }
+  .callers .who { font-family: "Bodoni Moda", "Didot", serif; font-size: 1.35rem; }
+  .callers .where { color: var(--muted); font-style: italic; }
+  .callers li.kk .who { color: var(--accent); font-weight: 600; }
+  .callers li.kk .where::after { content: " · first-time caller"; }
   .weights { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
   .weights li {
     display: grid;
@@ -540,7 +640,10 @@
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .monogram { animation: none; }
-    .pending-grid { grid-template-columns: 1fr; }
+    .player { grid-template-columns: 1fr; }
+    .btn-play { width: 4rem; height: 4rem; }
+    .facts { grid-template-columns: 1fr; gap: 0.15rem 0; }
+    .facts dd { margin-bottom: 0.6rem; }
     .reveal { transform: none; transition: none; }
     .cell, .nav ul a { transition: none; }
   }
@@ -550,45 +653,66 @@
 <nav class="nav" aria-label="Page">
   <a class="mark" href="#top" aria-label="KK, back to top"><span>K</span><span class="flip" aria-hidden="true">K</span></a>
   <ul class="label">
-    <li><a href="#contents">Contents</a></li>
-    <li><a class="hide-sm" href="#origins">Origins</a></li>
-    <li><a class="hide-sm" href="#sound">Sound</a></li>
-    <li><a href="#figures">Figures</a></li>
+    <li><a href="#onair">On air</a></li>
+    <li><a class="hide-sm" href="#contents">Contents</a></li>
+    <li><a class="hide-sm" href="#figures">Figures</a></li>
+    <li><a href="#broadcast">The record</a></li>
   </ul>
 </nav>
 
 <main id="top">
   <section class="hero">
     <div class="wrap hero-grid">
-      <p class="label masthead"><span>A monograph</span><span>Eight chapters</span><span>Nocturne edition</span></p>
+      <p class="label masthead"><span>A monograph</span><span>Nine chapters</span><span>Dawn edition</span></p>
       <div class="monogram" aria-label="KK monogram" role="img">
         <span class="k">K</span><span class="k flip" aria-hidden="true">K</span>
       </div>
       <div class="hero-caption">
         <h1 class="display hero-name">Kobus Kennedy</h1>
-        <p>The analysis has been delivered. The subject called it quite a responsibility, and is sleeping on it.</p>
+        <p>The subject slept on it, woke, and was heard on the radio: a first-time caller from Cape Town who named a 1974 record from nine seconds and a riddle.</p>
       </div>
     </div>
   </section>
 
-  <section class="pending" aria-labelledby="pending-title">
-    <div class="wrap pending-grid">
-      <svg class="moon" viewBox="-44 -44 88 88" role="img" aria-label="Tonight's moon phase">
-        <circle r="40" fill="var(--moon)"></circle>
-        <path id="moon-shadow" d="" fill="var(--moon-shadow)"></path>
-        <circle r="40" fill="none" stroke="var(--rule)" stroke-width="1"></circle>
-      </svg>
-      <div>
-        <p class="label">Status</p>
-        <h2 id="pending-title" class="display">Verdict pending. Expected on waking.</h2>
-        <p>Until then the page keeps the lights low, the monogram breathes in its sleep, and the moon above is drawn live for tonight.</p>
-        <p class="label status">
-          <span>Moon <b id="moon-name">—</b></span>
-          <span>Lit <b id="moon-lit">—</b></span>
-          <span>Sleeping since <b>2 September 2026</b></span>
-          <span>Your time <b id="local-time">—</b></span>
-        </p>
+  <section id="onair" class="onair" aria-labelledby="onair-title">
+    <div class="wrap">
+      <div class="onair-head">
+        <div>
+          <p class="label">Heard on air &middot; Beat the Beat, SABC radio</p>
+          <h2 id="onair-title" class="display">The mystery song, and the callers who got it.</h2>
+        </div>
+        <span class="lamp"><i aria-hidden="true"></i> On air</span>
       </div>
+      <div class="player" id="player">
+        <button class="btn-play" id="play" type="button" aria-label="Play the recording" aria-pressed="false">
+          <svg class="ico-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5v17l14-8.5z"></path></svg>
+          <svg class="ico-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.5h5v17H5zM14 3.5h5v17h-5z"></path></svg>
+        </button>
+        <div class="wave-wrap">
+          <div class="wave" id="wave" role="slider" aria-label="Playback position" aria-valuemin="0" aria-valuemax="40.6" aria-valuenow="0" tabindex="0">
+            <canvas id="wavecanvas"></canvas>
+            <span class="clip-tag" id="clip-tag">The nine seconds</span>
+          </div>
+          <div class="readout">
+            <span class="time"><span id="t-now">0:00</span><span> / </span><span id="t-dur">0:41</span></span>
+            <span class="now" id="now-line">Press play. Forty seconds of South African radio.</span>
+          </div>
+        </div>
+        <ol class="cues" id="cues" aria-label="Timed transcript">
+          <li data-t="0.4" data-e="2.1"><span class="t">0:00</span><span>A mystery song this afternoon.</span></li>
+          <li data-t="2.1" data-e="5.1"><span class="t">0:02</span><span>1974 it was,</span></li>
+          <li data-t="5.1" data-e="8.3"><span class="t">0:05</span><span>and a nine-second identikit.</span></li>
+          <li data-t="8.3" data-e="14.4"><span class="t">0:08</span><span>&ldquo;Did you gather up the shattered remnants of your super-ego if you got beat yesterday?&rdquo;</span></li>
+          <li data-t="14.4" data-e="16.2"><span class="t">0:14</span><span>Well, that was a clue for you,</span></li>
+          <li data-t="16.2" data-e="18.0"><span class="t">0:16</span><span>as well as this nine seconds.</span></li>
+          <li data-t="18.0" data-e="27.4" class="clip"><span class="t">0:18</span><span class="music">Nine seconds of the record.</span></li>
+          <li data-t="27.4" data-e="29.0"><span class="t">0:27</span><span>As easy as that.</span></li>
+          <li data-t="29.0" data-e="32.3"><span class="t">0:29</span><span>And Trevor Worley of Cape Town, a first-time caller,</span></li>
+          <li data-t="32.3" data-e="36.1"><span class="t">0:32</span><span>along with <span class="kk">Kobus Kennedy</span>, also Cape Town, and also a first-time caller.</span></li>
+          <li data-t="36.1" data-e="40.6"><span class="t">0:36</span><span>Martin Lake from Durban, Charles Mitchell and a caller whose name the tape swallows, from Cape Town, Ben in Durban.</span></li>
+        </ol>
+      </div>
+      <audio id="audio" preload="metadata" src="beat-the-beat-1974.mp3"></audio>
     </div>
   </section>
 
@@ -632,6 +756,7 @@
         <li><a href="#mark"><span class="num">VI</span><span class="ttl display">Mark</span><span class="sub">The monogram, constructed</span></a></li>
         <li><a href="#company"><span class="num">VII</span><span class="ttl display">Company</span><span class="sub">Others who carry the parts</span></a></li>
         <li><a href="#weight"><span class="num">VIII</span><span class="ttl display">Weight</span><span class="sub">Quite a responsibility</span></a></li>
+        <li><a href="#broadcast"><span class="num">IX</span><span class="ttl display">Broadcast</span><span class="sub">A first-time caller, Cape Town, 1974 on the turntable</span></a></li>
       </ol>
     </div>
   </section>
@@ -834,7 +959,80 @@
         <li><span class="display w800">Kobus Kennedy</span><span class="how">printed</span></li>
         <li><span class="display w900">Kobus Kennedy</span><span class="how">carved</span></li>
       </ol>
-      <p class="aside reveal">Which of these the subject wants to be is the open question. The subject is sleeping on it and will inform us.</p>
+      <p class="aside reveal">Which of these the subject wants to be was the open question. The subject slept on it, then answered by telephone, on the radio, to the whole country. That is at least <em>spoken</em>.</p>
+    </div>
+  </section>
+
+  <section id="broadcast" class="broadcast">
+    <div class="wrap">
+      <p class="label chapter"><span class="num">IX</span> Broadcast</p>
+      <div class="letters-head">
+        <h2 class="display">Nine seconds and a riddle</h2>
+        <p>A recording of Beat the Beat, the SABC radio show that plays a sliver of a record and asks the country to name it. Kobus Kennedy phoned in and did.</p>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Broadcast">
+        <button class="tab" role="tab" id="tab-record" aria-selected="true" aria-controls="panel-record">The record</button>
+        <button class="tab" role="tab" id="tab-call" aria-selected="false" aria-controls="panel-call" tabindex="-1">The call</button>
+        <button class="tab" role="tab" id="tab-show" aria-selected="false" aria-controls="panel-show" tabindex="-1">The show</button>
+      </div>
+
+      <div class="panel" id="panel-record" role="tabpanel" aria-labelledby="tab-record">
+        <div>
+          <h3 class="display"><em>Pick Up the Pieces</em><br>Average White Band</h3>
+          <p>The riddle points one way. Gather up the shattered remnants: pick up the pieces. Your super-ego: the pieces are yours. And in 1974 the record that shouts exactly that, once, over a horn riff everyone knows by the second bar, is the Average White Band's.</p>
+          <p>Six Scots playing American funk so convincingly that Atlantic Records signed them and Arif Mardin produced them. The track is an instrumental save for the one shouted title, and the sliver you hear at eighteen seconds is enough. A nine-second identikit was generous.</p>
+          <dl class="facts">
+            <dt>Artist</dt><dd>Average White Band, Dundee, Scotland</dd>
+            <dt>Album</dt><dd>AWB, Atlantic Records, 1974</dd>
+            <dt>Producer</dt><dd>Arif Mardin</dd>
+            <dt>Written by</dt><dd>Ball, Stuart, Gorrie, McIntyre, McIntosh, Duncan</dd>
+            <dt>Peak</dt><dd>No. 1, Billboard Hot 100, February 1975</dd>
+            <dt>Words</dt><dd>Four, shouted: &ldquo;Pick up the pieces!&rdquo;</dd>
+          </dl>
+        </div>
+        <div>
+          <p class="riddle">&ldquo;Did you <mark>gather up the shattered remnants</mark> of your super-ego if you got <mark>beat</mark> yesterday?&rdquo;</p>
+          <p>The presenter's clue does two jobs. It paraphrases the title without using a word of it, and it winks at the show's own name: to get beat is to lose at Beat the Beat. Anyone who lost yesterday was being told, gently, to pick up the pieces.</p>
+          <p>The record itself has a harder story. Drummer Robbie McIntosh, one of the six credited writers, died in Los Angeles in September 1974, weeks before the single began its climb. The band picked up the pieces and the song went to number one without him.</p>
+        </div>
+      </div>
+
+      <div class="panel" id="panel-call" role="tabpanel" aria-labelledby="tab-call" hidden>
+        <div>
+          <h3 class="display">Six callers, <em>one name</em></h3>
+          <p>The presenter reads the winners in the order they rang. Two from Cape Town phoned for the first time and both got it, and one of them is the subject of this page. First-time callers are called out on air as a small honour, and the name is read clearly, twice qualified: also Cape Town, also a first-time caller.</p>
+          <p>Whisper-class speech recognition heard the name as &ldquo;Corbis Kennedy&rdquo;. Human ears, and the man who was there, know better.</p>
+        </div>
+        <div>
+          <ol class="callers">
+            <li><span class="who">Trevor Worley</span><span class="where">Cape Town &middot; first-time caller</span></li>
+            <li class="kk"><span class="who">Kobus Kennedy</span><span class="where">Cape Town</span></li>
+            <li><span class="who">Martin Lake</span><span class="where">Durban</span></li>
+            <li><span class="who">Charles Mitchell</span><span class="where"></span></li>
+            <li><span class="who">A name the tape swallows</span><span class="where">Cape Town</span></li>
+            <li><span class="who">Ben</span><span class="where">Durban</span></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="panel" id="panel-show" role="tabpanel" aria-labelledby="tab-show" hidden>
+        <div>
+          <h3 class="display">Beat <em>the Beat</em></h3>
+          <p>A South African radio quiz on the SABC. The format in this clip is the whole format: a year, a nine-second identikit of the record, and a cryptic clue read once. Listeners telephone the studio with the title, and the presenter reads the roll of those who got it.</p>
+          <p>Forty seconds of tape carry the year, the clue, the sliver of the song and six names. Nothing is wasted, which is what live radio sounded like when a call meant a landline and a wait.</p>
+        </div>
+        <div>
+          <dl class="facts">
+            <dt>Station</dt><dd>SABC radio, South Africa</dd>
+            <dt>Segment</dt><dd>The mystery song</dd>
+            <dt>Identikit</dt><dd>Nine seconds, 0:18 to 0:27</dd>
+            <dt>Year set</dt><dd>1974</dd>
+            <dt>Recording</dt><dd>40.6 seconds, mono, from the wireless</dd>
+            <dt>Correct callers</dt><dd>Six named on air</dd>
+          </dl>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -845,7 +1043,7 @@
       <div class="foot-mark" aria-hidden="true"><span>K</span><span class="flip">K</span></div>
       <div class="foot-row">
         <span class="display">Kobus Kennedy</span>
-        <span class="label">Eight chapters &middot; Nocturne edition &middot; MMXXVI</span>
+        <span class="label">Nine chapters &middot; Dawn edition &middot; MMXXVI</span>
         <a class="label top" href="#top">Back to top</a>
       </div>
     </div>
@@ -854,39 +1052,140 @@
 
 <script>
   (function () {
-    // Tonight's moon, drawn from the synodic month. Reference new moon: 2000-01-06 18:14 UTC.
-    var P = 29.530588853;
-    var ref = Date.UTC(2000, 0, 6, 18, 14);
-    var age = (((Date.now() - ref) / 864e5) % P + P) % P;
-    var phi = 2 * Math.PI * age / P;
-    var lit = (1 - Math.cos(phi)) / 2;
-    var R = 40, rx = Math.abs(Math.cos(phi)) * R;
-    var waxing = age < P / 2, crescent = lit < 0.5;
-    // Shadow: semicircle on the dark side, then the elliptical terminator back to the top.
-    var side = waxing ? 0 : 1;
-    var term = waxing ? (crescent ? 1 : 0) : (crescent ? 0 : 1);
-    var d = 'M0,' + (-R) + ' A' + R + ',' + R + ' 0 0 ' + side + ' 0,' + R +
-            ' A' + rx.toFixed(2) + ',' + R + ' 0 0 ' + term + ' 0,' + (-R) + ' Z';
-    var shadow = document.getElementById('moon-shadow');
-    if (shadow) shadow.setAttribute('d', d);
-    var name;
-    if (lit < 0.04) name = 'New moon';
-    else if (lit > 0.96) name = 'Full moon';
-    else if (Math.abs(lit - 0.5) < 0.06) name = waxing ? 'First quarter' : 'Last quarter';
-    else if (lit < 0.5) name = waxing ? 'Waxing crescent' : 'Waning crescent';
-    else name = waxing ? 'Waxing gibbous' : 'Waning gibbous';
-    var nameEl = document.getElementById('moon-name');
-    var litEl = document.getElementById('moon-lit');
-    if (nameEl) nameEl.textContent = name;
-    if (litEl) litEl.textContent = Math.round(lit * 100) + '%';
-    var timeEl = document.getElementById('local-time');
-    function tick() {
-      if (!timeEl) return;
-      var n = new Date();
-      timeEl.textContent = String(n.getHours()).padStart(2, '0') + ':' + String(n.getMinutes()).padStart(2, '0');
+    // The broadcast player. Waveform peaks were measured from the recording itself.
+    var PEAKS = [0.04,0.043,0.042,0.18,0.076,0.077,0.071,0.052,0.045,0.045,0.044,0.047,0.131,0.356,0.347,0.346,0.358,0.366,0.221,0.341,0.383,0.407,0.338,0.413,0.232,0.407,0.324,0.415,0.134,0.047,0.048,0.315,0.52,0.431,0.172,0.465,0.46,0.388,0.094,0.046,0.092,0.335,0.294,0.247,0.396,0.376,0.299,0.216,0.151,0.047,0.049,0.15,0.299,0.281,0.118,0.047,0.045,0.073,0.395,0.42,0.348,0.046,0.047,0.046,0.083,0.207,0.29,0.329,0.419,0.216,0.274,0.267,0.329,0.386,0.318,0.322,0.332,0.458,0.308,0.388,0.383,0.127,0.078,0.059,0.048,0.047,0.045,0.451,0.361,0.395,0.318,0.477,0.32,0.437,0.296,0.045,0.044,0.21,0.422,0.382,0.436,0.195,0.312,0.374,0.346,0.258,0.252,0.233,0.235,0.15,0.184,0.194,0.144,0.14,0.209,0.126,0.123,0.198,0.142,0.352,0.482,0.446,0.333,0.291,0.331,0.294,0.284,0.302,0.358,0.305,0.256,0.249,0.175,0.362,0.409,0.352,0.388,0.267,0.358,0.355,0.264,0.263,0.391,0.274,0.382,0.307,0.324,0.495,0.403,0.385,0.395,0.381,0.36,0.325,0.341,0.361,0.41,0.419,0.421,0.328,0.117,0.045,0.046,0.045,0.046,0.484,0.457,0.317,0.308,0.082,0.045,0.077,0.051,0.247,0.5,0.377,0.385,0.308,0.368,0.399,0.383,0.463,0.312,0.157,0.353,0.312,0.271,0.245,0.365,0.291,0.303,0.405,0.289,0.264,0.454,0.435,0.452,0.332,0.327,0.405,0.404,0.351,0.319,0.322,0.29,0.292,0.393,0.362,0.251,0.345,0.297,0.272,0.374,0.071,0.115,0.54,0.493,0.385,0.407,0.446,0.329,0.38,0.372,0.358,0.269,0.219,0.227,0.449,0.305,0.212,0.349,0.27,0.277,0.335,0.359,0.368,0.52,0.448,0.419,1.0];
+    var DUR = 40.6, CLIP = [18.0, 27.4];
+    var audio = document.getElementById('audio');
+    var player = document.getElementById('player');
+    var btn = document.getElementById('play');
+    var wave = document.getElementById('wave');
+    var canvas = document.getElementById('wavecanvas');
+    var tag = document.getElementById('clip-tag');
+    var tNow = document.getElementById('t-now');
+    var tDur = document.getElementById('t-dur');
+    var nowLine = document.getElementById('now-line');
+    var cues = Array.prototype.slice.call(document.querySelectorAll('#cues li'));
+    if (!audio || !canvas) return;
+
+    function css(name) { return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
+    function fmt(s) { s = Math.max(0, s || 0); var m = Math.floor(s / 60), r = Math.floor(s % 60); return m + ':' + (r < 10 ? '0' : '') + r; }
+
+    var ctx = canvas.getContext('2d');
+    function draw() {
+      var dpr = window.devicePixelRatio || 1;
+      var W = wave.clientWidth, H = wave.clientHeight;
+      if (!W || !H) return;
+      canvas.width = W * dpr; canvas.height = H * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, W, H);
+      var dur = audio.duration && isFinite(audio.duration) ? audio.duration : DUR;
+      var pos = (audio.currentTime || 0) / dur;
+      var n = PEAKS.length, gap = 1, bw = (W - gap * (n - 1)) / n;
+      var ink = css('--ink'), rest = css('--wave'), acc = css('--accent'), soft = css('--accent-soft');
+      var cx0 = CLIP[0] / dur * W, cx1 = CLIP[1] / dur * W;
+      ctx.fillStyle = soft; ctx.fillRect(cx0, 0, cx1 - cx0, H);
+      ctx.fillStyle = acc; ctx.fillRect(cx0, 0, 1, H); ctx.fillRect(cx1 - 1, 0, 1, H);
+      tag.style.left = ((cx0 + cx1) / 2) + 'px';
+      var mid = H * 0.56, top = 14;
+      for (var i = 0; i < n; i++) {
+        var x = i * (bw + gap);
+        var h = Math.max(2, PEAKS[i] * (H - top - 6));
+        var inClip = x >= cx0 && x <= cx1;
+        var played = (x + bw / 2) / W <= pos;
+        ctx.fillStyle = played ? (inClip ? acc : ink) : (inClip ? acc : rest);
+        ctx.globalAlpha = played ? 1 : (inClip ? 0.45 : 1);
+        ctx.fillRect(x, mid - h * 0.62, bw, h);
+      }
+      ctx.globalAlpha = 1;
+      if (pos > 0) { ctx.fillStyle = ink; ctx.fillRect(pos * W - 0.5, 0, 1, H); }
     }
-    tick();
-    setInterval(tick, 30000);
+
+    var current = -1;
+    function update() {
+      var t = audio.currentTime || 0;
+      tNow.textContent = fmt(t);
+      wave.setAttribute('aria-valuenow', t.toFixed(1));
+      var idx = -1;
+      for (var i = 0; i < cues.length; i++) {
+        var a = parseFloat(cues[i].getAttribute('data-t')), b = parseFloat(cues[i].getAttribute('data-e'));
+        if (t >= a && t < b) { idx = i; break; }
+      }
+      if (idx !== current) {
+        cues.forEach(function (li, i) { li.classList.toggle('on', i === idx); });
+        current = idx;
+        if (idx >= 0) {
+          var li = cues[idx];
+          nowLine.innerHTML = li.classList.contains('clip')
+            ? 'Nine seconds of <b>Pick Up the Pieces</b>, Average White Band, 1974.'
+            : li.children[1].innerHTML;
+        }
+      }
+      draw();
+    }
+
+    function toggle() { if (audio.paused) { audio.play(); } else { audio.pause(); } }
+    btn.addEventListener('click', toggle);
+    audio.addEventListener('play', function () { player.classList.add('playing'); btn.setAttribute('aria-pressed', 'true'); btn.setAttribute('aria-label', 'Pause the recording'); });
+    audio.addEventListener('pause', function () { player.classList.remove('playing'); btn.setAttribute('aria-pressed', 'false'); btn.setAttribute('aria-label', 'Play the recording'); });
+    audio.addEventListener('ended', function () { nowLine.textContent = 'As easy as that.'; draw(); });
+    audio.addEventListener('timeupdate', update);
+    audio.addEventListener('loadedmetadata', function () { if (isFinite(audio.duration)) tDur.textContent = fmt(audio.duration); draw(); });
+
+    function seekAt(clientX) {
+      var r = wave.getBoundingClientRect();
+      var f = Math.min(1, Math.max(0, (clientX - r.left) / r.width));
+      var dur = audio.duration && isFinite(audio.duration) ? audio.duration : DUR;
+      audio.currentTime = f * dur;
+      update();
+    }
+    var dragging = false;
+    wave.addEventListener('pointerdown', function (e) { dragging = true; wave.setPointerCapture(e.pointerId); seekAt(e.clientX); });
+    wave.addEventListener('pointermove', function (e) { if (dragging) seekAt(e.clientX); });
+    wave.addEventListener('pointerup', function () { dragging = false; });
+    wave.addEventListener('pointercancel', function () { dragging = false; });
+    wave.addEventListener('keydown', function (e) {
+      var step = e.shiftKey ? 5 : 1;
+      if (e.key === 'ArrowRight') { audio.currentTime = Math.min(DUR, audio.currentTime + step); update(); e.preventDefault(); }
+      else if (e.key === 'ArrowLeft') { audio.currentTime = Math.max(0, audio.currentTime - step); update(); e.preventDefault(); }
+      else if (e.key === ' ' || e.key === 'Enter') { toggle(); e.preventDefault(); }
+    });
+    cues.forEach(function (li) {
+      li.addEventListener('click', function () {
+        audio.currentTime = parseFloat(li.getAttribute('data-t'));
+        if (audio.paused) audio.play(); else update();
+      });
+    });
+
+    var raf;
+    function loop() { if (!audio.paused) { update(); raf = requestAnimationFrame(loop); } }
+    audio.addEventListener('play', function () { cancelAnimationFrame(raf); loop(); });
+    window.addEventListener('resize', draw);
+    if (window.matchMedia) {
+      var mq = window.matchMedia('(prefers-color-scheme: dark)');
+      if (mq.addEventListener) mq.addEventListener('change', draw);
+    }
+    draw();
+  })();
+
+  (function () {
+    // Broadcast tabs.
+    var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+    function select(tab) {
+      tabs.forEach(function (t) {
+        var on = t === tab;
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        t.setAttribute('tabindex', on ? '0' : '-1');
+        var p = document.getElementById(t.getAttribute('aria-controls'));
+        if (p) p.hidden = !on;
+      });
+    }
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { select(t); });
+      t.addEventListener('keydown', function (e) {
+        var j = e.key === 'ArrowRight' ? (i + 1) % tabs.length : e.key === 'ArrowLeft' ? (i - 1 + tabs.length) % tabs.length : -1;
+        if (j >= 0) { select(tabs[j]); tabs[j].focus(); e.preventDefault(); }
+      });
+    });
   })();
 
   (function () {
