@@ -622,7 +622,9 @@
 
   /* ---------- presenter chapter ---------- */
   .presenter-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); gap: clamp(2rem, 5vw, 4rem); align-items: start; }
-  .career { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+  .portrait { grid-template-columns: repeat(3, 9rem 1fr); border-top: 1px solid var(--rule); padding-top: 1.25rem; }
+  .career { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); column-count: 2; column-gap: clamp(2rem, 5vw, 4rem); }
+  .career li { break-inside: avoid; }
   .career li {
     display: grid; grid-template-columns: 5.5rem 1fr; gap: 1rem;
     padding: 0.9rem 0; border-bottom: 1px solid var(--rule); align-items: baseline;
@@ -647,9 +649,14 @@
   .sources p { margin: 0 0 0.4rem; }
   .sources a { border-bottom: 1px solid var(--rule); }
   .sources a:hover { border-color: var(--accent); color: var(--ink); }
+  @media (max-width: 60rem) {
+    .career { column-count: 1; }
+    .portrait { grid-template-columns: 9rem 1fr; }
+  }
   @media (max-width: 40rem) {
     .verify li { grid-template-columns: 2rem 1fr; }
     .verify .v { grid-column: 2; }
+    .portrait { grid-template-columns: 1fr; }
   }
 
   /* ---------- reveal ---------- */
@@ -789,7 +796,7 @@
         <li><a href="#company"><span class="num">VII</span><span class="ttl display">Company</span><span class="sub">Others who carry the parts</span></a></li>
         <li><a href="#weight"><span class="num">VIII</span><span class="ttl display">Weight</span><span class="sub">Quite a responsibility</span></a></li>
         <li><a href="#broadcast"><span class="num">IX</span><span class="ttl display">Broadcast</span><span class="sub">A first-time caller, Cape Town, 1974 on the turntable</span></a></li>
-        <li><a href="#presenter"><span class="num">X</span><span class="ttl display">Presenter</span><span class="sub">Rafe Lavine, Radio 5, and what could be checked</span></a></li>
+        <li><a href="#presenter"><span class="num">X</span><span class="ttl display">Presenter</span><span class="sub">Rafe Lavine, thirty years on air, and what could be checked</span></a></li>
       </ol>
     </div>
   </section>
@@ -1076,25 +1083,45 @@
       <p class="label chapter"><span class="num">X</span> Presenter</p>
       <div class="letters-head">
         <h2 class="display">Rafe Lavine</h2>
-        <p>The man reading the names. Thirty years of South African radio, from a rock show on 702 to jazz on SAfm, with the Radio 5 years in between, which is where this tape belongs.</p>
+        <p>The man reading the names. Three decades of South African radio across five stations, a rock specialist who also ran the country's best-loved jazz hour, and the voice on this tape.</p>
       </div>
-      <div class="presenter-grid">
-        <div class="reveal">
-          <p class="label" style="margin:0 0 1rem">Career, as far as it could be traced</p>
-          <ol class="career">
-            <li><span class="yr">1983</span><span class="what"><b>Radio 702.</b> Joins the independent station presenting Rock &rsquo;n Horror.</span></li>
-            <li class="here"><span class="yr">1984</span><span class="what"><b>Radio 5, SABC.</b> Moves to the national pop station and presents Hot Dog. The mystery-song feature in this recording, and Kobus Kennedy's call, fall in these years.</span></li>
-            <li><span class="yr">1987</span><span class="what"><b>SABC TV1.</b> Appears on Pop Shop as one of the Radio 5 DJs.</span></li>
-            <li><span class="yr">1990</span><span class="what"><b>Leaves Radio 5.</b> Runs music stores and a music distribution company before coming back to the microphone.</span></li>
-            <li><span class="yr">2000s</span><span class="what"><b>SAfm.</b> The Quiet Storm, a late jazz and soul programme listeners describe as an institution, and Rock Classics and the Great Unknowns. From 2003, the Rock IT Scientists on Friday nights with Leon Economides.</span></li>
-            <li><span class="yr">2006</span><span class="what"><b>The RockFest.</b> Co-founds the rock radio project with Economides, later on Mix 93.8 FM.</span></li>
-            <li><span class="yr">2014</span><span class="what"><b>Talk Radio 702.</b> After years presenting the weekend Solid Gold slot, leaves in December to join his family in the United Kingdom.</span></li>
-            <li><span class="yr">Now</span><span class="what"><b>Dawlish, Devon.</b> Retired from radio after almost thirty years, working occasionally as a voice artist.</span></li>
-          </ol>
-          <blockquote class="quote">His shows were like an institution. You could tell he did his research and knew much more about the music.
-            <cite>Concord Nkabinde, bassist, on The Quiet Storm</cite>
-          </blockquote>
-        </div>
+
+      <dl class="facts portrait reveal">
+        <dt>Trade</dt><dd>Radio presenter, 1983 to 2014, then voice artist</dd>
+        <dt>Stations</dt><dd>Radio 702 &middot; Radio 5 &middot; SAfm &middot; Radio Today &middot; Talk Radio 702</dd>
+        <dt>Specialism</dt><dd>Classic and progressive rock, with a sideline in jazz and soul</dd>
+        <dt>The voice</dt><dd>South African, warm, conversational, built for documentary</dd>
+        <dt>Company</dt><dd>Leon Economides, Chris Prior, David Blood, Phil Wright</dd>
+        <dt>Now</dt><dd>Dawlish, on the south Devon coast, retired</dd>
+      </dl>
+
+      <div class="reveal">
+        <p class="label" style="margin:2.5rem 0 1rem">Career, as far as it could be traced</p>
+        <ol class="career">
+          <li><span class="yr">1983</span><span class="what"><b>Radio 702.</b> Cuts his teeth on the independent station, three years old at the time, presenting a show called Rock &rsquo;n Horror.</span></li>
+          <li class="here"><span class="yr">1984</span><span class="what"><b>Radio 5, SABC.</b> Moves to the national pop station and presents Hot Dog for six years, alongside a roster that included Alex Jay, Kevin Savage and Chris Prior. The mystery-song feature on this tape, and Kobus Kennedy's call, belong to these years.</span></li>
+          <li><span class="yr">1987</span><span class="what"><b>SABC TV1.</b> Appears on Pop Shop, the television pop programme, as one of the Radio 5 DJs. The clip survives on YouTube.</span></li>
+          <li><span class="yr">1990</span><span class="what"><b>Off air.</b> His Radio 5 contract ends. He manages music stores, then a music distribution company, and by his own account even tries his hand at selling assurance.</span></li>
+          <li><span class="yr">1990s</span><span class="what"><b>SAfm.</b> Back at the microphone on the SABC's English talk and music station with Rock Classics and the Great Unknowns, where he first shares a studio with Leon Economides, and The Quiet Storm, a Sunday programme of jazz and soul.</span></li>
+          <li><span class="yr">2003</span><span class="what"><b>The Rock IT Scientists.</b> Moved to SAfm's evening slot, he rings Economides and proposes a Friday-night co-presented show on the Rock Classics model: progressive, hard and classic rock, blues, brass rock, jazz and metal, played with the sleeve notes read out.</span></li>
+          <li><span class="yr">2004</span><span class="what"><b>Axed.</b> In the last week of September the SABC cuts almost all of SAfm's weekend programmes. The Quiet Storm is heard for the last time.</span></li>
+          <li><span class="yr">2006</span><span class="what"><b>The RockFest.</b> With Prior, Blood, Wright and Economides he founds a block of rock programming on the community station Radio Today, 1485 AM. It lasts about three and a half years, until the station stops. When RockFest resurfaces on Mix 93.8 FM in November 2009, he is not among the two who carry on.</span></li>
+          <li><span class="yr">2010s</span><span class="what"><b>Talk Radio 702, again.</b> Back where he began, presenting the weekend Solid Gold slot from four to seven in the evening.</span></li>
+          <li><span class="yr">2014</span><span class="what"><b>Leaves South Africa.</b> In December he signs off from Solid Gold to join his family in the United Kingdom.</span></li>
+          <li><span class="yr">Now</span><span class="what"><b>Dawlish, Devon.</b> Retired from radio after almost thirty years. Listed as a voice artist for commercial and documentary work, with the accent he took with him.</span></li>
+        </ol>
+      </div>
+
+      <div class="presenter-grid" style="margin-top:2.5rem">
+        <blockquote class="quote reveal" style="margin:0">Many of the younger people out there are getting tired of listening to artists that are just giving them re-worked versions of classic songs, and they are interested in where the original material comes from. I believe we're bringing it to new and younger audiences.
+          <cite>Rafe Lavine, 2004, on the Rock IT Scientists</cite>
+        </blockquote>
+        <blockquote class="quote reveal" style="margin:0">His shows were like an institution. Very informative, and you could tell he did his research and knew much more about the music.
+          <cite>Concord Nkabinde, bassist, on The Quiet Storm</cite>
+        </blockquote>
+      </div>
+
+      <div class="presenter-grid" style="margin-top:3rem">
         <div class="reveal">
           <p class="label" style="margin:0 0 1rem">What was checked</p>
           <ul class="verify">
@@ -1104,10 +1131,19 @@
             <li><span class="mark2 open">?</span><span class="k">Show</span><span class="v"><b>Beat the Beat</b> is how the family remembers the feature, and the clue's &ldquo;if you got beat yesterday&rdquo; fits a daily game by that name. No printed source names it. Lavine's programme in those years was Hot Dog, so Beat the Beat was most likely a feature inside it.</span></li>
             <li><span class="mark2 open">?</span><span class="k">Date</span><span class="v">The tape carries no date. 1974 is the year of the record, not of the broadcast.</span></li>
           </ul>
-          <div class="sources">
-            <p>Sources consulted: <a href="https://iol.co.za/entertainment/whats-on/2004-03-30-gotta-keep-on-rocking/">IOL, Gotta keep on rocking, 2004</a>; <a href="https://iol.co.za/entertainment/whats-on/2003-11-24-djs-patrol-hits-durban/">IOL, DJ's patrol hits Durban, 2003</a>; <a href="https://www.bizcommunity.com/Article/196/59/56460.html">Bizcommunity, Lineup changes at Talk 702</a>; <a href="https://www.bizcommunity.com/Article/196/59/123285.html">Bizcommunity, Two new presenters for 702, CapeTalk</a>; <a href="https://www.voices.com/profile/rafelavine">Voices.com profile</a>; <a href="https://www.youtube.com/watch?v=i8cXKtFFtCM">SABC TV1 Pop Shop, 1987</a>; <a href="https://en.wikipedia.org/wiki/5FM">Wikipedia, 5FM</a>.</p>
-          </div>
         </div>
+        <div class="reveal">
+          <p class="label" style="margin:0 0 1rem">Not found, and not invented</p>
+          <ul class="verify">
+            <li><span class="mark2 open">&ndash;</span><span class="k">Birth</span><span class="v">No date or place of birth appears in any source. He was on air by 1983, so he was born no later than the early 1960s.</span></li>
+            <li><span class="mark2 open">&ndash;</span><span class="k">Hot Dog</span><span class="v">The programme's timeslot and format are not recorded online. This tape says &ldquo;this afternoon&rdquo;, which is the only clue to when it aired.</span></li>
+            <li><span class="mark2 open">&ndash;</span><span class="k">Family</span><span class="v">The 2014 report says only that he left to join his family in the UK. Nothing more is published, and nothing more is asked.</span></li>
+            <li><span class="mark2 open">&ndash;</span><span class="k">This call</span><span class="v">Whether he remembers a first-time caller from Cape Town naming an Average White Band record is unknown. He is, as far as the record shows, reachable in Devon.</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="sources reveal">
+        <p>Sources consulted: <a href="https://iol.co.za/entertainment/whats-on/2004-03-30-gotta-keep-on-rocking/">IOL, Gotta keep on rocking, March 2004</a>; <a href="https://iol.co.za/entertainment/whats-on/2003-11-24-djs-patrol-hits-durban/">IOL, DJ's patrol hits Durban, November 2003</a>; <a href="https://mg.co.za/article/2004-09-24-sabc-axes-weekend-programmes/">Mail &amp; Guardian, SABC axes weekend programmes, September 2004</a>; <a href="https://www.news24.com/news24/safm-programmes-axed-20040923">News24, SAfm programmes axed, September 2004</a>; <a href="https://sugarmusicnews.wordpress.com/2010/02/02/the-history-of-rockfest-radio-by-leon-economides/">Leon Economides, The History of RockFest Radio, 2010</a>; <a href="https://rockfestonmix938fm.wordpress.com/tag/rafe-lavine/">The RockFest on Mix 93.8 FM</a>; <a href="https://www.bizcommunity.com/Article/196/59/56460.html">Bizcommunity, Lineup changes at Talk 702</a>; <a href="https://www.bizcommunity.com/Article/196/59/123285.html">Bizcommunity, Two new presenters for 702, CapeTalk, 2014</a>; <a href="https://www.voices.com/profile/rafelavine">Voices.com profile</a>; <a href="https://www.mandy.com/aa/voice-artist/rafe-lavine-1">Mandy voice-artist listing</a>; <a href="https://www.youtube.com/watch?v=i8cXKtFFtCM">SABC TV1 Pop Shop, 1987</a>; <a href="https://m.facebook.com/ConcordNkabindeArtistPage/photos/today-i-pay-tribute-to-a-jazz-music-radio-presenter-who-has-had-a-great-impact-o/884792031573175/">Concord Nkabinde, tribute post</a>; <a href="https://en.wikipedia.org/wiki/5FM">Wikipedia, 5FM</a>.</p>
       </div>
     </div>
   </section>
