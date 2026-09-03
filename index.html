@@ -620,6 +620,38 @@
   .w400 { font-weight: 400; } .w500 { font-weight: 500; } .w600 { font-weight: 600; }
   .w700 { font-weight: 700; } .w800 { font-weight: 800; } .w900 { font-weight: 900; }
 
+  /* ---------- presenter chapter ---------- */
+  .presenter-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); gap: clamp(2rem, 5vw, 4rem); align-items: start; }
+  .career { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+  .career li {
+    display: grid; grid-template-columns: 5.5rem 1fr; gap: 1rem;
+    padding: 0.9rem 0; border-bottom: 1px solid var(--rule); align-items: baseline;
+  }
+  .career .yr { font-family: "Bodoni Moda", "Didot", serif; font-size: 1.35rem; font-variant-numeric: tabular-nums; color: var(--accent); line-height: 1; }
+  .career .what { color: var(--ink-2); }
+  .career .what b { font-weight: 500; color: var(--ink); font-family: "Bodoni Moda", "Didot", serif; font-size: 1.15rem; }
+  .career li.here { background: var(--accent-soft); margin: 0 -0.75rem; padding-left: 0.75rem; padding-right: 0.75rem; }
+  .verify { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+  .verify li { display: grid; grid-template-columns: 2rem 7rem 1fr; gap: 0.75rem 1rem; padding: 1rem 0; border-bottom: 1px solid var(--rule); align-items: baseline; }
+  .verify .mark2 { font-family: "Bodoni Moda", "Didot", serif; font-size: 1.5rem; line-height: 1; color: var(--accent); }
+  .verify .mark2.open { color: var(--muted); }
+  .verify .k { font-family: "Karla", sans-serif; font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+  .verify .v { color: var(--ink-2); }
+  .verify .v b { font-weight: 500; color: var(--ink); }
+  .quote {
+    margin: 2rem 0 0; padding: 0 0 0 1.25rem; border-left: 2px solid var(--accent);
+    font-family: "Bodoni Moda", "Didot", serif; font-style: italic; font-size: clamp(1.25rem, 2.4vw, 1.6rem); line-height: 1.35; color: var(--ink);
+  }
+  .quote cite { display: block; margin-top: 0.6rem; font-family: "Karla", sans-serif; font-style: normal; font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+  .sources { margin: 2.5rem 0 0; padding: 1.25rem 0 0; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.95rem; }
+  .sources p { margin: 0 0 0.4rem; }
+  .sources a { border-bottom: 1px solid var(--rule); }
+  .sources a:hover { border-color: var(--accent); color: var(--ink); }
+  @media (max-width: 40rem) {
+    .verify li { grid-template-columns: 2rem 1fr; }
+    .verify .v { grid-column: 2; }
+  }
+
   /* ---------- reveal ---------- */
   .reveal { transform: translateY(14px); transition: transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1); }
   .reveal.in { transform: none; }
@@ -663,7 +695,7 @@
 <main id="top">
   <section class="hero">
     <div class="wrap hero-grid">
-      <p class="label masthead"><span>A monograph</span><span>Nine chapters</span><span>Dawn edition</span></p>
+      <p class="label masthead"><span>A monograph</span><span>Ten chapters</span><span>Dawn edition</span></p>
       <div class="monogram" aria-label="KK monogram" role="img">
         <span class="k">K</span><span class="k flip" aria-hidden="true">K</span>
       </div>
@@ -678,7 +710,7 @@
     <div class="wrap">
       <div class="onair-head">
         <div>
-          <p class="label">Heard on air &middot; Beat the Beat, SABC radio</p>
+          <p class="label">Heard on air &middot; Radio 5, SABC &middot; Presenter Rafe Lavine</p>
           <h2 id="onair-title" class="display">The mystery song, and the callers who got it.</h2>
         </div>
         <span class="lamp"><i aria-hidden="true"></i> On air</span>
@@ -709,7 +741,7 @@
           <li data-t="27.4" data-e="29.0"><span class="t">0:27</span><span>As easy as that.</span></li>
           <li data-t="29.0" data-e="32.3"><span class="t">0:29</span><span>And Trevor Worley of Cape Town, a first-time caller,</span></li>
           <li data-t="32.3" data-e="36.1"><span class="t">0:32</span><span>along with <span class="kk">Kobus Kennedy</span>, also Cape Town, and also a first-time caller.</span></li>
-          <li data-t="36.1" data-e="40.6"><span class="t">0:36</span><span>Martin Lake from Durban, Charles Mitchell and a caller whose name the tape swallows, from Cape Town, Ben in Durban.</span></li>
+          <li data-t="36.1" data-e="40.6"><span class="t">0:36</span><span>Martin Lake from Durban, Charles Mitchell and Ed from Cape Town, Ben in Durban.</span></li>
         </ol>
       </div>
       <audio id="audio" preload="metadata" src="beat-the-beat-1974.mp3"></audio>
@@ -757,6 +789,7 @@
         <li><a href="#company"><span class="num">VII</span><span class="ttl display">Company</span><span class="sub">Others who carry the parts</span></a></li>
         <li><a href="#weight"><span class="num">VIII</span><span class="ttl display">Weight</span><span class="sub">Quite a responsibility</span></a></li>
         <li><a href="#broadcast"><span class="num">IX</span><span class="ttl display">Broadcast</span><span class="sub">A first-time caller, Cape Town, 1974 on the turntable</span></a></li>
+        <li><a href="#presenter"><span class="num">X</span><span class="ttl display">Presenter</span><span class="sub">Rafe Lavine, Radio 5, and what could be checked</span></a></li>
       </ol>
     </div>
   </section>
@@ -968,7 +1001,7 @@
       <p class="label chapter"><span class="num">IX</span> Broadcast</p>
       <div class="letters-head">
         <h2 class="display">Nine seconds and a riddle</h2>
-        <p>A recording of Beat the Beat, the SABC radio show that plays a sliver of a record and asks the country to name it. Kobus Kennedy phoned in and did.</p>
+        <p>A recording from SABC Radio 5, presenter Rafe Lavine, playing a sliver of a record and asking the country to name it. Kobus Kennedy phoned in and did.</p>
       </div>
 
       <div class="tabs" role="tablist" aria-label="Broadcast">
@@ -1010,7 +1043,7 @@
             <li class="kk"><span class="who">Kobus Kennedy</span><span class="where">Cape Town</span></li>
             <li><span class="who">Martin Lake</span><span class="where">Durban</span></li>
             <li><span class="who">Charles Mitchell</span><span class="where"></span></li>
-            <li><span class="who">A name the tape swallows</span><span class="where">Cape Town</span></li>
+            <li><span class="who">Ed</span><span class="where">Cape Town</span></li>
             <li><span class="who">Ben</span><span class="where">Durban</span></li>
           </ol>
         </div>
@@ -1018,19 +1051,62 @@
 
       <div class="panel" id="panel-show" role="tabpanel" aria-labelledby="tab-show" hidden>
         <div>
-          <h3 class="display">Beat <em>the Beat</em></h3>
-          <p>A South African radio quiz on the SABC. The format in this clip is the whole format: a year, a nine-second identikit of the record, and a cryptic clue read once. Listeners telephone the studio with the title, and the presenter reads the roll of those who got it.</p>
-          <p>Forty seconds of tape carry the year, the clue, the sliver of the song and six names. Nothing is wasted, which is what live radio sounded like when a call meant a landline and a wait.</p>
+          <h3 class="display">Radio 5, <em>afternoon</em></h3>
+          <p>The voice is Rafe Lavine's, and his years on the SABC's Radio 5 ran from 1984 to 1990, so the tape sits somewhere in that window. The format in this clip is the whole format: a year, a nine-second identikit of the record, and a cryptic clue read once. Listeners telephone the studio with the title, and the presenter reads the roll of those who got it.</p>
+          <p>The family remembers the feature as Beat the Beat, and the clue's own wording, &ldquo;if you got beat yesterday&rdquo;, supports a daily game by that name. No printed record of the title could be found, so it stands here as remembered, not as confirmed. Lavine's programme on Radio 5 in those years was called Hot Dog. Chapter X has what was checked.</p>
         </div>
         <div>
           <dl class="facts">
-            <dt>Station</dt><dd>SABC radio, South Africa</dd>
-            <dt>Segment</dt><dd>The mystery song</dd>
+            <dt>Station</dt><dd>Radio 5, SABC, South Africa</dd>
+            <dt>Presenter</dt><dd>Rafe Lavine</dd>
+            <dt>Programme</dt><dd>Hot Dog, 1984 to 1990</dd>
+            <dt>Feature</dt><dd>The mystery song, remembered as Beat the Beat</dd>
             <dt>Identikit</dt><dd>Nine seconds, 0:18 to 0:27</dd>
             <dt>Year set</dt><dd>1974</dd>
             <dt>Recording</dt><dd>40.6 seconds, mono, from the wireless</dd>
             <dt>Correct callers</dt><dd>Six named on air</dd>
           </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="presenter" class="presenter">
+    <div class="wrap">
+      <p class="label chapter"><span class="num">X</span> Presenter</p>
+      <div class="letters-head">
+        <h2 class="display">Rafe Lavine</h2>
+        <p>The man reading the names. Thirty years of South African radio, from a rock show on 702 to jazz on SAfm, with the Radio 5 years in between, which is where this tape belongs.</p>
+      </div>
+      <div class="presenter-grid">
+        <div class="reveal">
+          <p class="label" style="margin:0 0 1rem">Career, as far as it could be traced</p>
+          <ol class="career">
+            <li><span class="yr">1983</span><span class="what"><b>Radio 702.</b> Joins the independent station presenting Rock &rsquo;n Horror.</span></li>
+            <li class="here"><span class="yr">1984</span><span class="what"><b>Radio 5, SABC.</b> Moves to the national pop station and presents Hot Dog. The mystery-song feature in this recording, and Kobus Kennedy's call, fall in these years.</span></li>
+            <li><span class="yr">1987</span><span class="what"><b>SABC TV1.</b> Appears on Pop Shop as one of the Radio 5 DJs.</span></li>
+            <li><span class="yr">1990</span><span class="what"><b>Leaves Radio 5.</b> Runs music stores and a music distribution company before coming back to the microphone.</span></li>
+            <li><span class="yr">2000s</span><span class="what"><b>SAfm.</b> The Quiet Storm, a late jazz and soul programme listeners describe as an institution, and Rock Classics and the Great Unknowns. From 2003, the Rock IT Scientists on Friday nights with Leon Economides.</span></li>
+            <li><span class="yr">2006</span><span class="what"><b>The RockFest.</b> Co-founds the rock radio project with Economides, later on Mix 93.8 FM.</span></li>
+            <li><span class="yr">2014</span><span class="what"><b>Talk Radio 702.</b> After years presenting the weekend Solid Gold slot, leaves in December to join his family in the United Kingdom.</span></li>
+            <li><span class="yr">Now</span><span class="what"><b>Dawlish, Devon.</b> Retired from radio after almost thirty years, working occasionally as a voice artist.</span></li>
+          </ol>
+          <blockquote class="quote">His shows were like an institution. You could tell he did his research and knew much more about the music.
+            <cite>Concord Nkabinde, bassist, on The Quiet Storm</cite>
+          </blockquote>
+        </div>
+        <div class="reveal">
+          <p class="label" style="margin:0 0 1rem">What was checked</p>
+          <ul class="verify">
+            <li><span class="mark2">&#10003;</span><span class="k">Name</span><span class="v"><b>Rafe Lavine</b>, with an <em>a</em>. Remembered as Levine, and spelt that way in one tribute post, but Lavine in every professional listing and press mention.</span></li>
+            <li><span class="mark2">&#10003;</span><span class="k">Station</span><span class="v"><b>Radio 5, the SABC's national pop station.</b> Launched 13 October 1975 to fill the gap left by LM Radio, renamed 5FM in 1992. Lavine's only SABC music post in the 1980s, so the recording is Radio 5.</span></li>
+            <li><span class="mark2">&#10003;</span><span class="k">Years</span><span class="v"><b>1984 to 1990.</b> The window in which Lavine presented on Radio 5, which dates the call.</span></li>
+            <li><span class="mark2 open">?</span><span class="k">Show</span><span class="v"><b>Beat the Beat</b> is how the family remembers the feature, and the clue's &ldquo;if you got beat yesterday&rdquo; fits a daily game by that name. No printed source names it. Lavine's programme in those years was Hot Dog, so Beat the Beat was most likely a feature inside it.</span></li>
+            <li><span class="mark2 open">?</span><span class="k">Date</span><span class="v">The tape carries no date. 1974 is the year of the record, not of the broadcast.</span></li>
+          </ul>
+          <div class="sources">
+            <p>Sources consulted: <a href="https://iol.co.za/entertainment/whats-on/2004-03-30-gotta-keep-on-rocking/">IOL, Gotta keep on rocking, 2004</a>; <a href="https://iol.co.za/entertainment/whats-on/2003-11-24-djs-patrol-hits-durban/">IOL, DJ's patrol hits Durban, 2003</a>; <a href="https://www.bizcommunity.com/Article/196/59/56460.html">Bizcommunity, Lineup changes at Talk 702</a>; <a href="https://www.bizcommunity.com/Article/196/59/123285.html">Bizcommunity, Two new presenters for 702, CapeTalk</a>; <a href="https://www.voices.com/profile/rafelavine">Voices.com profile</a>; <a href="https://www.youtube.com/watch?v=i8cXKtFFtCM">SABC TV1 Pop Shop, 1987</a>; <a href="https://en.wikipedia.org/wiki/5FM">Wikipedia, 5FM</a>.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -1043,7 +1119,7 @@
       <div class="foot-mark" aria-hidden="true"><span>K</span><span class="flip">K</span></div>
       <div class="foot-row">
         <span class="display">Kobus Kennedy</span>
-        <span class="label">Nine chapters &middot; Dawn edition &middot; MMXXVI</span>
+        <span class="label">Ten chapters &middot; Dawn edition &middot; MMXXVI</span>
         <a class="label top" href="#top">Back to top</a>
       </div>
     </div>
