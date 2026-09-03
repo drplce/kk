@@ -647,6 +647,19 @@
   .ten .say { color: var(--ink-2); font-size: 1rem; }
   .ten li.pair .rec, .ten li.pair .n { color: var(--accent); }
   @media (max-width: 60rem) { .ten { column-count: 1; } }
+  .shows { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+  .shows li {
+    display: grid; grid-template-columns: minmax(12rem, 1fr) 2fr; gap: 0.25rem 2rem;
+    padding: 1rem 0; border-bottom: 1px solid var(--rule); align-items: baseline;
+  }
+  .shows .rec { font-family: "Bodoni Moda", "Didot", serif; font-size: 1.35rem; line-height: 1.2; }
+  .shows .rec b { font-weight: 600; }
+  .shows .when { grid-column: 1; font-family: "Karla", sans-serif; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+  .shows .say { grid-column: 2; grid-row: 1 / span 2; color: var(--ink-2); }
+  @media (max-width: 40rem) {
+    .shows li { grid-template-columns: 1fr; }
+    .shows .say { grid-column: 1; grid-row: auto; }
+  }
   .verify { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
   .verify li { display: grid; grid-template-columns: 2rem 7rem 1fr; gap: 0.75rem 1rem; padding: 1rem 0; border-bottom: 1px solid var(--rule); align-items: baseline; }
   .verify .mark2 { font-family: "Bodoni Moda", "Didot", serif; font-size: 1.5rem; line-height: 1; color: var(--accent); }
@@ -1074,7 +1087,7 @@
         <div>
           <h3 class="display">SAfm, <em>afternoon</em></h3>
           <p>The voice is Rafe Lavine's and the station, the family confirms, is SAfm, the SABC's national English station. His SAfm years ran from the 1990s to the weekend cull of September 2004, so the tape sits somewhere in that window. The format in this clip is the whole format: a year, a nine-second identikit of the record, and a cryptic clue read once. Listeners telephone the studio with the title, and the presenter reads the roll of those who got it.</p>
-          <p>The family remembers the feature as Beat the Beat, and the clue's own wording, &ldquo;if you got beat yesterday&rdquo;, supports a daily game by that name. No printed record of the title could be found, so it stands here as remembered, not as confirmed. Which of Lavine's SAfm programmes carried it is an open question too: the tape says &ldquo;this afternoon&rdquo;, and his documented slots were late evening and Sunday night. Chapter X has what was checked.</p>
+          <p>The family remembers the feature as Beat the Beat, and the clue's own wording, &ldquo;if you got beat yesterday&rdquo;, supports a daily game by that name. No printed record of the title could be found, so it stands here as remembered, not as confirmed. Which of Lavine's SAfm programmes carried it is an open question too: the tape says &ldquo;this afternoon&rdquo;, and his four documented SAfm programmes were all evening or late-night. Chapter X lists them, and what was checked.</p>
         </div>
         <div>
           <dl class="facts">
@@ -1159,6 +1172,19 @@
           <li><span class="n">10</span><span class="rec"><b>Dream Theater</b> <em>Metropolis Pt. 2: Scenes from a Memory</em> <span class="yr2">1999</span></span><span class="say">&ldquo;The ultimate concept album. Mind-boggling arrangements, stupefying musicianship and a chilling tale, with a South African connection: Kevin &lsquo;Caveman&rsquo; Shirley.&rdquo;</span></li>
         </ol>
         <p class="aside" style="margin-top:1.5rem">Not one of the ten is Pick Up the Pieces. But a man whose second-favourite record is Quincy Jones fusing funk, jazz and rock, and whose ninth is a big band with a horn section that blows your head off, is exactly the man to hand a nine-second Average White Band riff to a country and dare it to name the tune.</p>
+      </div>
+
+      <div class="reveal" style="margin-top:3rem">
+        <div class="letters-head">
+          <h3 class="display" style="margin:0;font-size:clamp(1.75rem,4vw,3rem);font-weight:500">His SAfm programmes</h3>
+          <p>Four can be documented. The tape's &ldquo;this afternoon&rdquo; fits none of them, so the mystery-song feature most likely ran on an earlier daytime programme from his first SAfm years, before the late slot.</p>
+        </div>
+        <ol class="shows">
+          <li><span class="rec"><b>Rock Classics and the Great Unknowns</b></span><span class="when">1990s</span><span class="say">The show on which he first worked with Leon Economides. Classic rock alongside records nobody else would play. Its format was revived in 2003 as the Rock IT Scientists.</span></li>
+          <li><span class="rec"><b>The Quiet Storm</b></span><span class="when">Sundays, 21:00 to midnight</span><span class="say">Jazz, soul and smooth late-night music, the programme listeners remember him for most. Axed in the SABC's weekend cull, last heard in September 2004. A smooth-jazz compilation CD bearing the programme's name and his was later circulated, though no catalogue entry for it could be found.</span></li>
+          <li><span class="rec"><b>The late slot</b></span><span class="when">Weeknights, 22:00 to 01:00</span><span class="say">The 2003 radio guide lists it simply as &ldquo;Rafe Lavine&rdquo;, with no programme title. Three hours of music five nights a week, which is where the Friday rock show lived.</span></li>
+          <li><span class="rec"><b>The Rock IT Scientists</b></span><span class="when">Fridays, from 2003</span><span class="say">Co-presented with Economides: progressive, hard and classic rock, blues, brass rock, Latin and African rock, jazz and metal. The show Lavine described as coming under &ldquo;the umbrella of entertainment&rdquo;.</span></li>
+        </ol>
       </div>
 
       <div class="presenter-grid" style="margin-top:3rem">
