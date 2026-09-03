@@ -1,0 +1,41 @@
+  <section id="onair" class="onair" aria-labelledby="onair-title">
+    <div class="wrap">
+      <div class="onair-head">
+        <div>
+          <p class="label">Heard on air &middot; SAfm, SABC &middot; Presenter Rafe Lavine</p>
+          <h2 id="onair-title" class="display">The mystery song, and the callers who got it.</h2>
+        </div>
+        <span class="lamp"><i aria-hidden="true"></i> On air</span>
+      </div>
+      <div class="player" id="player">
+        <button class="btn-play" id="play" type="button" aria-label="Play the recording" aria-pressed="false">
+          <svg class="ico-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5v17l14-8.5z"></path></svg>
+          <svg class="ico-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.5h5v17H5zM14 3.5h5v17h-5z"></path></svg>
+        </button>
+        <div class="wave-wrap">
+          <div class="wave" id="wave" role="slider" aria-label="Playback position" aria-valuemin="0" aria-valuemax="40.6" aria-valuenow="0" tabindex="0">
+            <canvas id="wavecanvas"></canvas>
+            <span class="clip-tag" id="clip-tag">The nine seconds</span>
+          </div>
+          <div class="readout">
+            <span class="time"><span id="t-now">0:00</span><span> / </span><span id="t-dur">0:41</span></span>
+            <span class="now" id="now-line">Press play. Forty seconds of South African radio.</span>
+          </div>
+        </div>
+        <ol class="cues" id="cues" aria-label="Timed transcript">
+          <li data-t="0.4" data-e="2.1"><span class="t">0:00</span><span>A mystery song this afternoon.</span></li>
+          <li data-t="2.1" data-e="5.1"><span class="t">0:02</span><span>1974 it was,</span></li>
+          <li data-t="5.1" data-e="8.3"><span class="t">0:05</span><span>and a nine-second identikit.</span></li>
+          <li data-t="8.3" data-e="14.4"><span class="t">0:08</span><span>&ldquo;Did you gather up the shattered remnants of your super-ego if you got beat yesterday?&rdquo;</span></li>
+          <li data-t="14.4" data-e="16.2"><span class="t">0:14</span><span>Well, that was a clue for you,</span></li>
+          <li data-t="16.2" data-e="18.0"><span class="t">0:16</span><span>as well as this nine seconds.</span></li>
+          <li data-t="18.0" data-e="27.4" class="clip"><span class="t">0:18</span><span class="music">Nine seconds of the record.</span></li>
+          <li data-t="27.4" data-e="29.0"><span class="t">0:27</span><span>As easy as that.</span></li>
+          <li data-t="29.0" data-e="32.3"><span class="t">0:29</span><span>And Trevor Worley of Cape Town, a first-time caller,</span></li>
+          <li data-t="32.3" data-e="36.1"><span class="t">0:32</span><span>along with <span class="kk">Kobus Kennedy</span>, also Cape Town, and also a first-time caller.</span></li>
+          <li data-t="36.1" data-e="40.6"><span class="t">0:36</span><span>Martin Lake from Durban, Charles Mitchell and Ed from Cape Town, Ben in Durban.</span></li>
+        </ol>
+      </div>
+      <audio id="audio" preload="metadata" src="beat-the-beat-1974.mp3"></audio>
+    </div>
+  </section>

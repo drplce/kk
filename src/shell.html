@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{title}}</title>
+<meta name="description" content="{{description}}">
+<meta name="theme-color" content="#EEECE6">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Karla:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/edition.css">
+</head>
+<body class="page-{{slug}}">
+<nav class="nav" aria-label="Site">
+  <a class="mark" href="index.html" aria-label="KK, home"><span>K</span><span class="flip" aria-hidden="true">K</span></a>
+  <ul class="label">
+    <li><a href="index.html"{{current:index}}>Home</a></li>
+    <li><a href="name.html"{{current:name}}>The Name</a></li>
+    <li><a href="broadcast.html"{{current:broadcast}}>The Broadcast</a></li>
+    <li><a href="presenter.html"{{current:presenter}}>The Presenter</a></li>
+    <li><a href="editions.html"{{current:editions}}>Editions</a></li>
+  </ul>
+</nav>
+<aside class="spine" aria-hidden="true">{{spine}}</aside>
+
+<main id="top">
+{{content}}
+</main>
+
+<hr class="rule">
+
+<footer>
+  <div class="wrap foot">
+    <div class="foot-mark" aria-hidden="true"><span>K</span><span class="flip">K</span></div>
+    <div class="foot-row">
+      <span class="display">Kobus Kennedy</span>
+      <span class="label">{{edition}}</span>
+      <a class="label top" href="#top">Back to top</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+  <section id="builder" class="builder">
+    <div class="wrap">
+      <p class="label">This edition's instrument</p>
+      <div class="letters-head">
+        <h2 class="display">Set the mark yourself</h2>
+        <p>The monogram is two capital K's, the second reflected so the arms meet. Change the weight, close or open the gap, tilt it, and see how much of the mark survives.</p>
+      </div>
+      <div class="builder-grid">
+        <div class="builder-stage">
+          <div class="monogram bmono" id="bmono" role="img" aria-label="Adjustable KK monogram">
+            <span class="k" id="bk1">K</span><span class="k flip" id="bk2" aria-hidden="true">K</span>
+          </div>
+        </div>
+        <form class="builder-controls" id="builder-form">
+          <label>Weight <output id="o-w" for="c-w">900</output>
+            <input type="range" id="c-w" min="400" max="900" step="10" value="900">
+          </label>
+          <label>Gap <output id="o-g" for="c-g">&minus;0.12 em</output>
+            <input type="range" id="c-g" min="-0.30" max="0.20" step="0.01" value="-0.12">
+          </label>
+          <label class="check"><input type="checkbox" id="c-i"> Italic</label>
+          <label class="check"><input type="checkbox" id="c-m" checked> Mirror the second K</label>
+          <label class="check"><input type="checkbox" id="c-s"> Claret on the first K instead</label>
+          <p class="recipe label">Recipe <code id="recipe">font-weight: 900; letter-spacing: -0.12em; second K mirrored, in claret</code></p>
+          <button type="button" class="btn-text" id="c-reset">Reset to the house mark</button>
+        </form>
+      </div>
+    </div>
+  </section>

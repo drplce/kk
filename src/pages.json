@@ -1,0 +1,45 @@
+{
+  "edition": "Edition IV · The Volumes · September 2026",
+  "pages": [
+    {
+      "slug": "index",
+      "file": "index.html",
+      "title": "Kobus Kennedy",
+      "description": "A monograph on the name Kobus Kennedy, in volumes: the name, a broadcast from SAfm, and the presenter who read it out.",
+      "spine": "Kobus Kennedy · Edition IV",
+      "sections": ["hero", "onair", "volumes", "builder", "latest"]
+    },
+    {
+      "slug": "name",
+      "file": "name.html",
+      "title": "The Name · Kobus Kennedy",
+      "description": "Volume I. Eight chapters on twelve letters: origins, sound, anatomy, letters, figures, the monogram, company and weight.",
+      "spine": "Vol. I · The Name",
+      "sections": ["name", "contents", "origins", "sound", "anatomy", "letters", "figures", "mark", "company", "weight"]
+    },
+    {
+      "slug": "broadcast",
+      "file": "broadcast.html",
+      "title": "The Broadcast · Kobus Kennedy",
+      "description": "Volume II. Forty seconds of SAfm radio, the callers who named the mystery song, and the 1974 record: Pick Up the Pieces.",
+      "spine": "Vol. II · The Broadcast",
+      "sections": ["onair", "broadcast"]
+    },
+    {
+      "slug": "presenter",
+      "file": "presenter.html",
+      "title": "The Presenter · Kobus Kennedy",
+      "description": "Volume III. Rafe Lavine: thirty years of South African radio, his SAfm programmes, his ten records, and what could be checked.",
+      "spine": "Vol. III · The Presenter",
+      "sections": ["presenter"]
+    },
+    {
+      "slug": "editions",
+      "file": "editions.html",
+      "title": "Editions · Kobus Kennedy",
+      "description": "How this site grows: a log of every edition, and the open questions the next one might answer.",
+      "spine": "Editions",
+      "sections": ["editions"]
+    }
+  ]
+}

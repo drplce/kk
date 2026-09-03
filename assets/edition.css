@@ -1,0 +1,29 @@
+/* Edition tokens.
+ *
+ * Each weekly edition changes this file to give the site a visibly different
+ * treatment while keeping the bones in site.css. Fair game here:
+ *   - the palette (override the :root tokens below, and the dark set),
+ *   - the display face for headings (load a new Google Font in src/shell.html
+ *     and set --display here), the accent's role, rules, backgrounds,
+ *   - one signature flourish (the spine, a texture, a running head, a border).
+ * Keep contrast legible in both themes and keep the KK monogram recognisable.
+ *
+ * Edition IV · The Volumes · 3 September 2026
+ * Treatment: the bone-and-claret palette of the first editions, a book-spine
+ * running head down the left edge of every page, and hairline rules between
+ * sections. Interactive component: the monogram builder on the home page.
+ */
+:root {
+  --edition: "IV";
+  --edition-name: "The Volumes";
+}
+
+/* Example of what a later edition might do (left inactive):
+:root {
+  --bg: #F3EFE6;
+  --accent: #1F4E5F;
+  --accent-soft: rgba(31, 78, 95, 0.10);
+}
+:root[data-theme="dark"] { --accent: #7FB6C9; }
+.display, .big-name, .monogram { font-family: "Fraunces", "Bodoni Moda", serif; }
+*/
