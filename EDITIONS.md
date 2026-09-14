@@ -27,3 +27,16 @@ line through an item when an edition answers it, and say which.
 - Radio Today 1485 AM and The RockFest, Johannesburg, 2006 to 2009.
 - Average White Band's Robbie McIntosh: the September 1974 death and the band's recovery.
 - The Scrabble score of the name, properly: which boards and rules, and what the best play would be.
+
+## In progress
+
+**Edition V, chosen subject (14 September 2026):** Pick Up the Pieces at Criteria
+Studios, Miami, 1974 — the recording session, the horn section and who actually
+played the sax solo, Arif Mardin's role as producer, and Robbie McIntosh's death
+on 23 September 1974, weeks before the single reached No. 1. Chosen because it
+directly answers two items in the open-question pool above (the Criteria session
+and the McIntosh death), it has more to give beyond the two paragraphs already on
+the broadcast page, and unlike the SAfm and Lavine material it is documented
+almost entirely in mainstream US and UK music sources, which the proxy does not
+block. Not a repeat of the last four editions' subjects (the name and its parts,
+weight and the verdict, the SAfm recording and Lavine, the rebuild into volumes).
