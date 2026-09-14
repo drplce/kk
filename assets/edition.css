@@ -8,22 +8,65 @@
  *   - one signature flourish (the spine, a texture, a running head, a border).
  * Keep contrast legible in both themes and keep the KK monogram recognisable.
  *
- * Edition IV · The Volumes · 3 September 2026
- * Treatment: the bone-and-claret palette of the first editions, a book-spine
- * running head down the left edge of every page, and hairline rules between
- * sections. Interactive component: the monogram builder on the home page.
+ * Edition V · Criteria · 14 September 2026
+ * Treatment: the record followed to the room it was cut in. A warm,
+ * rust-and-tape palette in place of the bone-and-claret one, drawn from an
+ * analog console and a cardboard tape box: parchment and burnt orange by
+ * day, near-black studio dark with a glowing rust accent by night. Signature
+ * flourish: a sprocket-hole dashed edge under the nav bar and above the
+ * footer rule, standing in for the perforated edge of quarter-inch tape.
+ * Interactive component: the band roster in chapter XI, click to open.
  */
 :root {
-  --edition: "IV";
-  --edition-name: "The Volumes";
+  --edition: "V";
+  --edition-name: "Criteria";
 }
 
-/* Example of what a later edition might do (left inactive):
 :root {
-  --bg: #F3EFE6;
-  --accent: #1F4E5F;
-  --accent-soft: rgba(31, 78, 95, 0.10);
+  --bg: #F2E9DC;
+  --bg-2: #E9DCC7;
+  --ink: #241A12;
+  --ink-2: #5A4A3A;
+  --muted: #8C7A64;
+  --rule: #D8C7AE;
+  --accent: #C1531F;
+  --accent-soft: rgba(193, 83, 31, 0.12);
+  --nav-bg: rgba(242, 233, 220, 0.78);
+  --lamp: #D97F3D;
+  --lamp-glow: rgba(217, 127, 61, 0.35);
+  --wave: #C7B79E;
+  color-scheme: light;
 }
-:root[data-theme="dark"] { --accent: #7FB6C9; }
-.display, .big-name, .monogram { font-family: "Fraunces", "Bodoni Moda", serif; }
-*/
+:root[data-theme="dark"] {
+  --bg: #14100C;
+  --bg-2: #1C1712;
+  --ink: #EDE2D2;
+  --ink-2: #C2B29B;
+  --muted: #8C7C68;
+  --rule: #322A21;
+  --accent: #E1783A;
+  --accent-soft: rgba(225, 120, 58, 0.14);
+  --nav-bg: rgba(20, 16, 12, 0.78);
+  --lamp: #F0954A;
+  --lamp-glow: rgba(240, 149, 74, 0.4);
+  --wave: #4A3F33;
+  color-scheme: dark;
+}
+/* Signature flourish: a sprocket-hole tape edge under the nav, and above the footer rule. */
+.nav { position: relative; }
+.nav::after {
+  content: "";
+  position: absolute; left: 0; right: 0; bottom: -1px; height: 3px;
+  background-image: repeating-linear-gradient(90deg, var(--accent) 0 6px, transparent 6px 15px);
+  opacity: 0.5;
+}
+hr.rule {
+  position: relative;
+  overflow: visible;
+}
+hr.rule::after {
+  content: "";
+  position: absolute; left: 0; right: 0; top: -2px; height: 3px;
+  background-image: repeating-linear-gradient(90deg, var(--accent) 0 6px, transparent 6px 15px);
+  opacity: 0.35;
+}

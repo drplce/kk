@@ -1,12 +1,12 @@
 {
-  "edition": "Edition IV · The Volumes · September 2026",
+  "edition": "Edition V · Criteria · September 2026",
   "pages": [
     {
       "slug": "index",
       "file": "index.html",
       "title": "Kobus Kennedy",
       "description": "A monograph on the name Kobus Kennedy, in volumes: the name, a broadcast from SAfm, and the presenter who read it out.",
-      "spine": "Kobus Kennedy · Edition IV",
+      "spine": "Kobus Kennedy · Edition V",
       "sections": ["hero", "onair", "volumes", "builder", "latest"]
     },
     {
@@ -21,9 +21,9 @@
       "slug": "broadcast",
       "file": "broadcast.html",
       "title": "The Broadcast · Kobus Kennedy",
-      "description": "Volume II. Forty seconds of SAfm radio, the callers who named the mystery song, and the 1974 record: Pick Up the Pieces.",
+      "description": "Volume II. Forty seconds of SAfm radio, the callers who named the mystery song, the 1974 record Pick Up the Pieces, and the Miami session that made it.",
       "spine": "Vol. II · The Broadcast",
-      "sections": ["onair", "broadcast"]
+      "sections": ["onair", "broadcast", "session"]
     },
     {
       "slug": "presenter",

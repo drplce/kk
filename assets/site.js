@@ -185,3 +185,15 @@
   }
   apply();
 })();
+
+(function () {
+  // Edition V instrument: the band, 1974. Click a name to open it.
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.roster-card'));
+  if (!cards.length) return;
+  cards.forEach(function (card) {
+    card.addEventListener('click', function () {
+      var open = card.getAttribute('aria-expanded') === 'true';
+      card.setAttribute('aria-expanded', open ? 'false' : 'true');
+    });
+  });
+})();
