@@ -31,3 +31,19 @@ line through an item when an edition answers it, and say which.
 - Average White Band's own name: a jam-session remark or a diplomat's aside about the tropics? Both stories trace to the same secondary article, not to a dated first source.
 - What became of Roger Ball, the band's saxophonist and the writer of the Pick Up the Pieces riff, after he left the band in 1997?
 - Whether "the Dundee horns," the nickname for Ball and Molly Duncan, was really coined by Maggie Bell, as one source has it.
+
+## In progress
+
+**Edition VI, chosen subject (20 September 2026):** Giambattista Bodoni's own K,
+against the K in Bodoni Moda, the revival this whole site is set in. Chosen
+because it is an open question in the pool above, it is a formal and
+typographic idea the site has so far only used and never examined, and it is
+the one subject that turns the site's own instrument back on itself: every
+page here is an argument made in this letterform, so the letterform earns a
+chapter. It is documented in mainstream type-history and type-foundry
+sources (Bodoni's own Manuale Tipografico, the Bodoni Museum in Parma, the
+foundries and type designers who have revived his work), none of them
+South African, so the proxy block on SA news sites should not bite. Not a
+repeat of the last four editions' subjects (weight and the wait for a
+verdict, the SAfm recording and the broadcast, the rebuild into volumes,
+the Criteria session and the band).
