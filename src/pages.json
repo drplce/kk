@@ -1,21 +1,21 @@
 {
-  "edition": "Edition V · Criteria · September 2026",
+  "edition": "Edition VI · Kappa · September 2026",
   "pages": [
     {
       "slug": "index",
       "file": "index.html",
       "title": "Kobus Kennedy",
       "description": "A monograph on the name Kobus Kennedy, in volumes: the name, a broadcast from SAfm, and the presenter who read it out.",
-      "spine": "Kobus Kennedy · Edition V",
+      "spine": "Kobus Kennedy · Edition VI",
       "sections": ["hero", "onair", "volumes", "builder", "latest"]
     },
     {
       "slug": "name",
       "file": "name.html",
       "title": "The Name · Kobus Kennedy",
-      "description": "Volume I. Eight chapters on twelve letters: origins, sound, anatomy, letters, figures, the monogram, company and weight.",
+      "description": "Volume I. Nine chapters on twelve letters: origins, sound, anatomy, letters, figures, the monogram, company, weight, and the K neither language handed Bodoni for free.",
       "spine": "Vol. I · The Name",
-      "sections": ["name", "contents", "origins", "sound", "anatomy", "letters", "figures", "mark", "company", "weight"]
+      "sections": ["name", "contents", "origins", "sound", "anatomy", "letters", "figures", "mark", "company", "weight", "kappa"]
     },
     {
       "slug": "broadcast",

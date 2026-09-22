@@ -10,6 +10,7 @@ researches (subject and reason) and again when it ships (what changed).
 | III | Dawn | 2026-09-03 | The SAfm recording; Pick Up the Pieces (AWB, 1974); Rafe Lavine | Back to daylight, amber on-air lamp | Waveform player with synced transcript |
 | IV | The Volumes | 2026-09-03 | Rebuild into three volumes and a log | Book-spine running head, hairline rules | Monogram builder |
 | V | Criteria | 2026-09-14 | Pick Up the Pieces at Criteria Studios, Miami: the session across three studios, the horn solo, and Robbie McIntosh's death | Rust-and-tape palette, sprocket-edge rules | The band, 1974: click-to-open roster |
+| VI | Kappa | 2026-09-20 | Giambattista Bodoni's own K, against the K in Bodoni Moda: what classical Latin and modern Italian both do without | Paper and cinnabar, thick-and-hairline rule | Live specimen: the site's variable K, weight and optical size adjustable |
 
 ## Open questions (the pool)
 
@@ -22,7 +23,7 @@ line through an item when an edition answers it, and say which.
 - ~~Pick Up the Pieces at Criteria Studios, Miami, 1974: the session, the sax solo, Arif Mardin's role.~~ Answered in Edition V: three studios (Clover, Hollywood; Criteria, Miami; Atlantic, New York), Mardin producing, the tenor solo Molly Duncan's over Roger Ball's alto.
 - The name Kobus: how far it travels, where it started, notable bearers beyond Wiese and Moolman.
 - Ó Cinnéide of Munster to the Cape: the surname's route to South Africa.
-- Giambattista Bodoni's K against Bodoni Moda's K.
+- ~~Giambattista Bodoni's K against Bodoni Moda's K.~~ Investigated in Edition VI: no source describes a K cut by Bodoni himself or confirms one appeared in his Italian roman specimens; standard Italian has no native K at all, so he may never have needed one, and every digital revival, including Bodoni Moda, drew one anyway.
 - SAfm in the 1990s: sound, schedule, presenters, before the 2004 cull.
 - The Peddlers, Three in a Cell, and their South African cult following.
 - Radio Today 1485 AM and The RockFest, Johannesburg, 2006 to 2009.
@@ -31,3 +32,5 @@ line through an item when an edition answers it, and say which.
 - Average White Band's own name: a jam-session remark or a diplomat's aside about the tropics? Both stories trace to the same secondary article, not to a dated first source.
 - What became of Roger Ball, the band's saxophonist and the writer of the Pick Up the Pieces riff, after he left the band in 1997?
 - Whether "the Dundee horns," the nickname for Ball and Molly Duncan, was really coined by Maggie Bell, as one source has it.
+- What historical material did Owen Earl, designer of Bodoni Moda, actually draw from, and how did he draw the K, and the other letters, that Bodoni's own Italian founts never needed?
+- Giambattista Bodoni's birth day (16 or 26 February 1740) and death day (29 or 30 November 1813) are given differently across sources.

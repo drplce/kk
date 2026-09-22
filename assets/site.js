@@ -197,3 +197,24 @@
     });
   });
 })();
+
+(function () {
+  // Edition VI instrument: set the K. Bodoni Moda's own weight and optical-size axes, live.
+  var el = document.getElementById('kletter');
+  if (!el) return;
+  var w = document.getElementById('k-w'), o = document.getElementById('k-o'), it = document.getElementById('k-i');
+  var ow = document.getElementById('k-ow'), oo = document.getElementById('k-oo'), recipe = document.getElementById('k-recipe');
+  var reset = document.getElementById('k-reset');
+  function apply() {
+    var weight = parseInt(w.value, 10), opsz = parseInt(o.value, 10);
+    el.style.fontWeight = weight;
+    el.style.fontVariationSettings = "'opsz' " + opsz;
+    el.style.fontStyle = it.checked ? 'italic' : 'normal';
+    ow.textContent = weight;
+    oo.textContent = opsz;
+    recipe.textContent = 'font-weight: ' + weight + "; font-variation-settings: 'opsz' " + opsz + ';' + (it.checked ? ' italic;' : '');
+  }
+  [w, o, it].forEach(function (elem) { elem.addEventListener('input', apply); elem.addEventListener('change', apply); });
+  reset.addEventListener('click', function () { w.value = 700; o.value = 96; it.checked = false; apply(); });
+  apply();
+})();
