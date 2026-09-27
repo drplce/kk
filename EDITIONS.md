@@ -34,3 +34,22 @@ line through an item when an edition answers it, and say which.
 - Whether "the Dundee horns," the nickname for Ball and Molly Duncan, was really coined by Maggie Bell, as one source has it.
 - What historical material did Owen Earl, designer of Bodoni Moda, actually draw from, and how did he draw the K, and the other letters, that Bodoni's own Italian founts never needed?
 - Giambattista Bodoni's birth day (16 or 26 February 1740) and death day (29 or 30 November 1813) are given differently across sources.
+
+## In progress
+
+**Edition VII, chosen subject (27 September 2026):** The Peddlers, and their
+reported cult following in South Africa. Chosen because it is in the open-
+question pool, because it is a record already named on the site with more to
+give (Rafe Lavine's own remark, in chapter X, that their 1968 album *Three
+in a Cell* "was the album that got me into jazz in a big way"), and
+because it has not been touched beyond that one quotation: nothing on the
+site yet says who the trio were, what their South African following actually
+consisted of, or why a British group would have one there at all. Likely
+documented in British music-press and jazz-history sources (their Vocalion
+and CBS releases, contemporary reviews, later reissue notes and interviews
+with the surviving members), none of them South African, so the proxy's
+block on South African news sites should not be the limiting factor; the
+specific "cult following in South Africa" claim may prove to be the harder,
+less-sourced half. Not a repeat of the last four editions' subjects (the
+Criteria session and the band, the letter K against Bodoni and Bodoni Moda,
+the rebuild into volumes, the SAfm broadcast and Rafe Lavine himself).
