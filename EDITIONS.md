@@ -11,6 +11,7 @@ researches (subject and reason) and again when it ships (what changed).
 | IV | The Volumes | 2026-09-03 | Rebuild into three volumes and a log | Book-spine running head, hairline rules | Monogram builder |
 | V | Criteria | 2026-09-14 | Pick Up the Pieces at Criteria Studios, Miami: the session across three studios, the horn solo, and Robbie McIntosh's death | Rust-and-tape palette, sprocket-edge rules | The band, 1974: click-to-open roster |
 | VI | Kappa | 2026-09-20 | Giambattista Bodoni's own K, against the K in Bodoni Moda: what classical Latin and modern Italian both do without | Paper and cinnabar, thick-and-hairline rule | Live specimen: the site's variable K, weight and optical size adjustable |
+| VII | Registration | 2026-09-27 | The Peddlers and their reported cult following in South Africa: the band's real history, from a Joe Meek session to Three in a Cell to Roy Phillips's New Zealand years, tested against a claim the site could not corroborate | Petrol-teal and brass, drawbar comb under the nav | Working Hammond-style drawbar registration, set and sounded in the browser |
 
 ## Open questions (the pool)
 
@@ -25,7 +26,7 @@ line through an item when an edition answers it, and say which.
 - Ó Cinnéide of Munster to the Cape: the surname's route to South Africa.
 - ~~Giambattista Bodoni's K against Bodoni Moda's K.~~ Investigated in Edition VI: no source describes a K cut by Bodoni himself or confirms one appeared in his Italian roman specimens; standard Italian has no native K at all, so he may never have needed one, and every digital revival, including Bodoni Moda, drew one anyway.
 - SAfm in the 1990s: sound, schedule, presenters, before the 2004 cull.
-- The Peddlers, Three in a Cell, and their South African cult following.
+- ~~The Peddlers, Three in a Cell, and their South African cult following.~~ Investigated in Edition VII: the band and the album are real and well documented, but no chart entry, pressing, tour date or interview mention ties them to South Africa anywhere searched; their one documented following abroad was New Zealand's.
 - Radio Today 1485 AM and The RockFest, Johannesburg, 2006 to 2009.
 - ~~Average White Band's Robbie McIntosh: the September 1974 death and the band's recovery.~~ Answered in Edition V, with one point left open: sources split on the death date (23 September most commonly, 22 September in at least one), and the detail that Cher was at the same party could not be traced past a small cluster of similar-sounding accounts.
 - The Scrabble score of the name, properly: which boards and rules, and what the best play would be.
@@ -34,22 +35,8 @@ line through an item when an edition answers it, and say which.
 - Whether "the Dundee horns," the nickname for Ball and Molly Duncan, was really coined by Maggie Bell, as one source has it.
 - What historical material did Owen Earl, designer of Bodoni Moda, actually draw from, and how did he draw the K, and the other letters, that Bodoni's own Italian founts never needed?
 - Giambattista Bodoni's birth day (16 or 26 February 1740) and death day (29 or 30 November 1813) are given differently across sources.
-
-## In progress
-
-**Edition VII, chosen subject (27 September 2026):** The Peddlers, and their
-reported cult following in South Africa. Chosen because it is in the open-
-question pool, because it is a record already named on the site with more to
-give (Rafe Lavine's own remark, in chapter X, that their 1968 album *Three
-in a Cell* "was the album that got me into jazz in a big way"), and
-because it has not been touched beyond that one quotation: nothing on the
-site yet says who the trio were, what their South African following actually
-consisted of, or why a British group would have one there at all. Likely
-documented in British music-press and jazz-history sources (their Vocalion
-and CBS releases, contemporary reviews, later reissue notes and interviews
-with the surviving members), none of them South African, so the proxy's
-block on South African news sites should not be the limiting factor; the
-specific "cult following in South Africa" claim may prove to be the harder,
-less-sourced half. Not a repeat of the last four editions' subjects (the
-Criteria session and the band, the letter K against Bodoni and Bodoni Moda,
-the rebuild into volumes, the SAfm broadcast and Rafe Lavine himself).
+- What does the title of the Peddlers' album Three in a Cell actually refer to: the trio, or the sleeve's cell-like cover? No source says.
+- Is Tab Martin, the Peddlers' bassist, still alive? He is last documented as having moved to Portugal.
+- Is Trevor Morais, the Peddlers' first drummer, still alive and working? His Wikipedia entry implies it but nothing dated confirms it.
+- When did the Peddlers actually disband? 1976 is reported only once, uncorroborated.
+- Who engineered, and who exactly produced, the Peddlers' Three in a Cell? Mervyn Conn is named everywhere as producer, but the engineer and any co-producer are reported inconsistently.

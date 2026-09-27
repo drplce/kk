@@ -218,3 +218,74 @@
   reset.addEventListener('click', function () { w.value = 700; o.value = 96; it.checked = false; apply(); });
   apply();
 })();
+
+(function () {
+  // Edition VII instrument: the registration. Nine drawbars, a Hammond-style additive organ, Roy Phillips's instrument.
+  var wrap = document.getElementById('drawbars');
+  if (!wrap) return;
+  var sliders = Array.prototype.slice.call(wrap.querySelectorAll('input[type="range"]'));
+  var playBtn = document.getElementById('db-play');
+  var resetBtn = document.getElementById('db-reset');
+  var recipe = document.getElementById('db-recipe');
+  if (!sliders.length || !playBtn) return;
+  var RATIOS = [0.5, 1.5, 1, 2, 3, 4, 5, 6, 8]; // 16' 5-1/3' 8' 4' 2-2/3' 2' 1-3/5' 1-1/3' 1'
+  var DEFAULTS = [8, 8, 8, 0, 0, 0, 0, 0, 0];
+  var FUND = 220;
+  var ctx, master, gains = [];
+
+  function ensureAudio() {
+    if (ctx) return;
+    var AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return;
+    ctx = new AC();
+    master = ctx.createGain();
+    master.gain.value = 0;
+    master.connect(ctx.destination);
+    RATIOS.forEach(function (r, i) {
+      var osc = ctx.createOscillator();
+      osc.type = 'sine';
+      osc.frequency.value = FUND * r;
+      var g = ctx.createGain();
+      g.gain.value = (parseInt(sliders[i].value, 10) / 8) * 0.11;
+      osc.connect(g); g.connect(master);
+      osc.start();
+      gains.push(g);
+    });
+  }
+
+  function updateGains() {
+    sliders.forEach(function (s, i) {
+      if (gains[i]) gains[i].gain.value = (parseInt(s.value, 10) / 8) * 0.11;
+    });
+    if (recipe) recipe.textContent = sliders.map(function (s) { return s.value; }).join(' ');
+  }
+
+  var playing = false;
+  function setPlaying(on) {
+    ensureAudio();
+    if (!ctx) return;
+    if (ctx.state === 'suspended') ctx.resume();
+    playing = on;
+    master.gain.cancelScheduledValues(ctx.currentTime);
+    master.gain.linearRampToValueAtTime(on ? 1 : 0, ctx.currentTime + (on ? 0.03 : 0.15));
+    playBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
+  }
+  playBtn.addEventListener('pointerdown', function () { setPlaying(true); });
+  playBtn.addEventListener('pointerup', function () { setPlaying(false); });
+  playBtn.addEventListener('pointerleave', function () { if (playing) setPlaying(false); });
+  playBtn.addEventListener('pointercancel', function () { if (playing) setPlaying(false); });
+  playBtn.addEventListener('keydown', function (e) {
+    if ((e.key === ' ' || e.key === 'Enter') && !playing) { setPlaying(true); e.preventDefault(); }
+  });
+  playBtn.addEventListener('keyup', function (e) {
+    if (e.key === ' ' || e.key === 'Enter') setPlaying(false);
+  });
+  sliders.forEach(function (s) { s.addEventListener('input', updateGains); });
+  if (resetBtn) {
+    resetBtn.addEventListener('click', function () {
+      sliders.forEach(function (s, i) { s.value = DEFAULTS[i]; });
+      updateGains();
+    });
+  }
+  updateGains();
+})();
