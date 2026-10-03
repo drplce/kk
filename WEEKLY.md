@@ -106,3 +106,5 @@ so confirm the push landed with `git ls-remote origin main` matching your HEAD,
 and trust Pages to deploy it (it has for every edition so far; both runs take
 under a minute). Finish with a short note of what the edition did, what it
 found, and what it could not find.
+
+Publish path verified end to end on 2026-10-03: a push to a claude/* branch fast-forwarded main and deployed Pages.
