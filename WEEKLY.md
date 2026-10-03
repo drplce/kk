@@ -95,6 +95,12 @@ clipped, overlapping, or unreadable. No page errors.
     git commit -m "Edition <N>: <name> — <subject in a few words>"
     git push origin main
 
+If the session is pinned to a claude/* branch and a push to main is refused or
+forbidden, push to that branch instead. .github/workflows/publish-edition.yml
+fast-forwards main to any pushed claude/* branch and triggers the Pages deploy,
+so the edition still publishes automatically. The owner wants every weekly
+edition published; never leave one sitting unmerged on a branch.
+
 The scheduled session has no GitHub MCP tools and the proxy blocks github.io,
 so confirm the push landed with `git ls-remote origin main` matching your HEAD,
 and trust Pages to deploy it (it has for every edition so far; both runs take

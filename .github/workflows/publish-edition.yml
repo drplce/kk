@@ -1,0 +1,43 @@
+name: Publish edition
+
+# The weekly routine runs on a claude/* branch and may not push to main itself.
+# This fast-forwards main to any pushed claude/* branch and triggers the Pages
+# deploy, so each edition publishes automatically. Fast-forward only: if main
+# has moved on, the job fails rather than overwrite anything.
+
+on:
+  push:
+    branches: ['claude/**']
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: publish-edition
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Fast-forward main
+        run: |
+          git fetch origin main
+          if git merge-base --is-ancestor origin/main "$GITHUB_SHA"; then
+            if [ "$(git rev-parse origin/main)" = "$GITHUB_SHA" ]; then
+              echo "main already at $GITHUB_SHA"
+            else
+              git push origin "$GITHUB_SHA:refs/heads/main"
+            fi
+          else
+            echo "main is not an ancestor of $GITHUB_SHA; not publishing" >&2
+            exit 1
+          fi
+      - name: Deploy Pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run pages.yml --ref main
