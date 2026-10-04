@@ -12,7 +12,7 @@ researches (subject and reason) and again when it ships (what changed).
 | V | Criteria | 2026-09-14 | Pick Up the Pieces at Criteria Studios, Miami: the session across three studios, the horn solo, and Robbie McIntosh's death | Rust-and-tape palette, sprocket-edge rules | The band, 1974: click-to-open roster |
 | VI | Kappa | 2026-09-20 | Giambattista Bodoni's own K, against the K in Bodoni Moda: what classical Latin and modern Italian both do without | Paper and cinnabar, thick-and-hairline rule | Live specimen: the site's variable K, weight and optical size adjustable |
 | VII | Registration | 2026-09-27 | The Peddlers and their reported cult following in South Africa: the band's real history, from a Joe Meek session to Three in a Cell to Roy Phillips's New Zealand years, tested against a claim the site could not corroborate | Petrol-teal and brass, drawbar comb under the nav | Working Hammond-style drawbar registration, set and sounded in the browser |
-| VIII | Heel | 2026-10-04 | The name Kobus: from Hebrew Yaʿaqov through Jakobus to the short form, how far it travels, and who bears it (chosen from the open pool: "The name Kobus: how far it travels, where it started, notable bearers beyond Wiese and Moolman"; chapter I says only two lines about it) | in progress | in progress |
+| VIII | Heel | 2026-10-04 | The name Kobus: from Hebrew Yaʿaqov through Jakobus to the short form, how far it travels, and who bears it (chosen from the open pool: "The name Kobus: how far it travels, where it started, notable bearers beyond Wiese and Moolman"; chapter I says only two lines about it) | Delft blue and cream, tile border under the nav | Wear the name down: a slider along the Dutch and Romance roads of Jacob |
 
 ## Open questions (the pool)
 
@@ -23,7 +23,7 @@ line through an item when an edition answers it, and say which.
 - Was the mystery-song feature called Beat the Beat? Rules, prizes, slot?
 - What date was the broadcast? Other callers that day: Trevor Worley, Ed, Martin Lake, Charles Mitchell, Ben.
 - ~~Pick Up the Pieces at Criteria Studios, Miami, 1974: the session, the sax solo, Arif Mardin's role.~~ Answered in Edition V: three studios (Clover, Hollywood; Criteria, Miami; Atlantic, New York), Mardin producing, the tenor solo Molly Duncan's over Roger Ball's alto.
-- The name Kobus: how far it travels, where it started, notable bearers beyond Wiese and Moolman.
+- ~~The name Kobus: how far it travels, where it started, notable bearers beyond Wiese and Moolman.~~ Investigated in Edition VIII: the chain Yaʿaqov, Iákōbos, Iacobus, Jacobus, Kobus is consistent in every extract, and seven other bearers are listed; the first written Kobus, the earliest Cape bearer and any sourced frequency could not be found (all sources were search extracts; the proxy blocked the pages).
 - Ó Cinnéide of Munster to the Cape: the surname's route to South Africa.
 - ~~Giambattista Bodoni's K against Bodoni Moda's K.~~ Investigated in Edition VI: no source describes a K cut by Bodoni himself or confirms one appeared in his Italian roman specimens; standard Italian has no native K at all, so he may never have needed one, and every digital revival, including Bodoni Moda, drew one anyway.
 - SAfm in the 1990s: sound, schedule, presenters, before the 2004 cull.
@@ -41,3 +41,8 @@ line through an item when an edition answers it, and say which.
 - Is Trevor Morais, the Peddlers' first drummer, still alive and working? His Wikipedia entry implies it but nothing dated confirms it.
 - When did the Peddlers actually disband? 1976 is reported only once, uncorroborated.
 - Who engineered, and who exactly produced, the Peddlers' Three in a Cell? Mervyn Conn is named everywhere as producer, but the engineer and any co-producer are reported inconsistently.
+- When is Kobus first written in a Dutch record, and who is the earliest bearer of Jacobus or Kobus at the Cape?
+- Is Kobus a short form or a diminutive of Jacobus, and does Koos descend from Jacobus directly or by way of Kobus?
+- How common is Kobus today in South Africa, Namibia and the Netherlands? (Meertens Voornamenbank, Statistics South Africa.)
+- The Afrikaans pronunciation of Kobus from a dictionary: chapter II's IPA is unsourced and the only sourced IPA found is Dutch.
+- Is the heel (Genesis 25:26) or "may God protect" the original sense of Yaʿaqov? Sources disagree.

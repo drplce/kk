@@ -289,3 +289,52 @@
   }
   updateGains();
 })();
+
+(function () {
+  // Edition VIII instrument: wear the name down. Two roads from Jacob, each stop a reported form.
+  var root = document.getElementById('wear');
+  if (!root) return;
+  var range = document.getElementById('wear-range');
+  var form = document.getElementById('wear-form');
+  var lang = document.getElementById('wear-lang');
+  var note = document.getElementById('wear-note');
+  var step = document.getElementById('wear-step');
+  var bar = document.getElementById('wear-bar');
+  var count = document.getElementById('wear-count');
+  var radios = Array.prototype.slice.call(root.querySelectorAll('input[name="wear-road"]'));
+  if (!range || !form || !radios.length) return;
+  var ROADS = {
+    dutch: [
+      ['Yaʿaqov', 'Biblical Hebrew', 'The start. Genesis explains it from the heel; scholars call that a folk etymology and the true origin uncertain.'],
+      ['Ἰάκωβος', 'Ancient Greek, Iákōbos', 'The Greek form, the one the New Testament uses.'],
+      ['Iacobus', 'Latin', 'The Latin form. The road splits here.'],
+      ['Jacobus', 'Dutch and Afrikaans', 'The Latin shape kept whole, with the J that later spelling gave it.'],
+      ['Kobus', 'Afrikaans, also Cobus', 'The front syllable cut off. Wikipedia calls it a short form, now primarily Afrikaans. Koos, Jaap and Japie are sisters cut other ways.']
+    ],
+    romance: [
+      ['Yaʿaqov', 'Biblical Hebrew', 'The start. Genesis explains it from the heel; scholars call that a folk etymology and the true origin uncertain.'],
+      ['Ἰάκωβος', 'Ancient Greek, Iákōbos', 'The Greek form, the one the New Testament uses.'],
+      ['Iacobus', 'Latin', 'The Latin form. The road splits here.'],
+      ['Iacomus', 'Vulgar Latin', 'The spoken form, reported as an altered pronunciation of Iacobus.'],
+      ['James', 'Old French, then English', 'Wiktionary gives English James as from Old French James, from Vulgar Latin Iacomus. Jacques and Santiago are listed as doublets.']
+    ]
+  };
+  function road() { var r = 'dutch'; radios.forEach(function (x) { if (x.checked) r = x.value; }); return ROADS[r]; }
+  function letters(s) { return Array.from(s).length; }
+  function render() {
+    var list = road();
+    var i = Math.min(parseInt(range.value, 10) || 0, list.length - 1);
+    var st = list[i];
+    form.textContent = st[0];
+    lang.textContent = st[1];
+    note.textContent = st[2];
+    step.textContent = (i + 1) + ' of ' + list.length;
+    var max = Math.max.apply(null, list.map(function (x) { return letters(x[0]); }));
+    var n = letters(st[0]);
+    bar.style.width = Math.round((n / max) * 100) + '%';
+    count.textContent = 'Letters: ' + n;
+  }
+  range.addEventListener('input', render);
+  radios.forEach(function (r) { r.addEventListener('change', render); });
+  render();
+})();
