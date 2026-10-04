@@ -12,6 +12,7 @@ researches (subject and reason) and again when it ships (what changed).
 | V | Criteria | 2026-09-14 | Pick Up the Pieces at Criteria Studios, Miami: the session across three studios, the horn solo, and Robbie McIntosh's death | Rust-and-tape palette, sprocket-edge rules | The band, 1974: click-to-open roster |
 | VI | Kappa | 2026-09-20 | Giambattista Bodoni's own K, against the K in Bodoni Moda: what classical Latin and modern Italian both do without | Paper and cinnabar, thick-and-hairline rule | Live specimen: the site's variable K, weight and optical size adjustable |
 | VII | Registration | 2026-09-27 | The Peddlers and their reported cult following in South Africa: the band's real history, from a Joe Meek session to Three in a Cell to Roy Phillips's New Zealand years, tested against a claim the site could not corroborate | Petrol-teal and brass, drawbar comb under the nav | Working Hammond-style drawbar registration, set and sounded in the browser |
+| VIII | Heel | 2026-10-04 | The name Kobus: from Hebrew Yaʿaqov through Jakobus to the short form, how far it travels, and who bears it (chosen from the open pool: "The name Kobus: how far it travels, where it started, notable bearers beyond Wiese and Moolman"; chapter I says only two lines about it) | in progress | in progress |
 
 ## Open questions (the pool)
 
