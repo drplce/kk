@@ -338,3 +338,75 @@
   radios.forEach(function (r) { r.addEventListener('change', render); });
   render();
 })();
+
+(function () {
+  // Edition IX instrument: the retelling. Twelve invented tellers; the photographed figure grows with each
+  // one, and each version is scored against the first by plain word overlap. Everything but the score is fiction.
+  var root = document.getElementById('retell');
+  if (!root) return;
+  var range = document.getElementById('retell-range');
+  var img = document.getElementById('retell-img');
+  var teller = document.getElementById('retell-teller');
+  var text = document.getElementById('retell-text');
+  var size = document.getElementById('retell-size');
+  var share = document.getElementById('retell-share');
+  var step = document.getElementById('retell-step');
+  var next = document.getElementById('retell-next');
+  var reset = document.getElementById('retell-reset');
+  if (!range || !img || !text) return;
+  var T = [
+    ['Hen, who kept the shop', 'a fist', 'Wolf melted the last pat of fat and poured it into the shape of Pig Man. It sat in the case. It was about the size of a fist.'],
+    ['A customer, next morning', 'a small loaf', 'Wolf made a little pig out of the last of the fat. About the size of a loaf. It had a face.'],
+    ['A farmhand in the water queue', 'a loaf and a half', 'The pig in the case looks at you. Not when you look at it. When you stop.'],
+    ['The farmhand’s wife', 'a bucket', 'It wears a waistcoat. Wolf never put that on. It came with the pig.'],
+    ['A child in a school yard', 'a goat', 'Wolf cut it with a knife and it got bigger where he cut it.'],
+    ['A lorry driver two districts over', 'a calf', 'Every night Wolf stood guard it grew a hand’s width, and Wolf stood guard for forty nights.'],
+    ['A man at a bar in a bigger town', 'a cow', 'It was never a pat. It was a ton of fat, and Wolf had to build a bigger case.'],
+    ['The same man, later that night', 'a bakkie', 'The case is the size of the church hall now, and the church holds its services in the shop.'],
+    ['A caller to a late-night radio show', 'a house', 'Pig Man Fat laughed once and the rain came, and it has not stopped being his fault.'],
+    ['A letter to a newspaper', 'a koppie', 'The pig was never in the case. The case was in the pig.'],
+    ['A lecturer, with a slide', 'the valley', 'There was no Smeerkloof until there was Pig Man Fat. The valley is what grew around him.'],
+    ['Nobody in particular', 'everything', 'Somebody, long ago, told it once, and it has not stopped telling itself since.']
+  ];
+  function words(s) {
+    var seen = {}, out = [];
+    s.toLowerCase().replace(/[’']/g, '').split(/[^a-z]+/).forEach(function (w) {
+      if (w && !seen[w]) { seen[w] = 1; out.push(w); }
+    });
+    return out;
+  }
+  var first = words(T[0][2]);
+  function overlap(i) {
+    var here = words(T[i][2]), have = {};
+    here.forEach(function (w) { have[w] = 1; });
+    var n = 0;
+    first.forEach(function (w) { if (have[w]) n++; });
+    return Math.round((n / first.length) * 100);
+  }
+  function render() {
+    var i = Math.max(0, Math.min(T.length - 1, parseInt(range.value, 10) || 0));
+    teller.textContent = 'Telling ' + (i + 1) + ': ' + T[i][0];
+    text.textContent = T[i][2];
+    size.textContent = T[i][1];
+    share.textContent = overlap(i) + '%';
+    step.textContent = (i + 1) + ' of ' + T.length;
+    // 16% of the frame's height at the first telling, 150% (cropped) at the last.
+    img.style.height = (16 * Math.pow(150 / 16, i / (T.length - 1))).toFixed(1) + '%';
+  }
+  range.addEventListener('input', render);
+  if (next) next.addEventListener('click', function () {
+    var i = parseInt(range.value, 10) || 0;
+    range.value = i >= T.length - 1 ? 0 : i + 1;
+    render();
+  });
+  if (reset) reset.addEventListener('click', function () { range.value = 0; render(); });
+  render();
+})();
+
+(function () {
+  // The nav list scrolls on narrow screens; bring the current page's link into view.
+  var cur = document.querySelector('.nav ul a[aria-current="page"]');
+  var ul = cur && cur.closest('ul');
+  if (!ul || ul.scrollWidth <= ul.clientWidth) return;
+  ul.scrollLeft = cur.offsetLeft - (ul.clientWidth - cur.offsetWidth) / 2;
+})();

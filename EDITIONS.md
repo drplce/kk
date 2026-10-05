@@ -13,6 +13,7 @@ researches (subject and reason) and again when it ships (what changed).
 | VI | Kappa | 2026-09-20 | Giambattista Bodoni's own K, against the K in Bodoni Moda: what classical Latin and modern Italian both do without | Paper and cinnabar, thick-and-hairline rule | Live specimen: the site's variable K, weight and optical size adjustable |
 | VII | Registration | 2026-09-27 | The Peddlers and their reported cult following in South Africa: the band's real history, from a Joe Meek session to Three in a Cell to Roy Phillips's New Zealand years, tested against a claim the site could not corroborate | Petrol-teal and brass, drawbar comb under the nav | Working Hammond-style drawbar registration, set and sounded in the browser |
 | VIII | Heel | 2026-10-04 | The name Kobus: from Hebrew Yaʿaqov through Jakobus to the short form, how far it travels, and who bears it (chosen from the open pool: "The name Kobus: how far it travels, where it started, notable bearers beyond Wiese and Moolman"; chapter I says only two lines about it) | Delft blue and cream, tile border under the nav | Wear the name down: a slider along the Dutch and Romance roads of Jacob |
+| IX | Render | 2026-10-05 | Special edition, commissioned: Pig Man Fat (PMF). Searched in Place and on the web, nothing found, so an invented legend (clearly labelled fiction) after Br'er Rabbit and the Cape's Jackal and Wolf tales, with a real-facts chapter (Kin) | Lard cream, cured red and rendered gold, Abril Fatface headings (a fat face), drip border | The Retelling: a slider through twelve invented tellers, the supplied photo growing, a real word-overlap score |
 
 ## Open questions (the pool)
 
@@ -46,3 +47,5 @@ line through an item when an edition answers it, and say which.
 - How common is Kobus today in South Africa, Namibia and the Netherlands? (Meertens Voornamenbank, Statistics South Africa.)
 - The Afrikaans pronunciation of Kobus from a dictionary: chapter II's IPA is unsourced and the only sourced IPA found is Dutch.
 - Is the heel (Genesis 25:26) or "may God protect" the original sense of Yaʿaqov? Sources disagree.
+- What is the figure in Volume IV's plate made of, who made it, and where and when was the photograph taken? Not supplied, not visible in the image.
+- Is Pig Man Fat, or PMF, a saying anywhere outside the family that uses it? Nothing in the Place archive or in four web searches (Edition IX); absence is not proof.

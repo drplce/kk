@@ -18,7 +18,8 @@ Budget the session generously. A good edition takes a few hours of agent time.
 
 ## 2. Choose one subject
 
-Pick exactly one. Prefer, in order:
+Pick exactly one. Volume IV (Pig Man Fat) is commissioned fiction and is not
+a subject for research. Prefer, in order:
 
 1. An open question in EDITIONS.md that research can plausibly answer.
 2. A person, record, place or word already on the site with more to give.
@@ -73,7 +74,7 @@ row as open, not into the running text as fact.
     const { chromium } = require('playwright');
     (async () => {
       const b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell' });
-      for (const f of ['index','name','broadcast','presenter','editions']) {
+      for (const f of ['index','name','broadcast','presenter','pmf','editions']) {
         const p = await b.newPage({ viewport: { width: 1280, height: 900 } });
         p.on('pageerror', e => console.log(f, 'pageerror:', e.message));
         await p.goto('file:///home/user/kk/' + f + '.html'); await p.waitForTimeout(600);

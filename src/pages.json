@@ -1,12 +1,12 @@
 {
-  "edition": "Edition VIII · Heel · October 2026",
+  "edition": "Edition IX · Render · October 2026",
   "pages": [
     {
       "slug": "index",
       "file": "index.html",
       "title": "Kobus Kennedy",
       "description": "A monograph on the name Kobus Kennedy, in volumes: the name, a broadcast from SAfm, and the presenter who read it out.",
-      "spine": "Kobus Kennedy · Edition VIII",
+      "spine": "Kobus Kennedy · Edition IX",
       "sections": ["hero", "onair", "volumes", "builder", "latest"]
     },
     {
@@ -32,6 +32,14 @@
       "description": "Volume III. Rafe Lavine: thirty years of South African radio, his SAfm programmes, his ten records, the Peddlers he named among them, and what could be checked.",
       "spine": "Vol. III · The Presenter",
       "sections": ["presenter", "peddlers"]
+    },
+    {
+      "slug": "pmf",
+      "file": "pmf.html",
+      "title": "Pig Man Fat · Kobus Kennedy",
+      "description": "Volume IV, a special edition of invented fiction: Pig Man Fat, a tall tale in the manner of Br'er Rabbit and the Jackal and Wolf stories, retold twelve times, with the real traditions behind it and what could not be found.",
+      "spine": "Vol. IV · The Legend",
+      "sections": ["pmf", "pmf-tale", "pmf-retell", "pmf-kin"]
     },
     {
       "slug": "editions",

@@ -15,8 +15,9 @@ working in the repository.
     assets/edition.css      the current edition's treatment (palette, face, flourish)
     assets/site.js          reveal, the broadcast player, tabs, the monogram builder
     beat-the-beat-1974.mp3  the SAfm recording the player plays
+    assets/pmf.jpg         the owner's photograph, plate for Volume IV
     build.py                assembles src/ into the root HTML pages
-    index.html, name.html, broadcast.html, presenter.html, editions.html
+    index.html, name.html, broadcast.html, presenter.html, pmf.html, editions.html
                             GENERATED. Never edit by hand; edit src/ and rebuild.
     EDITIONS.md             the edition log and the pool of open questions
     WEEKLY.md               the weekly expansion procedure
@@ -46,6 +47,11 @@ Do not delete the recording, the source sections, or the editions log.
   the family. When something cannot be verified, the page says so in a
   "what was checked" or "not found" row. Never invent a date, a name, a quote,
   or a programme title. Unclear audio is labelled unclear.
+- One exception, by the owner's commission: Volume IV (Pig Man Fat, pmf.html,
+  Edition IX) is invented fiction. It is labelled as fiction on the page, its
+  chapter XVII holds the real facts, and nothing in it may be cited as a fact
+  elsewhere on the site. Do not extend the exception to any other page, and do
+  not treat PMF as a research subject for the weekly routine.
 - Use they/them for anyone whose pronouns are not stated. Rafe Lavine is
   referred to as he in his own press coverage; that is fine.
 - Copy is plain, specific, and a little dry. Sentences carry a verb. No

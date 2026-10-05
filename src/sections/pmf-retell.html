@@ -1,0 +1,32 @@
+  <section id="retelling" class="retelling">
+    <div class="wrap">
+      <p class="label chapter"><span class="num">XVI</span> The Retelling</p>
+      <div class="letters-head">
+        <h2 class="display">Tell it again</h2>
+        <p>The tale says the pig grew with every telling. This instrument lets you check. Move along twelve invented tellers and watch the figure in the case, and the version of the story, grow.</p>
+      </div>
+
+      <div class="retell reveal" id="retell" data-retell>
+        <div class="retell-frame" aria-hidden="true">
+          <img id="retell-img" src="assets/pmf.jpg" alt="" width="960" height="1280">
+          <span class="retell-floor"></span>
+        </div>
+        <div class="retell-body" aria-live="polite">
+          <p class="label retell-teller" id="retell-teller">Teller</p>
+          <p class="retell-text" id="retell-text"></p>
+          <dl class="retell-stats">
+            <div><dt class="label">Size, as told</dt><dd class="display" id="retell-size"></dd></div>
+            <div><dt class="label">Words shared with the first telling</dt><dd class="display" id="retell-share"></dd></div>
+          </dl>
+        </div>
+        <label class="wear-slide retell-slide">Telling <output id="retell-step" for="retell-range">1 of 12</output>
+          <input type="range" id="retell-range" min="0" max="11" step="1" value="0">
+        </label>
+        <div class="retell-buttons">
+          <button type="button" class="retell-btn label" id="retell-next">Tell it again</button>
+          <button type="button" class="retell-btn label" id="retell-reset">Back to the first telling</button>
+        </div>
+        <p class="retell-note">The tellers, the sizes and the sentences are all invented. The one real number is the last one: it counts how many different words in the first telling still appear in the telling you are looking at, a plain word-for-word overlap, worked out in your browser.</p>
+      </div>
+    </div>
+  </section>
