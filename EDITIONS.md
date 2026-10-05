@@ -49,3 +49,5 @@ line through an item when an edition answers it, and say which.
 - Is the heel (Genesis 25:26) or "may God protect" the original sense of Yaʿaqov? Sources disagree.
 - What is the figure in Volume IV's plate made of, who made it, and where and when was the photograph taken? Not supplied, not visible in the image.
 - Is Pig Man Fat, or PMF, a saying anywhere outside the family that uses it? Nothing in the Place archive or in four web searches (Edition IX); absence is not proof.
+- I give you my pink car? (Added by the owner, verbatim; no context supplied.)
+- light the Lampoon’s. (Added by the owner, verbatim; no context supplied.)

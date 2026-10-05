@@ -410,3 +410,13 @@
   if (!ul || ul.scrollWidth <= ul.clientWidth) return;
   ul.scrollLeft = cur.offsetLeft - (ul.clientWidth - cur.offsetWidth) / 2;
 })();
+
+(function () {
+  // Keep the open-questions tally honest as the list grows: struck-through items count as answered.
+  var out = document.getElementById('open-count');
+  var items = document.querySelectorAll('.open-q > li');
+  if (!out || !items.length) return;
+  var done = 0;
+  Array.prototype.forEach.call(items, function (li) { if (li.querySelector('s')) done++; });
+  out.textContent = items.length + ' questions: ' + done + ' answered or investigated, ' + (items.length - done) + ' still open.';
+})();
