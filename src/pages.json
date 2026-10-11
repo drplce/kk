@@ -1,21 +1,21 @@
 {
-  "edition": "Edition IX · Render · October 2026",
+  "edition": "Edition X · Tiles · October 2026",
   "pages": [
     {
       "slug": "index",
       "file": "index.html",
       "title": "Kobus Kennedy",
       "description": "A monograph on the name Kobus Kennedy, in volumes: the name, a broadcast from SAfm, and the presenter who read it out.",
-      "spine": "Kobus Kennedy · Edition IX",
+      "spine": "Kobus Kennedy · Edition X",
       "sections": ["hero", "onair", "volumes", "builder", "latest"]
     },
     {
       "slug": "name",
       "file": "name.html",
       "title": "The Name · Kobus Kennedy",
-      "description": "Volume I. Ten chapters on twelve letters: origins, sound, anatomy, letters, figures, the monogram, company, weight, the K neither language handed Bodoni for free, and the first name's long road from a heel.",
+      "description": "Volume I. Eleven chapters on twelve letters: origins, sound, anatomy, letters, figures, the monogram, company, weight, the K neither language handed Bodoni for free, the first name's long road from a heel, and what the name scores on a Scrabble board.",
       "spine": "Vol. I · The Name",
-      "sections": ["name", "contents", "origins", "sound", "anatomy", "letters", "figures", "mark", "company", "weight", "kappa", "kobus"]
+      "sections": ["name", "contents", "origins", "sound", "anatomy", "letters", "figures", "mark", "company", "weight", "kappa", "kobus", "tiles"]
     },
     {
       "slug": "broadcast",

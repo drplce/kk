@@ -7,78 +7,86 @@
  *   - one signature flourish (the spine, a texture, a running head, a border).
  * Keep contrast legible in both themes and keep the KK monogram recognisable.
  *
- * Edition IX · Render · 5 October 2026 (a special edition)
- * Treatment: lard. A cream ground, a cured-meat red for the accent, and a
- * rendered-fat gold for the lamp. Headings move to a fat face, Abril Fatface,
- * the typographic sense of the word; the monogram stays in Bodoni Moda so the
- * KK mark survives. Signature flourish: a row of golden drips hanging from the
- * nav, and a single drop on every divider. Interactive component: chapter XVI's
- * retelling slider, which grows the photographed figure with each invented
- * telling and scores each version against the first.
+ * Edition X · Tiles · 11 October 2026
+ * Treatment: the Scrabble board. A pale felt-green ground, near-black green ink,
+ * a triple-word red for the accent and the tile's own wood for the lamp. Headings
+ * move to Archivo Black, a heavy grotesque in the manner of a tile's letter; the
+ * monogram stays in Bodoni Moda so the KK mark survives. Signature flourish: a
+ * row of letter tiles under the nav, and a small tile on every divider.
+ * Interactive component: chapter XVIII's board, which scores any word placed on
+ * the standard premium squares.
+ * Earlier editions' instruments and their styles are kept below.
  */
 :root {
-  --edition: "IX";
-  --edition-name: "Render";
-  --display: "Abril Fatface", "Bodoni Moda", "Didot", serif;
+  --edition: "X";
+  --edition-name: "Tiles";
+  --display: "Archivo Black", "Bodoni Moda", "Didot", sans-serif;
 }
 
 :root {
-  --bg: #F7F0DF;
-  --bg-2: #EEE3C8;
-  --ink: #2B1D17;
-  --ink-2: #5A4338;
-  --muted: #7F6A5B;
-  --rule: #DCCDB0;
-  --accent: #A93441;
-  --accent-soft: rgba(169, 52, 65, 0.10);
-  --nav-bg: rgba(247, 240, 223, 0.88);
-  --lamp: #D9A233;
-  --lamp-glow: rgba(217, 162, 51, 0.35);
-  --wave: #D8C7A5;
+  --bg: #EDF0E3;
+  --bg-2: #DFE5D3;
+  --ink: #14231B;
+  --ink-2: #3B4A40;
+  --muted: #5F6E64;
+  --rule: #C4CDB8;
+  --accent: #B4322B;
+  --accent-soft: rgba(180, 50, 43, 0.10);
+  --nav-bg: rgba(237, 240, 227, 0.9);
+  --lamp: #C79A4A;
+  --lamp-glow: rgba(199, 154, 74, 0.35);
+  --wave: #BFC9B2;
+  --tile: #F1DDB0;
+  --tile-edge: #B58F4E;
+  --tile-ink: #1B2A22;
   color-scheme: light;
 }
 :root[data-theme="dark"] {
-  --bg: #1C1410;
-  --bg-2: #261B15;
-  --ink: #F3E8D2;
-  --ink-2: #CDBBA2;
-  --muted: #A18C76;
-  --rule: #3B2C22;
-  --accent: #EE8A94;
-  --accent-soft: rgba(238, 138, 148, 0.16);
-  --nav-bg: rgba(28, 20, 16, 0.88);
-  --lamp: #E8B94F;
-  --lamp-glow: rgba(232, 185, 79, 0.4);
-  --wave: #4A382B;
+  --bg: #0F1C16;
+  --bg-2: #16271F;
+  --ink: #EAF0E2;
+  --ink-2: #BFCDBF;
+  --muted: #92A396;
+  --rule: #2B3F34;
+  --accent: #F0877B;
+  --accent-soft: rgba(240, 135, 123, 0.16);
+  --nav-bg: rgba(15, 28, 22, 0.9);
+  --lamp: #D9B36C;
+  --lamp-glow: rgba(217, 179, 108, 0.4);
+  --wave: #2F4639;
+  --tile: #D9BE86;
+  --tile-edge: #8E6F35;
+  --tile-ink: #14231B;
   color-scheme: dark;
 }
 
-/* The fat face. Abril Fatface has one weight, so every heading asks for 400. */
+/* The heavy grotesque. Archivo Black has one weight, so every heading asks for 400. */
 .display, .toc .num, .toc .ttl, .editions-list .num, .letters-head h2,
 .bearers .rec, .hero-name, .wear-form { font-family: var(--display); font-weight: 400; letter-spacing: 0; }
-.display { line-height: 1.02; }
+.display { line-height: 1.05; }
+.hero-name { font-size: clamp(2.6rem, 8.5vw, 6.5rem); overflow-wrap: anywhere; }
+.monogram .k, .nav .mark span, .foot-mark span { font-family: "Bodoni Moda", "Didot", serif; }
 
-/* Signature flourish: drips of rendered fat hanging from the nav. */
+/* Signature flourish: a row of letter tiles under the nav. */
 .nav { position: fixed; }
 .nav::after {
   content: "";
-  position: absolute; left: 0; right: 0; top: 100%; height: 26px;
+  position: absolute; left: 0; right: 0; top: 100%; height: 24px;
   pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='26' viewBox='0 0 96 26'%3E%3Cpath fill='%23D9A233' d='M0 0H96V5C90 5 90 9 88 14C87 23 77 23 76 14C74 9 74 5 66 5C58 5 58 7 56 10C55 17 47 17 46 10C44 7 44 5 36 5C28 5 28 11 26 20C25 27 15 27 14 20C12 11 12 5 6 5C3 5 0 5 0 5Z'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='24' viewBox='0 0 28 24'%3E%3Crect x='3' y='0' width='22' height='20' rx='2.5' fill='%23F1DDB0' stroke='%23B58F4E' stroke-width='1.5'/%3E%3Ctext x='12' y='15' font-family='Arial,Helvetica,sans-serif' font-weight='700' font-size='13' fill='%231B2A22' text-anchor='middle'%3EK%3C/text%3E%3Ctext x='20.5' y='17' font-family='Arial,Helvetica,sans-serif' font-weight='700' font-size='6' fill='%231B2A22' text-anchor='middle'%3E5%3C/text%3E%3C/svg%3E");
   background-repeat: repeat-x;
-  background-size: 96px 26px;
-  opacity: 0.9;
+  background-size: 28px 24px;
 }
 :root[data-theme="dark"] .nav::after {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='26' viewBox='0 0 96 26'%3E%3Cpath fill='%23E8B94F' d='M0 0H96V5C90 5 90 9 88 14C87 23 77 23 76 14C74 9 74 5 66 5C58 5 58 7 56 10C55 17 47 17 46 10C44 7 44 5 36 5C28 5 28 11 26 20C25 27 15 27 14 20C12 11 12 5 6 5C3 5 0 5 0 5Z'/%3E%3C/svg%3E");
-  opacity: 0.8;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='24' viewBox='0 0 28 24'%3E%3Crect x='3' y='0' width='22' height='20' rx='2.5' fill='%23D9BE86' stroke='%238E6F35' stroke-width='1.5'/%3E%3Ctext x='12' y='15' font-family='Arial,Helvetica,sans-serif' font-weight='700' font-size='13' fill='%2314231B' text-anchor='middle'%3EK%3C/text%3E%3Ctext x='20.5' y='17' font-family='Arial,Helvetica,sans-serif' font-weight='700' font-size='6' fill='%2314231B' text-anchor='middle'%3E5%3C/text%3E%3C/svg%3E");
+  opacity: 0.9;
 }
 hr.rule { position: relative; overflow: visible; }
 hr.rule::after {
   content: "";
-  position: absolute; left: 50%; top: -5px; width: 10px; height: 10px; margin-left: -5px;
-  border-radius: 50% 50% 50% 0; transform: rotate(-45deg);
-  background: var(--lamp);
+  position: absolute; left: 50%; top: -7px; width: 14px; height: 14px; margin-left: -7px;
+  border-radius: 2px; transform: rotate(0deg);
+  background: var(--tile); border: 1.5px solid var(--tile-edge);
 }
 
 /* ---------- Volume IV: Pig Man Fat ---------- */
@@ -170,3 +178,37 @@ hr.rule::after {
 .nav ul a { white-space: nowrap; }
 @media (max-width: 40rem) { .nav { gap: 1rem; } .nav ul { min-width: 0; } }
 main > section[id] { scroll-margin-top: 4.5rem; }
+
+/* ---------- chapter XVIII: the board (this edition's instrument) ---------- */
+.board-tool { border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 1.75rem 0 2rem; display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 1.5rem clamp(1.5rem, 4vw, 3rem); align-items: start; }
+.bd-controls { grid-column: 1 / -1; display: grid; gap: 0.75rem; }
+.bd-field { display: grid; gap: 0.4rem; font-family: "Karla", sans-serif; font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+.bd-field input { font-family: var(--display); font-size: 1.6rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.4rem 0.6rem; border: 1px solid var(--ink); background: var(--bg); color: var(--ink); max-width: 22rem; }
+.bd-presets { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.bd-controls .wear-roads { margin-bottom: 0; }
+.bd-grid { display: grid; grid-template-columns: repeat(15, minmax(0, 1fr)); gap: 1px; background: var(--ink); border: 2px solid var(--ink); aspect-ratio: 1; width: 100%; }
+.bd-sq { position: relative; margin: 0; padding: 0; border: 0; border-radius: 0; background: var(--bg-2); color: var(--ink-2); font-family: "Karla", sans-serif; font-weight: 600; font-size: clamp(0.4rem, 1.3vw, 0.7rem); line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; min-width: 0; overflow: hidden; }
+.bd-sq:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; z-index: 2; }
+.bd-sq.p-T { background: #D9554C; color: #fff; }
+.bd-sq.p-D { background: #EFB3AC; color: #5B1713; }
+.bd-sq.p-t { background: #4F83B8; color: #fff; }
+.bd-sq.p-d { background: #A9CCE6; color: #14304A; }
+:root[data-theme="dark"] .bd-sq.p-T { background: #A6362E; }
+:root[data-theme="dark"] .bd-sq.p-D { background: #7E3B37; color: #FBE4E1; }
+:root[data-theme="dark"] .bd-sq.p-t { background: #2F5E8E; }
+:root[data-theme="dark"] .bd-sq.p-d { background: #375A78; color: #E3F0FA; }
+.bd-sq.star { font-size: clamp(0.6rem, 1.8vw, 1rem); }
+.bd-sq.has { font-size: 0; background: var(--tile); color: var(--tile-ink); box-shadow: inset 0 0 0 1px var(--tile-edge); }
+.bd-t { font-family: "Karla", sans-serif; font-weight: 700; font-size: clamp(0.55rem, 2vw, 1.15rem); color: var(--tile-ink); position: relative; line-height: 1; }
+.bd-t sub { position: absolute; right: -0.55em; bottom: -0.35em; font-size: 0.5em; font-weight: 600; }
+.bd-sq.is-blank .bd-t { opacity: 0.8; text-decoration: underline; }
+.bd-side { display: grid; gap: 0.75rem; align-content: start; }
+.bd-side .label { margin: 0; }
+.bd-total { margin: 0; font-size: clamp(3.5rem, 9vw, 6rem); line-height: 1; color: var(--accent); }
+.bd-rack { display: flex; flex-wrap: wrap; gap: 4px; }
+.bd-key { cursor: pointer; margin: 0; padding: 0; width: 2.4rem; height: 2.6rem; position: relative; border: 1.5px solid var(--tile-edge); border-radius: 3px; background: var(--tile); color: var(--tile-ink); font-family: "Karla", sans-serif; font-weight: 700; font-size: 1.2rem; }
+.bd-key sub { position: absolute; right: 3px; bottom: 2px; font-size: 0.55rem; }
+.bd-key.is-blank { background: transparent; border-style: dashed; color: var(--ink); }
+.bd-out { margin: 0; color: var(--ink-2); font-size: 1rem; min-height: 3rem; }
+.bd-warn { margin: 0; color: var(--accent); font-size: 0.95rem; min-height: 1.2rem; }
+@media (max-width: 52rem) { .board-tool { grid-template-columns: 1fr; } }

@@ -420,3 +420,152 @@
   Array.prototype.forEach.call(items, function (li) { if (li.querySelector('s')) done++; });
   out.textContent = items.length + ' questions: ' + done + ' answered or investigated, ' + (items.length - done) + ' still open.';
 })();
+
+(function () {
+  // Edition X instrument: the board. Place a word on a Scrabble board and score it by the standard premium squares.
+  var root = document.querySelector('[data-board]');
+  if (!root) return;
+  var grid = root.querySelector('.bd-grid');
+  var wordIn = root.querySelector('#bd-word');
+  var dirs = root.querySelectorAll('input[name="bd-dir"]');
+  var modes = root.querySelectorAll('input[name="bd-mode"]');
+  var out = root.querySelector('#bd-out');
+  var total = root.querySelector('#bd-total');
+  var posOut = root.querySelector('#bd-pos');
+  var warn = root.querySelector('#bd-warn');
+  var preview = root.querySelector('#bd-rack');
+  var bestBtn = root.querySelector('#bd-best');
+  var presets = root.querySelectorAll('[data-word]');
+
+  var HALF = ['T..d...T...d..T', '.D...t...t...D.', '..D...d.d...D..', 'd..D...d...D..d', '....D.....D....', '.t...t...t...t.', '..d...d.d...d..', 'T..d...D...d..T'];
+  var BOARD = HALF.concat(HALF.slice(0, 7).reverse());
+  var VAL = { A: 1, B: 3, C: 3, D: 2, E: 1, F: 4, G: 2, H: 4, I: 1, J: 8, K: 5, L: 1, M: 3, N: 1, O: 1, P: 3, Q: 10, R: 1, S: 1, T: 1, U: 1, V: 4, W: 4, X: 8, Y: 4, Z: 10 };
+  var COUNT = { A: 9, B: 2, C: 2, D: 4, E: 12, F: 2, G: 3, H: 2, I: 9, J: 1, K: 1, L: 4, M: 2, N: 6, O: 8, P: 2, Q: 1, R: 6, S: 4, T: 6, U: 4, V: 2, W: 2, X: 1, Y: 2, Z: 1 };
+  var NAMES = { T: 'triple word', D: 'double word', t: 'triple letter', d: 'double letter' };
+  var COLS = 'ABCDEFGHIJKLMNO';
+  var state = { word: 'KENNEDY', r: 7, c: 3, down: false, manual: {} };
+  var cells = [];
+
+  for (var r = 0; r < 15; r++) {
+    for (var c = 0; c < 15; c++) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      var p = BOARD[r][c];
+      b.className = 'bd-sq' + (p !== '.' ? ' p-' + p : '') + (r === 7 && c === 7 ? ' star' : '');
+      b.dataset.r = r; b.dataset.c = c;
+      b.setAttribute('aria-label', COLS[c] + (r + 1) + (p !== '.' ? ', ' + NAMES[p] : ''));
+      b.textContent = r === 7 && c === 7 ? '★' : (p === '.' ? '' : { T: '3W', D: '2W', t: '3L', d: '2L' }[p]);
+      grid.appendChild(b);
+      cells.push(b);
+    }
+  }
+
+  function clean(s) { return (s || '').toUpperCase().replace(/[^A-Z]/g, '').slice(0, 15); }
+  function firstMove() { var m = 'first'; Array.prototype.forEach.call(modes, function (x) { if (x.checked) m = x.value; }); return m === 'first'; }
+  function legalStarts(word, down) {
+    var n = word.length, res = [];
+    for (var a = 0; a < 15; a++) for (var s = 0; s + n <= 15; s++) {
+      var rr = down ? s : a, cc = down ? a : s;
+      if (!firstMove()) { res.push([rr, cc]); continue; }
+      var cover = down ? (cc === 7 && rr <= 7 && 7 < rr + n) : (rr === 7 && cc <= 7 && 7 < cc + n);
+      if (cover) res.push([rr, cc]);
+    }
+    return res;
+  }
+  function blanksFor(word) {
+    var seen = {}, flags = [];
+    for (var i = 0; i < word.length; i++) {
+      var ch = word[i]; seen[ch] = (seen[ch] || 0) + 1;
+      flags.push(!!state.manual[i] || seen[ch] > COUNT[ch]);
+    }
+    return flags;
+  }
+  function calc(word, r, c, down, flags) {
+    var sum = 0, mult = 1, lines = [];
+    for (var i = 0; i < word.length; i++) {
+      var rr = down ? r + i : r, cc = down ? c : c + i, sq = BOARD[rr][cc];
+      var v = flags[i] ? 0 : VAL[word[i]], lm = sq === 'd' ? 2 : sq === 't' ? 3 : 1;
+      if (sq === 'D') mult *= 2; else if (sq === 'T') mult *= 3;
+      sum += v * lm;
+      lines.push({ ch: word[i], v: v, lm: lm, sq: sq, blank: flags[i] });
+    }
+    var bonus = word.length === 7 ? 50 : 0;
+    return { sum: sum, mult: mult, bonus: bonus, total: sum * mult + bonus, lines: lines };
+  }
+  function clamp() {
+    var n = state.word.length;
+    if (!n) return;
+    var maxr = state.down ? 15 - n : 14, maxc = state.down ? 14 : 15 - n;
+    state.r = Math.max(0, Math.min(maxr, state.r)); state.c = Math.max(0, Math.min(maxc, state.c));
+    if (firstMove()) {
+      var ok = legalStarts(state.word, state.down);
+      var here = ok.some(function (s) { return s[0] === state.r && s[1] === state.c; });
+      if (!here && ok.length) { var s = ok[Math.floor(ok.length / 2)]; state.r = s[0]; state.c = s[1]; }
+    }
+  }
+  function render() {
+    var w = state.word, n = w.length;
+    cells.forEach(function (b) { b.classList.remove('has'); var t = b.querySelector('.bd-t'); if (t) b.removeChild(t); b.classList.remove('is-blank'); });
+    preview.textContent = '';
+    if (!n) { total.textContent = '0'; out.textContent = 'Type a word.'; posOut.textContent = ''; warn.textContent = ''; return; }
+    clamp();
+    var flags = blanksFor(w), res = calc(w, state.r, state.c, state.down, flags);
+    for (var i = 0; i < n; i++) {
+      var rr = state.down ? state.r + i : state.r, cc = state.down ? state.c : state.c + i;
+      var b = cells[rr * 15 + cc], t = document.createElement('span');
+      t.className = 'bd-t'; t.innerHTML = w[i] + '<sub>' + (flags[i] ? 0 : VAL[w[i]]) + '</sub>';
+      b.appendChild(t); b.classList.add('has'); if (flags[i]) b.classList.add('is-blank');
+      var k = document.createElement('button');
+      k.type = 'button'; k.className = 'bd-key' + (flags[i] ? ' is-blank' : ''); k.dataset.i = i;
+      k.setAttribute('aria-pressed', flags[i] ? 'true' : 'false');
+      k.setAttribute('aria-label', w[i] + ', ' + (flags[i] ? 'blank, 0 points' : VAL[w[i]] + ' points') + '. Press to toggle blank.');
+      k.innerHTML = w[i] + '<sub>' + (flags[i] ? 0 : VAL[w[i]]) + '</sub>';
+      preview.appendChild(k);
+    }
+    total.textContent = res.total;
+    posOut.textContent = 'Starts at ' + COLS[state.c] + (state.r + 1) + ', reads ' + (state.down ? 'down' : 'across');
+    var parts = res.lines.map(function (l) {
+      return l.ch + (l.blank ? ' blank 0' : ' ' + l.v + (l.lm > 1 ? '×' + l.lm : ''));
+    });
+    var txt = 'Letters: ' + parts.join(' + ') + ' = ' + res.sum + '.';
+    if (res.mult > 1) txt += ' Word multiplier ×' + res.mult + ' = ' + res.sum * res.mult + '.';
+    if (res.bonus) txt += ' All seven tiles: +50.';
+    out.textContent = txt;
+    var need = {}, msg = [];
+    for (var j = 0; j < n; j++) need[w[j]] = (need[w[j]] || 0) + 1;
+    Object.keys(need).forEach(function (ch) { if (need[ch] > COUNT[ch]) msg.push('the set holds ' + COUNT[ch] + ' ' + ch + ', the word needs ' + need[ch] + ': the extra is played as a blank'); });
+    var nb = flags.filter(Boolean).length;
+    if (nb > 2) msg.push('that is ' + nb + ' blanks and the set has two');
+    if (n > 7) msg.push('a rack holds seven tiles, so this takes more than one turn');
+    warn.textContent = msg.length ? 'Note: ' + msg.join('; ') + '.' : '';
+  }
+  function setWord(w) { state.word = clean(w); state.manual = {}; if (wordIn.value !== state.word) wordIn.value = state.word; render(); }
+  grid.addEventListener('click', function (e) {
+    var b = e.target.closest('.bd-sq'); if (!b) return;
+    state.r = +b.dataset.r; state.c = +b.dataset.c; render();
+  });
+  preview.addEventListener('click', function (e) {
+    var k = e.target.closest('.bd-key'); if (!k) return;
+    var i = +k.dataset.i; state.manual[i] = !state.manual[i]; render();
+    var again = preview.querySelector('[data-i="' + i + '"]'); if (again) again.focus();
+  });
+  wordIn.addEventListener('input', function () { state.word = clean(wordIn.value); state.manual = {}; render(); });
+  Array.prototype.forEach.call(dirs, function (d) { d.addEventListener('change', function () { state.down = d.value === 'down' && d.checked ? true : (d.checked ? false : state.down); render(); }); });
+  Array.prototype.forEach.call(modes, function (m) { m.addEventListener('change', render); });
+  Array.prototype.forEach.call(presets, function (p) { p.addEventListener('click', function () { setWord(p.dataset.word); }); });
+  bestBtn.addEventListener('click', function () {
+    var w = state.word; if (!w) return;
+    var flags = blanksFor(w), best = null;
+    [false, true].forEach(function (down) {
+      legalStarts(w, down).forEach(function (s) {
+        var res = calc(w, s[0], s[1], down, flags);
+        if (!best || res.total > best.t) best = { t: res.total, r: s[0], c: s[1], down: down };
+      });
+    });
+    if (!best) return;
+    state.r = best.r; state.c = best.c; state.down = best.down;
+    Array.prototype.forEach.call(dirs, function (d) { d.checked = (d.value === 'down') === best.down; });
+    render();
+  });
+  render();
+})();

@@ -14,7 +14,7 @@ researches (subject and reason) and again when it ships (what changed).
 | VII | Registration | 2026-09-27 | The Peddlers and their reported cult following in South Africa: the band's real history, from a Joe Meek session to Three in a Cell to Roy Phillips's New Zealand years, tested against a claim the site could not corroborate | Petrol-teal and brass, drawbar comb under the nav | Working Hammond-style drawbar registration, set and sounded in the browser |
 | VIII | Heel | 2026-10-04 | The name Kobus: from Hebrew Yaʿaqov through Jakobus to the short form, how far it travels, and who bears it (chosen from the open pool: "The name Kobus: how far it travels, where it started, notable bearers beyond Wiese and Moolman"; chapter I says only two lines about it) | Delft blue and cream, tile border under the nav | Wear the name down: a slider along the Dutch and Romance roads of Jacob |
 | IX | Render | 2026-10-05 | Special edition, commissioned: Pig Man Fat (PMF). Searched in Place and on the web, nothing found, so an invented legend (clearly labelled fiction) after Br'er Rabbit and the Cape's Jackal and Wolf tales, with a real-facts chapter (Kin) | Lard cream, cured red and rendered gold, Abril Fatface headings (a fat face), drip border | The Retelling: a slider through twelve invented tellers, the supplied photo growing, a real word-overlap score |
-| X | Tiles | 2026-10-11 | (chosen, research pending) The Scrabble score of the name: chapter V gives 26 with standard English tile values and nothing else. Chosen from the open pool ("The Scrabble score of the name, properly: which boards and rules, and what the best play would be") because it is checkable by arithmetic and by sources: tile distributions, who set the letter values, and what the premium squares do to twelve letters | (pending) | (pending) |
+| X | Tiles | 2026-10-11 | The Scrabble score of the name (chosen from the open pool): 26 at face value, 21 once the second K is a blank because a set holds one K; the board's 61 premiums; best openings computed (KOBUS 32, KENNEDY 90); KOB and KOBS reported valid, the proper nouns not; every source a search extract | Board green and tile cream, a row of tiles under the nav, heavy grotesque headings | Play the name: a working Scrabble board that scores any word, with blanks |
 
 ## Open questions (the pool)
 
@@ -32,7 +32,7 @@ line through an item when an edition answers it, and say which.
 - ~~The Peddlers, Three in a Cell, and their South African cult following.~~ Investigated in Edition VII: the band and the album are real and well documented, but no chart entry, pressing, tour date or interview mention ties them to South Africa anywhere searched; their one documented following abroad was New Zealand's.
 - Radio Today 1485 AM and The RockFest, Johannesburg, 2006 to 2009.
 - ~~Average White Band's Robbie McIntosh: the September 1974 death and the band's recovery.~~ Answered in Edition V, with one point left open: sources split on the death date (23 September most commonly, 22 September in at least one), and the detail that Cher was at the same party could not be traced past a small cluster of similar-sounding accounts.
-- The Scrabble score of the name, properly: which boards and rules, and what the best play would be.
+- ~~The Scrabble score of the name, properly: which boards and rules, and what the best play would be.~~ Investigated in Edition X: 26 at face value and 21 with a blank for the second K; best openings KOBUS 32, KENNEDY 90 (not words); layout hand-derived and checked against premium counts only; no Collins check possible.
 - Average White Band's own name: a jam-session remark or a diplomat's aside about the tropics? Both stories trace to the same secondary article, not to a dated first source.
 - What became of Roger Ball, the band's saxophonist and the writer of the Pick Up the Pieces riff, after he left the band in 1997?
 - Whether "the Dundee horns," the nickname for Ball and Molly Duncan, was really coined by Maggie Bell, as one source has it.
@@ -52,3 +52,7 @@ line through an item when an edition answers it, and say which.
 - Is Pig Man Fat, or PMF, a saying anywhere outside the family that uses it? Nothing in the Place archive or in four web searches (Edition IX); absence is not proof.
 - I give you my pink car? (Added by the owner, verbatim; no context supplied.)
 - light the Lampoon’s. (Added by the owner, verbatim; no context supplied.)
+- Why is a K worth five points, a Y four, a B three and a D two? No source gives more than "rarer means dearer" (Edition X).
+- Are Butts's Lexiko (1931) and Criss-Crosswords (1938) one game in two stages, and which publications did he count? (Edition X.)
+- Which of KOB, KOBS, KENNED, KOBO, KEN and KENNEL does Collins Scrabble Words accept, and does South African play accept BRAAI, VELD or BOEREWORS? (Edition X.)
+- What are Krabbel's (the Afrikaans Scrabble) letter values and tile counts, and when did Scrabble reach South Africa? (Edition X.)
