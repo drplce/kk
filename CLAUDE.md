@@ -1,7 +1,7 @@
 # kk — the Kobus Kennedy site
 
 A typographic monograph on one name, published at https://drplce.github.io/kk/.
-It grows by editions. A weekly routine (see WEEKLY.md) researches one of the
+It grows by editions. A monthly routine (see WEEKLY.md, kept under its old name) researches one of the
 site's own subjects, expands it, changes the look, adds an interactive element,
 and redeploys. This file is the standing brief for anyone, human or agent,
 working in the repository.
@@ -20,7 +20,7 @@ working in the repository.
     index.html, name.html, broadcast.html, presenter.html, pmf.html, editions.html
                             GENERATED. Never edit by hand; edit src/ and rebuild.
     EDITIONS.md             the edition log and the pool of open questions
-    WEEKLY.md               the weekly expansion procedure
+    WEEKLY.md               the expansion procedure, run monthly
 
 ## Build and deploy
 
@@ -37,7 +37,7 @@ has no page errors. Fonts will not load in the sandbox; that is expected.
 
 ## Standing authorisation
 
-The owner has asked for weekly, automatic, unattended editions. Pushing to
+The owner has asked for monthly (the first Sunday of each month), automatic, unattended editions. Pushing to
 `main` for an edition is authorised. Do not open pull requests for editions.
 Do not delete the recording, the source sections, or the editions log.
 
@@ -51,7 +51,7 @@ Do not delete the recording, the source sections, or the editions log.
   Edition IX) is invented fiction. It is labelled as fiction on the page, its
   chapter XVII holds the real facts, and nothing in it may be cited as a fact
   elsewhere on the site. Do not extend the exception to any other page, and do
-  not treat PMF as a research subject for the weekly routine.
+  not treat PMF as a research subject for the monthly routine.
 - Use they/them for anyone whose pronouns are not stated. Rafe Lavine is
   referred to as he in his own press coverage; that is fine.
 - Copy is plain, specific, and a little dry. Sentences carry a verb. No

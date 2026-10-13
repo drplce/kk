@@ -1,9 +1,11 @@
-# The weekly edition
+# The monthly edition
 
-Run once a week, unattended, by a scheduled Claude Code session. The owner's
+(The file keeps its old name, WEEKLY.md, because the scheduled routine reads it by that name. The cadence changed from weekly to monthly after Edition X.)
+
+Run once a month, on the first Sunday, unattended, by a scheduled Claude Code session. The owner's
 brief, verbatim: "find one thing or topic or song or item on the website today
 that is worth a deeper dive, then launch deep research agents to dig deep and
-far, and then build out next or new sections of the page. Each week the website
+far, and then build out next or new sections of the page. Each edition the website
 should be completely rebuilt using the bones and elements but with refinement or
 expansion, and visually different, or with a potentially interesting interactive
 component."
@@ -99,7 +101,7 @@ clipped, overlapping, or unreadable. No page errors.
 If the session is pinned to a claude/* branch and a push to main is refused or
 forbidden, push to that branch instead. .github/workflows/publish-edition.yml
 fast-forwards main to any pushed claude/* branch and triggers the Pages deploy,
-so the edition still publishes automatically. The owner wants every weekly
+so the edition still publishes automatically. The owner wants every
 edition published; never leave one sitting unmerged on a branch.
 
 The scheduled session has no GitHub MCP tools and the proxy blocks github.io,

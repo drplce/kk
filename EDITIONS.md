@@ -1,6 +1,6 @@
 # Editions
 
-One line per edition. Newest last. The weekly routine appends here before it
+One line per edition. Newest last. The monthly routine (weekly until Edition X) appends here before it
 researches (subject and reason) and again when it ships (what changed).
 
 | No. | Name | Date | Subject | Look | Instrument |
