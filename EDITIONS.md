@@ -21,8 +21,8 @@ researches (subject and reason) and again when it ships (what changed).
 Add to this list whenever a page admits it does not know something. Strike a
 line through an item when an edition answers it, and say which.
 
-- What was Rafe Lavine's afternoon programme on SAfm, and in which years?
-- Was the mystery-song feature called Beat the Beat? Rules, prizes, slot?
+- What was Rafe Lavine's afternoon programme on SAfm, and in which years? Partly answered by Trevor Worley, 19 October 2026: PM Jive with Rafe Lavine, weekdays 2 to 4. Years and any printed listing still missing; "PM Jive" found in no public source (SAfm's PM Live is a different, news programme).
+- Was the mystery-song feature called Beat the Beat? Rules, prizes, slot? Partly answered by Trevor Worley, 19 October 2026: called Beat the Beat, question at 2.20, answers at 2.45, on PM Jive. Rules and prizes still missing.
 - What date was the broadcast? Other callers that day: Trevor Worley, Ed, Martin Lake, Charles Mitchell, Ben.
 - ~~Pick Up the Pieces at Criteria Studios, Miami, 1974: the session, the sax solo, Arif Mardin's role.~~ Answered in Edition V: three studios (Clover, Hollywood; Criteria, Miami; Atlantic, New York), Mardin producing, the tenor solo Molly Duncan's over Roger Ball's alto.
 - ~~The name Kobus: how far it travels, where it started, notable bearers beyond Wiese and Moolman.~~ Investigated in Edition VIII: the chain Yaʿaqov, Iákōbos, Iacobus, Jacobus, Kobus is consistent in every extract, and seven other bearers are listed; the first written Kobus, the earliest Cape bearer and any sourced frequency could not be found (all sources were search extracts; the proxy blocked the pages).
@@ -56,3 +56,4 @@ line through an item when an edition answers it, and say which.
 - Are Butts's Lexiko (1931) and Criss-Crosswords (1938) one game in two stages, and which publications did he count? (Edition X.)
 - Which of KOB, KOBS, KENNED, KOBO, KEN and KENNEL does Collins Scrabble Words accept, and does South African play accept BRAAI, VELD or BOEREWORS? (Edition X.)
 - What are Krabbel's (the Afrikaans Scrabble) letter values and tile counts, and when did Scrabble reach South Africa? (Edition X.)
+- What is the truth behind the PMF story? Trevor Worley (19 October 2026) will send it later and may need to confirm details with Terry (no surname given). Not yet received. Add it to Volume IV chapter XVII, credited to him and kept apart from the legend.
