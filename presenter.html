@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#EDF0E3">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Abril+Fatface&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Karla:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Limelight&family=Special+Elite&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Karla:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="assets/site.css">
 <link rel="stylesheet" href="assets/edition.css">
 </head>
@@ -17,13 +17,15 @@
   <a class="mark" href="index.html" aria-label="KK, home"><span>K</span><span class="flip" aria-hidden="true">K</span></a>
   <ul class="label">
     <li><a href="index.html">Home</a></li>
+    <li><a href="pmf.html">Pig Man Fat</a></li>
+    <li><a href="studio.html">The Studio</a></li>
     <li><a href="name.html">The Name</a></li>
     <li><a href="broadcast.html">The Broadcast</a></li>
     <li><a href="presenter.html" aria-current="page">The Presenter</a></li>
-    <li><a href="pmf.html">Pig Man Fat</a></li>
     <li><a href="editions.html">Editions</a></li>
   </ul>
 </nav>
+<div class="dialbar" aria-hidden="true"><i></i></div>
 <aside class="spine" aria-hidden="true">Vol. III · The Presenter</aside>
 
 <main id="top">
@@ -35,6 +37,19 @@
         <p>The man reading the names. Three decades of South African radio across five stations, a rock specialist who also ran the country's best-loved jazz hour, and the voice on this tape.</p>
       </div>
 
+      <div class="plate-row">
+      <figure class="plate plate-art plate-mic reveal">
+          <svg viewBox="0 0 160 230" class="mic-svg" aria-hidden="true" focusable="false">
+            <rect class="m-yoke" x="30" y="44" width="100" height="10" rx="5"/>
+            <rect class="m-body" x="48" y="14" width="64" height="120" rx="30"/>
+            <g class="m-grille"><path d="M56 34H104M54 48H106M53 62H107M53 76H107M54 90H106M56 104H104M60 118H100"/></g>
+            <rect class="m-ring" x="46" y="130" width="68" height="9" rx="3"/>
+            <path class="m-neck" d="M72 139H88V170H72Z"/>
+            <path class="m-arm" d="M80 170V196"/>
+            <ellipse class="m-base" cx="80" cy="208" rx="46" ry="11"/>
+          </svg>
+          <figcaption class="label">Plate. A vintage microphone, drawn for this page. No photograph of Rafe Lavine is shown.</figcaption>
+      </figure>
       <dl class="facts portrait reveal">
         <dt>Trade</dt><dd>Radio presenter, 1983 to 2014, then voice artist</dd>
         <dt>Stations</dt><dd>Radio 702 &middot; Radio 5 &middot; SAfm &middot; Radio Today &middot; Talk Radio 702</dd>
@@ -43,6 +58,7 @@
         <dt>Company</dt><dd>Leon Economides, Chris Prior, David Blood, Phil Wright</dd>
         <dt>Now</dt><dd>Dawlish, on the south Devon coast, retired</dd>
       </dl>
+      </div>
 
       <div class="reveal">
         <p class="label" style="margin:2.5rem 0 1rem">Career, as far as it could be traced</p>
@@ -272,13 +288,14 @@
   <div class="wrap foot">
     <div class="foot-mark" aria-hidden="true"><span>K</span><span class="flip">K</span></div>
     <div class="foot-row">
-      <span class="display">Kobus Kennedy</span>
-      <span class="label">Edition X · Tiles · October 2026</span>
+      <span class="display">Pig Man Fat &middot; Kobus Kennedy</span>
+      <span class="label">Edition XI · Airwaves · October 2026</span>
       <a class="label top" href="#top">Back to top</a>
     </div>
   </div>
 </footer>
 
 <script src="assets/site.js"></script>
+<script src="assets/radio.js"></script>
 </body>
 </html>

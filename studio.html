@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Studio · Pig Man Fat</title>
+<meta name="description" content="Three small games built from an essay's description of Pigman Fat's radio quiz shows: Skip show 22, Find the Job and Venture. All questions and rules are the site's own.">
+<meta name="theme-color" content="#EDF0E3">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Limelight&family=Special+Elite&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Karla:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/edition.css">
+</head>
+<body class="page-studio">
+<nav class="nav" aria-label="Site">
+  <a class="mark" href="index.html" aria-label="KK, home"><span>K</span><span class="flip" aria-hidden="true">K</span></a>
+  <ul class="label">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="pmf.html">Pig Man Fat</a></li>
+    <li><a href="studio.html" aria-current="page">The Studio</a></li>
+    <li><a href="name.html">The Name</a></li>
+    <li><a href="broadcast.html">The Broadcast</a></li>
+    <li><a href="presenter.html">The Presenter</a></li>
+    <li><a href="editions.html">Editions</a></li>
+  </ul>
+</nav>
+<div class="dialbar" aria-hidden="true"><i></i></div>
+<aside class="spine" aria-hidden="true">The Studio</aside>
+
+<main id="top">
+  <section id="studio" class="studio">
+    <div class="wrap">
+      <p class="label chapter"><span class="num">&#9679;</span> The Studio</p>
+      <div class="studio-head">
+        <div>
+          <h1 class="display pmf-title">The Studio</h1>
+          <p class="pmf-lede">Three small games built from what the essay says about Pigman Fat&rsquo;s quiz shows: a score to reach, a job to find and a venture to keep afloat.</p>
+        </div>
+        <aside class="fiction reveal" aria-label="What these games are">
+          <p class="label">Read this first</p>
+          <p><b>These are toys, not reconstructions.</b> The essay describes the shows in a few lines each, and no rules, questions or recordings survive on this site. Every question, job, number and rule below is this site&rsquo;s own, written to fit the essay&rsquo;s description. The essay is by DTW and is reported in <a href="pmf.html#origin" class="accent">chapter XVIII</a>.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section id="skip22" class="game">
+    <div class="wrap">
+      <p class="label">Game one</p>
+      <div class="letters-head">
+        <h2 class="display">Skip show 22</h2>
+        <p>You are the quizmaster. Read the card, hear the contestant, and decide whether the answer earns the points. First to 22 wins. The essay says the rules were those of <em>21</em> and the quizmaster read them to his liking.</p>
+      </div>
+
+      <div class="game-board reveal" id="s22" data-s22>
+        <div class="s22-top">
+          <p class="s22-score"><span class="label">Score</span><b class="display" id="s22-score">0</b><span class="s22-of">of 22</span></p>
+          <div class="s22-meter" aria-hidden="true"><i id="s22-bar"></i></div>
+        </div>
+        <div class="s22-card" aria-live="polite">
+          <p class="label" id="s22-val">Worth 11</p>
+          <p class="s22-q" id="s22-q">Press start.</p>
+          <p class="s22-line"><span class="label">The card says</span><b id="s22-correct">&nbsp;</b></p>
+          <p class="s22-line"><span class="label">The contestant says</span><b id="s22-said">&nbsp;</b></p>
+        </div>
+        <div class="game-btns">
+          <button type="button" class="knob-btn" id="s22-yes" disabled>Give the points</button>
+          <button type="button" class="knob-btn" id="s22-no" disabled>No points</button>
+          <button type="button" class="knob-btn" id="s22-start">Start the show</button>
+        </div>
+        <div class="s22-meters">
+          <p><span class="label">Letters to the press</span> <b class="display" id="s22-letters">0</b> <span id="s22-mood" class="s22-mood">Quiet</span></p>
+          <p><span class="label">Cards read</span> <b id="s22-asked">0</b></p>
+        </div>
+        <div class="s22-final" id="s22-final" hidden>
+          <p class="label">Listeners&rsquo; prize question</p>
+          <p class="s22-q">The missing answer. Say it, and the prize is yours.</p>
+          <form id="s22-form" class="s22-form"><input id="s22-guess" type="text" autocomplete="off" aria-label="Your answer to the missing answer question"><button type="submit" class="knob-btn">Answer</button></form>
+          <p id="s22-reply" class="s22-reply" aria-live="polite"></p>
+          <p class="label">Listeners who have won: <b id="s22-winners">0</b></p>
+        </div>
+      </div>
+      <p class="game-note">The essay says the listeners&rsquo; missing-answer question was never won. This one is built the same way. Letters arrive when you judge badly: points for a wrong answer, or none for a right one. The questions are the site&rsquo;s own.</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section id="findjob" class="game">
+    <div class="wrap">
+      <p class="label">Game two</p>
+      <div class="letters-head">
+        <h2 class="display">Find the Job</h2>
+        <p>Twenty questions to name an occupation. Asking and guessing both cost a question. In Fat&rsquo;s rules the essay says jobs were &ldquo;changed at will&rdquo;, so try both ways of playing.</p>
+      </div>
+
+      <div class="game-board reveal" id="fj" data-fj>
+        <div class="fj-modes" role="radiogroup" aria-label="Rules">
+          <label class="check"><input type="radio" name="fj-mode" value="fair" checked> Fair: one job, chosen in advance</label>
+          <label class="check"><input type="radio" name="fj-mode" value="fat"> Fat&rsquo;s rules: the job may change</label>
+          <button type="button" class="knob-btn" id="fj-new">New round</button>
+        </div>
+        <p class="fj-left"><span class="label">Questions left</span> <b class="display" id="fj-left">20</b></p>
+        <div class="fj-grid">
+          <div>
+            <p class="label">Ask</p>
+            <div class="fj-qs" id="fj-qs"></div>
+          </div>
+          <div>
+            <p class="label">Guess the job</p>
+            <div class="fj-jobs" id="fj-jobs"></div>
+          </div>
+        </div>
+        <ul class="fj-log" id="fj-log" aria-live="polite"></ul>
+        <p class="fj-msg" id="fj-msg" aria-live="polite">Choose your rules, then ask.</p>
+      </div>
+      <p class="game-note">Fat&rsquo;s rules here work like this: the quizmaster has not picked a job, and answers each question so that as many jobs as possible stay possible. A guess is wrong until only one job is left. That is this site&rsquo;s reading of &ldquo;flexible rules&rdquo;, not a record of how the real show ran. The jobs and the answers about them are the site&rsquo;s own.</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section id="venture" class="game">
+    <div class="wrap">
+      <p class="label">Game three</p>
+      <div class="letters-head">
+        <h2 class="display">Venture</h2>
+        <p>You run a cash-strapped quiz, as the essay says Mik Boaty did. Eight rounds. Fair questions cost prize money. The Unlucky Dip pays you the amount a contestant nominates, at once, and listeners notice. Pass the hat at half time.</p>
+      </div>
+
+      <div class="game-board reveal" id="vt" data-vt>
+        <div class="vt-stats">
+          <p><span class="label">Round</span> <b class="display" id="vt-round">1</b><span class="s22-of">of 8</span></p>
+          <p><span class="label">Funds</span> <b class="display" id="vt-funds">20</b></p>
+          <p><span class="label">Goodwill</span> <b class="display" id="vt-good">0</b></p>
+        </div>
+        <div class="game-btns">
+          <button type="button" class="knob-btn" id="vt-fair">Fair question: pay 10 in prizes</button>
+          <button type="button" class="knob-btn" id="vt-dip">Unlucky Dip: take the nominated amount</button>
+          <button type="button" class="knob-btn" id="vt-hat" hidden>Pass the hat</button>
+          <button type="button" class="knob-btn" id="vt-new">New venture</button>
+        </div>
+        <ul class="fj-log" id="vt-log" aria-live="polite"></ul>
+        <p class="fj-msg" id="vt-msg" aria-live="polite">Choose how to fill the first round.</p>
+      </div>
+      <p class="game-note">All numbers are the site&rsquo;s own. The essay says only that the programme was cash-strapped, that contestants who ended with negative scores paid the debt on leaving, that the Unlucky Dip lost a contestant the amount nominated, and that a scorer took a hat round the audience at half time. How these fit together here is invented.</p>
+    </div>
+  </section>
+</main>
+
+<hr class="rule">
+
+<footer>
+  <div class="wrap foot">
+    <div class="foot-mark" aria-hidden="true"><span>K</span><span class="flip">K</span></div>
+    <div class="foot-row">
+      <span class="display">Pig Man Fat &middot; Kobus Kennedy</span>
+      <span class="label">Edition XI · Airwaves · October 2026</span>
+      <a class="label top" href="#top">Back to top</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+<script src="assets/radio.js"></script>
+</body>
+</html>

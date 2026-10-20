@@ -1,0 +1,31 @@
+  <section id="findjob" class="game">
+    <div class="wrap">
+      <p class="label">Game two</p>
+      <div class="letters-head">
+        <h2 class="display">Find the Job</h2>
+        <p>Twenty questions to name an occupation. Asking and guessing both cost a question. In Fat&rsquo;s rules the essay says jobs were &ldquo;changed at will&rdquo;, so try both ways of playing.</p>
+      </div>
+
+      <div class="game-board reveal" id="fj" data-fj>
+        <div class="fj-modes" role="radiogroup" aria-label="Rules">
+          <label class="check"><input type="radio" name="fj-mode" value="fair" checked> Fair: one job, chosen in advance</label>
+          <label class="check"><input type="radio" name="fj-mode" value="fat"> Fat&rsquo;s rules: the job may change</label>
+          <button type="button" class="knob-btn" id="fj-new">New round</button>
+        </div>
+        <p class="fj-left"><span class="label">Questions left</span> <b class="display" id="fj-left">20</b></p>
+        <div class="fj-grid">
+          <div>
+            <p class="label">Ask</p>
+            <div class="fj-qs" id="fj-qs"></div>
+          </div>
+          <div>
+            <p class="label">Guess the job</p>
+            <div class="fj-jobs" id="fj-jobs"></div>
+          </div>
+        </div>
+        <ul class="fj-log" id="fj-log" aria-live="polite"></ul>
+        <p class="fj-msg" id="fj-msg" aria-live="polite">Choose your rules, then ask.</p>
+      </div>
+      <p class="game-note">Fat&rsquo;s rules here work like this: the quizmaster has not picked a job, and answers each question so that as many jobs as possible stay possible. A guess is wrong until only one job is left. That is this site&rsquo;s reading of &ldquo;flexible rules&rdquo;, not a record of how the real show ran. The jobs and the answers about them are the site&rsquo;s own.</p>
+    </div>
+  </section>

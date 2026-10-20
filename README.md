@@ -14,4 +14,5 @@ Live at https://drplce.github.io/kk/
   routine follows. `CLAUDE.md` is the standing brief.
 
 Pushes to `main` deploy to GitHub Pages. Fonts load from Google Fonts: Bodoni
-Moda, Newsreader and Karla.
+Moda, Newsreader and Karla, plus whatever the current edition adds (Limelight
+and Special Elite in Edition XI).

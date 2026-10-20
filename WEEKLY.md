@@ -76,7 +76,7 @@ row as open, not into the running text as fact.
     const { chromium } = require('playwright');
     (async () => {
       const b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell' });
-      for (const f of ['index','name','broadcast','presenter','pmf','editions']) {
+      for (const f of ['index','pmf','studio','name','broadcast','presenter','editions']) {
         const p = await b.newPage({ viewport: { width: 1280, height: 900 } });
         p.on('pageerror', e => console.log(f, 'pageerror:', e.message));
         await p.goto('file:///home/user/kk/' + f + '.html'); await p.waitForTimeout(600);

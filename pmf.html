@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#EDF0E3">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Abril+Fatface&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Karla:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Limelight&family=Special+Elite&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Karla:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="assets/site.css">
 <link rel="stylesheet" href="assets/edition.css">
 </head>
@@ -17,13 +17,15 @@
   <a class="mark" href="index.html" aria-label="KK, home"><span>K</span><span class="flip" aria-hidden="true">K</span></a>
   <ul class="label">
     <li><a href="index.html">Home</a></li>
+    <li><a href="pmf.html" aria-current="page">Pig Man Fat</a></li>
+    <li><a href="studio.html">The Studio</a></li>
     <li><a href="name.html">The Name</a></li>
     <li><a href="broadcast.html">The Broadcast</a></li>
     <li><a href="presenter.html">The Presenter</a></li>
-    <li><a href="pmf.html" aria-current="page">Pig Man Fat</a></li>
     <li><a href="editions.html">Editions</a></li>
   </ul>
 </nav>
+<div class="dialbar" aria-hidden="true"><i></i></div>
 <aside class="spine" aria-hidden="true">Vol. IV · The Legend</aside>
 
 <main id="top">
@@ -36,15 +38,26 @@
           <p class="pmf-abbr display" aria-label="Short form: P M F">PMF</p>
           <p class="pmf-lede">First the true origin of the name, as a supplied essay tells it: a radio quiz producer surnamed Fat, nicknamed Pigman. Then an invented tall tale about a thin pig, a wolf, a jackal and the last pat of fat in a district that did not exist, told once in full and retold twelve times.</p>
         </div>
-        <figure class="plate reveal">
-          <img src="assets/pmf.jpg" width="960" height="1280" alt="A pale, hand-shaped figure with a snout and a curled ear, sitting on a crumpled plastic bag inside a glass display case, lit by a green and yellow flare.">
-          <figcaption class="label">Plate. A photograph supplied by the owner of this site: a pale figure on a plastic bag in a glass case. What it is made of, who made it and where were not supplied. In this volume it stands in for the figure in the case at Smeerkloof, which is invented.</figcaption>
+        <figure class="plate plate-art reveal">
+          <svg viewBox="0 0 120 170" class="pigman" aria-hidden="true" focusable="false">
+            <ellipse class="pm-vest" cx="60" cy="132" rx="38" ry="38"/>
+            <path class="pm-shirt" d="M48 100L60 134L72 100Z"/>
+            <path class="pm-bow" d="M60 103L45 95V111ZM60 103L75 95V111Z"/>
+            <circle class="pm-knot" cx="60" cy="103" r="3.4"/>
+            <ellipse class="pm-skin" cx="60" cy="66" rx="34" ry="32"/>
+            <path class="pm-ear" d="M30 48L21 24L47 38ZM90 48L99 24L73 38Z"/>
+            <ellipse class="pm-snout" cx="60" cy="78" rx="15" ry="11"/>
+            <ellipse class="pm-nostril" cx="54" cy="78" rx="2.4" ry="3.4"/><ellipse class="pm-nostril" cx="66" cy="78" rx="2.4" ry="3.4"/>
+            <circle class="pm-eye" cx="47" cy="62" r="2.9"/><circle class="pm-eye" cx="73" cy="62" r="2.9"/>
+            <path class="pm-hat" d="M26 46Q60 6 94 46Q60 38 26 46Z"/><rect class="pm-band" x="38" y="34" width="44" height="5" rx="1.5"/>
+          </svg>
+          <figcaption class="label">Plate. Pig Man Fat as the invented tale of chapters XV and XVI imagines him, drawn for this volume. It is not a portrait of the Fat of chapter XVIII, whose appearance the essay does not describe.</figcaption>
         </figure>
       </div>
 
       <aside class="fiction reveal" aria-label="A note on what is true here">
         <p class="label">Read this first</p>
-        <p><b>Chapters XV and XVI are invented.</b> The rest of the site reports what could be checked, and so does chapter XIX, the true origin of Pig Man Fat, which reports an essay supplied and confirmed by the owner of this site. Pig Man Fat was first searched for in the owner's project archive and on the open web, and nothing was found, so the legend in chapters XV and XVI was made up for this edition, in the manner of Br&rsquo;er Rabbit and of the Jackal and Wolf tales of the Cape. It was made up before the true origin arrived, and nothing in it comes from the essay. Every teller, place, rhyme and number in the legend and the retelling is fiction. Chapter XVII holds the real facts about the traditions it borrows from, and what was checked and what was not.</p>
+        <p><b>Chapters XV and XVI are invented.</b> The rest of the site reports what could be checked, and so does chapter XVIII, the true origin of Pig Man Fat, which reports an essay supplied and confirmed by the owner of this site. Pig Man Fat was first searched for in the owner's project archive and on the open web, and nothing was found, so the legend in chapters XV and XVI was made up for this edition, in the manner of Br&rsquo;er Rabbit and of the Jackal and Wolf tales of the Cape. It was made up before the true origin arrived, and nothing in it comes from the essay. Every teller, place, rhyme and number in the legend and the retelling is fiction. Chapter XVII holds the real facts about the traditions it borrows from, and what was checked and what was not.</p>
       </aside>
 
       <dl class="facts portrait reveal">
@@ -54,7 +67,7 @@
         <dt>When</dt><dd>The year the dams cracked</dd>
         <dt>Kind</dt><dd>Trickster tale, with a refrain</dd>
         <dt>Kin</dt><dd>Br&rsquo;er Rabbit and the briar patch; Jakkals en Wolf</dd>
-        <dt>Origin</dt><dd>A radio quiz producer surnamed Fat and nicknamed Pigman, per a supplied essay (chapter XIX)</dd>
+        <dt>Origin</dt><dd>A radio quiz producer surnamed Fat and nicknamed Pigman, per a supplied essay (chapter XVIII)</dd>
         <dt>Status</dt><dd>The origin is supplied and confirmed by the owner, and not independently verified. The legend and the retelling are invented.</dd>
       </dl>
     </div>
@@ -64,16 +77,17 @@
 
   <section id="origin" class="origin-pmf">
     <div class="wrap">
-      <p class="label chapter"><span class="num">XIX</span> The Origin</p>
+      <p class="label chapter"><span class="num">XVIII</span> The Origin</p>
       <div class="letters-head">
         <h2 class="display">The Battle of the Airwaves</h2>
-        <p>This chapter is not fiction. It reports a three-page essay that the owner of this site supplied on 20 October 2026 and confirmed as the true origin of Pig Man Fat. Everything below is the essay&rsquo;s account, not something this site has verified.</p>
+        <p>This chapter is not fiction. It reports a three-page essay by DTW that the owner of this site supplied on 20 October 2026 and confirmed as the true origin of Pig Man Fat. Everything below is the essay&rsquo;s account, not something this site has verified.</p>
       </div>
 
       <dl class="facts portrait reveal">
         <dt>Document</dt><dd>&ldquo;The Battle of the airwaves&rdquo;, an essay of three pages</dd>
+        <dt>Author</dt><dd>DTW, initials only, as supplied</dd>
         <dt>Supplied by</dt><dd>The owner of this site, who confirms it is the true origin</dd>
-        <dt>Author and date</dt><dd>Not stated on the document</dd>
+        <dt>Date</dt><dd>Not stated on the document</dd>
         <dt>Country and station</dt><dd>Not stated on the document</dd>
         <dt>Subject</dt><dd>A producer of radio quiz programmes, surname Fat, nicknamed Pigman</dd>
         <dt>Pronounced</dt><dd>&ldquo;Fett&rdquo;, according to the essay</dd>
@@ -83,7 +97,7 @@
       <div class="reveal">
         <p class="label" style="margin:2.5rem 0 1rem">The name</p>
         <blockquote class="quote">It is thought that Pigman was a sort of nickname, earned by his appearance and manners and customs; but Fat was his surname.
-          <cite>&ldquo;The Battle of the airwaves&rdquo;, supplied essay</cite>
+          <cite>DTW, &ldquo;The Battle of the airwaves&rdquo;</cite>
         </blockquote>
         <p>So the name in this volume&rsquo;s title is a nickname and a surname, in that order, and nothing in the original is a pig that gained weight. The essay says the surname is pronounced <em>Fett</em>. That is also how the Afrikaans word <em>vet</em>, fat, is said, but the essay does not say the surname comes from it, and no source was found. The note is this site&rsquo;s own.</p>
       </div>
@@ -113,7 +127,7 @@
       <div class="reveal">
         <p class="label" style="margin:2.5rem 0 1rem">Why the name lasted</p>
         <blockquote class="quote">Pigman Fat (or PMF as he is sometimes known), has become famous, some would say notorious. His moniker is also a by-word for piggishness.
-          <cite>&ldquo;The Battle of the airwaves&rdquo;, supplied essay</cite>
+          <cite>DTW, &ldquo;The Battle of the airwaves&rdquo;</cite>
         </blockquote>
         <p>The essay closes by wondering why his memory lives on, and offers two answers: he was probably &ldquo;larger than life&rdquo; and memorable, and nostalgia could play a part. Chapters XV and XVI make up a different story about the same name, and nothing in them was taken from this essay. Chapter IX is about another radio game, Beat the Beat. Nothing found connects the two.</p>
       </div>
@@ -124,9 +138,9 @@
           <ul class="verify">
             <li><span class="mark2">&#10003;</span><span class="k">Method</span><span class="v">The essay was read in full, all three pages. The project archive was searched first and holds nothing relevant. Two web searches followed, and, as elsewhere on this site, <b>everything from them comes from search-result extracts</b>.</span></li>
             <li><span class="mark2">&#10003;</span><span class="k">The shows</span><span class="v">One extract, from a Springbok Radio history page (Wikipedia or ESAT; the search tool did not say which), lists <em>21</em> and <em>Venture</em> among that station&rsquo;s popular shows. The essay names no station, so that the essay concerns Springbok Radio, which ran from 1950 to 1985, is an inference.</span></li>
-            <li><span class="mark2">&#10003;</span><span class="k">Confirmed</span><span class="v">The owner of this site confirms the essay as the true origin of Pig Man Fat. That is the owner&rsquo;s word. The essay carries no author or date.</span></li>
+            <li><span class="mark2">&#10003;</span><span class="k">Confirmed</span><span class="v">The owner of this site confirms the essay as the true origin of Pig Man Fat. That is the owner&rsquo;s word. The essay is attributed to DTW and carries no date.</span></li>
             <li><span class="mark2 open">?</span><span class="k">Station and years</span><span class="v">The essay gives neither. Its television, sponsors and station sales point to the decades in which television arrived, which is a reading and not a date.</span></li>
-            <li><span class="mark2 open">?</span><span class="k">Author</span><span class="v">Who wrote it, when, and where it was published are not known.</span></li>
+            <li><span class="mark2 open">?</span><span class="k">Author</span><span class="v">The essay is attributed to DTW, as supplied. Who DTW is beyond those initials, when it was written, and where it was published are not known.</span></li>
           </ul>
         </div>
         <div class="reveal">
@@ -140,7 +154,7 @@
         </div>
       </div>
       <div class="sources reveal">
-        <p>Sources consulted: &ldquo;The Battle of the airwaves&rdquo;, three-page essay, supplied by the site&rsquo;s owner, 20 October 2026; <a href="https://en.wikipedia.org/wiki/Springbok_Radio">Wikipedia, Springbok Radio</a> and <a href="https://esat.sun.ac.za/index.php/Springbok_Radio">ESAT, Springbok Radio</a>, both as search-result extracts.</p>
+        <p>Sources consulted: DTW, &ldquo;The Battle of the airwaves&rdquo;, three-page essay, supplied by the site&rsquo;s owner, 20 October 2026; <a href="https://en.wikipedia.org/wiki/Springbok_Radio">Wikipedia, Springbok Radio</a> and <a href="https://esat.sun.ac.za/index.php/Springbok_Radio">ESAT, Springbok Radio</a>, both as search-result extracts.</p>
       </div>
     </div>
   </section>
@@ -209,7 +223,7 @@
         <div class="reveal">
           <h3 class="label tale-h">What the name means</h3>
           <p>He was Pig Man because he was a pig who walked like a man. He was Fat because of what he did with the pat: the only pig on record to put on weight by being talked about. The Afrikaans tellers call him Varkman Vet, and the English ones shorten that to PMF. In Smeerkloof you say it when something small turns out bigger than the people who tried to finish it.</p>
-          <p>The tellers disagree about the figure's material. Most say fat. Some say dough, one said marzipan, and a stubborn minority say the question is rude. The photograph at the head of this volume settles none of it.</p>
+          <p>The tellers disagree about the figure's material. Most say fat. Some say dough, one said marzipan, and a stubborn minority say the question is rude.</p>
         </div>
       </div>
     </div>
@@ -227,7 +241,18 @@
 
       <div class="retell reveal" id="retell" data-retell>
         <div class="retell-frame" aria-hidden="true">
-          <img id="retell-img" src="assets/pmf.jpg" alt="" width="960" height="1280">
+          <svg viewBox="0 0 120 170" class="pigman" id="retell-img" aria-hidden="true" focusable="false">
+            <ellipse class="pm-vest" cx="60" cy="132" rx="38" ry="38"/>
+            <path class="pm-shirt" d="M48 100L60 134L72 100Z"/>
+            <path class="pm-bow" d="M60 103L45 95V111ZM60 103L75 95V111Z"/>
+            <circle class="pm-knot" cx="60" cy="103" r="3.4"/>
+            <ellipse class="pm-skin" cx="60" cy="66" rx="34" ry="32"/>
+            <path class="pm-ear" d="M30 48L21 24L47 38ZM90 48L99 24L73 38Z"/>
+            <ellipse class="pm-snout" cx="60" cy="78" rx="15" ry="11"/>
+            <ellipse class="pm-nostril" cx="54" cy="78" rx="2.4" ry="3.4"/><ellipse class="pm-nostril" cx="66" cy="78" rx="2.4" ry="3.4"/>
+            <circle class="pm-eye" cx="47" cy="62" r="2.9"/><circle class="pm-eye" cx="73" cy="62" r="2.9"/>
+            <path class="pm-hat" d="M26 46Q60 6 94 46Q60 38 26 46Z"/><rect class="pm-band" x="38" y="34" width="44" height="5" rx="1.5"/>
+          </svg>
           <span class="retell-floor"></span>
         </div>
         <div class="retell-body" aria-live="polite">
@@ -300,7 +325,6 @@
             <li><span class="mark2">&#10003;</span><span class="k">Lard</span><span class="v">Defined the same way by every extract: rendered pig fat.</span></li>
             <li><span class="mark2">&#10003;</span><span class="k">Afrikaans</span><span class="v">Dictionary extracts give vark as pig, vet as fat and varkvet as lard.</span></li>
             <li><span class="mark2 open">?</span><span class="k">Origin of the tales</span><span class="v">Extracts disagree on how much of the Cape corpus is Khoi, how much Dutch, and who shaped it. Not reconciled.</span></li>
-            <li><span class="mark2 open">?</span><span class="k">The figure</span><span class="v">What the figure in the plate is made of, who made it, and where and when the photograph was taken were not supplied and cannot be told from the image.</span></li>
             <li><span class="mark2 open">?</span><span class="k">Wolf is hyena</span><span class="v">Inferred from paired paper titles. Not stated outright in any extract seen.</span></li>
           </ul>
         </div>
@@ -309,7 +333,7 @@
           <ul class="verify">
             <li><span class="mark2 open">&ndash;</span><span class="k">Archive</span><span class="v">The owner&rsquo;s project archive holds no document about Pig Man Fat or PMF. Its pig hits were a groundcover on a landscape plant list, a lard line in an oven recipe book, and a roast-pig recipe.</span></li>
             <li><span class="mark2 open">&ndash;</span><span class="k">Web</span><span class="v">Four searches on the phrase and its variants found no folktale, saying, product or person called Pig Man Fat or PMF. The results were a manga character, a disambiguation page, a 1952 record about a fat man and a shop of figurines. Absence from a search is not proof of absence.</span></li>
-            <li><span class="mark2 open">&ndash;</span><span class="k">The truth</span><span class="v">Trevor Worley wrote on 19 October 2026: &ldquo;I will send the truth behind the PMF story as well, but later. Might need to confirm a few things with Terry.&rdquo; Terry, he has since said, is his brother, Terry Worley. The true origin then arrived from the site&rsquo;s owner as an essay, reported in chapter XIX. Whether it is what Trevor meant was not stated, and anything he adds will be recorded.</span></li>
+            <li><span class="mark2 open">&ndash;</span><span class="k">The truth</span><span class="v">Trevor Worley wrote on 19 October 2026: &ldquo;I will send the truth behind the PMF story as well, but later. Might need to confirm a few things with Terry.&rdquo; Terry, he has since said, is his brother, Terry Worley. The true origin then arrived from the site&rsquo;s owner as an essay, reported in chapter XVIII. Whether it is what Trevor meant was not stated, and anything he adds will be recorded.</span></li>
             <li><span class="mark2 open">&ndash;</span><span class="k">Smeerkloof</span><span class="v">Not checked against any gazetteer. A place of that name may exist. This one does not.</span></li>
             <li><span class="mark2 open">&ndash;</span><span class="k">The tellers</span><span class="v">None of the tellers, rhymes, sizes or sentences in chapters XV and XVI comes from a real source.</span></li>
           </ul>
@@ -328,13 +352,14 @@
   <div class="wrap foot">
     <div class="foot-mark" aria-hidden="true"><span>K</span><span class="flip">K</span></div>
     <div class="foot-row">
-      <span class="display">Kobus Kennedy</span>
-      <span class="label">Edition X · Tiles · October 2026</span>
+      <span class="display">Pig Man Fat &middot; Kobus Kennedy</span>
+      <span class="label">Edition XI · Airwaves · October 2026</span>
       <a class="label top" href="#top">Back to top</a>
     </div>
   </div>
 </footer>
 
 <script src="assets/site.js"></script>
+<script src="assets/radio.js"></script>
 </body>
 </html>

@@ -1,21 +1,37 @@
 {
-  "edition": "Edition X · Tiles · October 2026",
+  "edition": "Edition XI · Airwaves · October 2026",
   "pages": [
     {
       "slug": "index",
       "file": "index.html",
-      "title": "Kobus Kennedy",
-      "description": "A monograph on the name Kobus Kennedy, in volumes: the name, a broadcast from SAfm, and the presenter who read it out.",
-      "spine": "Kobus Kennedy · Edition X",
-      "sections": ["hero", "onair", "volumes", "builder", "latest"]
+      "title": "Pig Man Fat · Kobus Kennedy",
+      "description": "Pig Man Fat, or PMF: the true origin of a name that became a by-word, from an essay by DTW on a radio quiz producer and his shows. Tune a vintage set, and run the quizzes yourself.",
+      "spine": "Pig Man Fat · Edition XI",
+      "sections": ["hero-pmf", "tuner", "origin-brief", "studio-teaser", "volumes", "latest"]
+    },
+    {
+      "slug": "pmf",
+      "file": "pmf.html",
+      "title": "Pig Man Fat · Kobus Kennedy",
+      "description": "Volume IV, a special edition on Pig Man Fat: the true origin, as told in a supplied essay on a radio quiz producer, then an invented tall tale in the manner of Br'er Rabbit, retold twelve times, with the real traditions behind it and what could not be found.",
+      "spine": "Vol. IV · The Legend",
+      "sections": ["pmf", "pmf-origin", "pmf-tale", "pmf-retell", "pmf-kin"]
+    },
+    {
+      "slug": "studio",
+      "file": "studio.html",
+      "title": "The Studio · Pig Man Fat",
+      "description": "Three small games built from an essay's description of Pigman Fat's radio quiz shows: Skip show 22, Find the Job and Venture. All questions and rules are the site's own.",
+      "spine": "The Studio",
+      "sections": ["studio", "skip22", "findjob", "venture"]
     },
     {
       "slug": "name",
       "file": "name.html",
       "title": "The Name · Kobus Kennedy",
-      "description": "Volume I. Eleven chapters on twelve letters: origins, sound, anatomy, letters, figures, the monogram, company, weight, the K neither language handed Bodoni for free, the first name's long road from a heel, and what the name scores on a Scrabble board.",
+      "description": "Volume I. Ten chapters on twelve letters: origins, sound, anatomy, letters, figures, the monogram, company, weight, the K neither language handed Bodoni for free, the first name's long road from a heel, and what the name scores on a Scrabble board.",
       "spine": "Vol. I · The Name",
-      "sections": ["name", "contents", "origins", "sound", "anatomy", "letters", "figures", "mark", "company", "weight", "kappa", "kobus", "tiles"]
+      "sections": ["hero", "name", "contents", "origins", "sound", "anatomy", "letters", "figures", "mark", "builder", "company", "weight", "kappa", "kobus"]
     },
     {
       "slug": "broadcast",
@@ -32,14 +48,6 @@
       "description": "Volume III. Rafe Lavine: thirty years of South African radio, his SAfm programmes, his ten records, the Peddlers he named among them, and what could be checked.",
       "spine": "Vol. III · The Presenter",
       "sections": ["presenter", "peddlers"]
-    },
-    {
-      "slug": "pmf",
-      "file": "pmf.html",
-      "title": "Pig Man Fat · Kobus Kennedy",
-      "description": "Volume IV, a special edition on Pig Man Fat: the true origin, as told in a supplied essay on a radio quiz producer, then an invented tall tale in the manner of Br'er Rabbit, retold twelve times, with the real traditions behind it and what could not be found.",
-      "spine": "Vol. IV · The Legend",
-      "sections": ["pmf", "pmf-origin", "pmf-tale", "pmf-retell", "pmf-kin"]
     },
     {
       "slug": "editions",

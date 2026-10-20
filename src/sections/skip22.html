@@ -1,0 +1,39 @@
+  <section id="skip22" class="game">
+    <div class="wrap">
+      <p class="label">Game one</p>
+      <div class="letters-head">
+        <h2 class="display">Skip show 22</h2>
+        <p>You are the quizmaster. Read the card, hear the contestant, and decide whether the answer earns the points. First to 22 wins. The essay says the rules were those of <em>21</em> and the quizmaster read them to his liking.</p>
+      </div>
+
+      <div class="game-board reveal" id="s22" data-s22>
+        <div class="s22-top">
+          <p class="s22-score"><span class="label">Score</span><b class="display" id="s22-score">0</b><span class="s22-of">of 22</span></p>
+          <div class="s22-meter" aria-hidden="true"><i id="s22-bar"></i></div>
+        </div>
+        <div class="s22-card" aria-live="polite">
+          <p class="label" id="s22-val">Worth 11</p>
+          <p class="s22-q" id="s22-q">Press start.</p>
+          <p class="s22-line"><span class="label">The card says</span><b id="s22-correct">&nbsp;</b></p>
+          <p class="s22-line"><span class="label">The contestant says</span><b id="s22-said">&nbsp;</b></p>
+        </div>
+        <div class="game-btns">
+          <button type="button" class="knob-btn" id="s22-yes" disabled>Give the points</button>
+          <button type="button" class="knob-btn" id="s22-no" disabled>No points</button>
+          <button type="button" class="knob-btn" id="s22-start">Start the show</button>
+        </div>
+        <div class="s22-meters">
+          <p><span class="label">Letters to the press</span> <b class="display" id="s22-letters">0</b> <span id="s22-mood" class="s22-mood">Quiet</span></p>
+          <p><span class="label">Cards read</span> <b id="s22-asked">0</b></p>
+        </div>
+        <div class="s22-final" id="s22-final" hidden>
+          <p class="label">Listeners&rsquo; prize question</p>
+          <p class="s22-q">The missing answer. Say it, and the prize is yours.</p>
+          <form id="s22-form" class="s22-form"><input id="s22-guess" type="text" autocomplete="off" aria-label="Your answer to the missing answer question"><button type="submit" class="knob-btn">Answer</button></form>
+          <p id="s22-reply" class="s22-reply" aria-live="polite"></p>
+          <p class="label">Listeners who have won: <b id="s22-winners">0</b></p>
+        </div>
+      </div>
+      <p class="game-note">The essay says the listeners&rsquo; missing-answer question was never won. This one is built the same way. Letters arrive when you judge badly: points for a wrong answer, or none for a right one. The questions are the site&rsquo;s own.</p>
+    </div>
+  </section>

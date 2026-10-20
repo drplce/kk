@@ -1,0 +1,37 @@
+  <section id="tuner" class="tuner">
+    <div class="wrap">
+      <p class="label">Instrument &middot; the tuner</p>
+      <div class="letters-head">
+        <h2 class="display">Tune in</h2>
+        <p>Six stops on the dial, each one a stretch of the essay&rsquo;s story about Pigman Fat. Switch the set on, turn the knob, and listen for the gaps between them.</p>
+      </div>
+
+      <div class="tuner-set reveal" id="tuner-set" data-tuner>
+        <div class="tuner-top">
+          <button type="button" class="knob-btn" id="tuner-power" aria-pressed="false">Switch on</button>
+          <button type="button" class="knob-btn" id="tuner-mute" aria-pressed="false" disabled>Sound off</button>
+          <button type="button" class="knob-btn" id="tuner-prev">Previous stop</button>
+          <button type="button" class="knob-btn" id="tuner-next">Next stop</button>
+        </div>
+        <div class="dial" aria-hidden="true">
+          <div class="dial-scale" id="tuner-scale"></div>
+          <i class="dial-needle" id="tuner-needle"></i>
+        </div>
+        <div class="tuner-mid">
+          <label class="tuner-knob">Tuning <output id="tuner-freq" for="tuner-range">540</output>
+            <input type="range" id="tuner-range" min="520" max="1620" step="1" value="540">
+          </label>
+          <div class="eye" aria-hidden="true"><i id="tuner-eye"></i></div>
+        </div>
+        <div class="tuner-view" aria-live="polite">
+          <canvas id="tuner-static" width="220" height="70" aria-hidden="true"></canvas>
+          <div class="tuner-card">
+            <p class="label" id="tuner-station">Static</p>
+            <h3 class="display" id="tuner-title">Between stations</h3>
+            <p id="tuner-text">Turn the knob. The dial numbers are decoration; nothing here claims a real frequency.</p>
+          </div>
+        </div>
+        <p class="game-note">Everything on the cards is the essay&rsquo;s account, as reported in <a href="pmf.html#origin" class="accent">chapter XVIII</a>. The hiss and tones are generated in your browser and are not recordings of anything.</p>
+      </div>
+    </div>
+  </section>
