@@ -1,0 +1,3 @@
+# Image notes
+
+(none yet)
