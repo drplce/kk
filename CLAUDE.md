@@ -14,7 +14,8 @@ working in the repository.
     assets/site.css         the bones: tokens, type, layout, every component
     assets/edition.css      the current edition's treatment (palette, face, flourish)
     assets/site.js          reveal, the broadcast player, tabs, the monogram builder, earlier instruments
-    assets/radio.js         Edition XI instruments: scroll dial, warm-up static, tuner, the Studio games
+    assets/radio.js         Edition XI instruments: scroll dial, warm-up static, tuner (dial through time), the Studio games
+    assets/dial-data.js     the dial's data: stations, frequencies, events, programme slots, sources, each with a confidence
     beat-the-beat-1974.mp3  the SAfm recording the player plays
     build.py                assembles src/ into the root HTML pages
     index.html, pmf.html, studio.html, name.html, broadcast.html, presenter.html, editions.html
@@ -86,3 +87,8 @@ Do not delete the recording, the source sections, or the editions log.
   supplies a photograph, replace the plate in src/sections/presenter.html.
 - The Scrabble chapter and board were retired at the owner's request; do not restore
   them unasked.
+- The dial's data lives in assets/dial-data.js. Add only what has a source, and set its
+  confidence. Where a frequency, year or time was not found, leave it out and say so in the
+  notes section (src/sections/dial-notes.html). Current-only frequencies are shown for 2026 alone.
+- A mailbox branch `wip/comms` carries messages between the cloud session and a local session.
+  It holds no site code and must never be merged into main.

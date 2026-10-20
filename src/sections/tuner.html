@@ -3,7 +3,7 @@
       <p class="label">Instrument &middot; the dial through time</p>
       <div class="letters-head">
         <h2 class="display">Tune in</h2>
-        <p>Pick a year and a city, choose AM or FM, and see which stations sat where on the dial. Marks along the year bar show the years something changed: a launch, a rename, a new frequency. A third band keeps the six shows from the Pigman Fat essay.</p>
+        <p>Pick a year, a city, a day and a time, choose AM or FM, and see which stations sat where on the dial and which programme was on. Marks along the year bar show the years something changed: a launch, a rename, a new frequency. Much is missing, and the page says so: a station with no frequency found is listed without a dial position, and a time with no programme found says that. A third band keeps the six shows from the Pigman Fat essay.</p>
       </div>
 
       <div class="tuner-set reveal" id="tuner-set" data-tuner>
@@ -23,6 +23,22 @@
           </div>
           <div class="time-ticks" id="time-ticks" aria-hidden="true"></div>
           <p class="time-event" id="time-event" aria-live="polite"></p>
+        </div>
+
+        <div class="clockbar">
+          <div class="opt" role="radiogroup" aria-label="Day">
+            <span class="label">Day</span>
+            <label class="check"><input type="radio" name="dial-day" value="Mon" checked> Mon</label>
+            <label class="check"><input type="radio" name="dial-day" value="Tue"> Tue</label>
+            <label class="check"><input type="radio" name="dial-day" value="Wed"> Wed</label>
+            <label class="check"><input type="radio" name="dial-day" value="Thu"> Thu</label>
+            <label class="check"><input type="radio" name="dial-day" value="Fri"> Fri</label>
+            <label class="check"><input type="radio" name="dial-day" value="Sat"> Sat</label>
+            <label class="check"><input type="radio" name="dial-day" value="Sun"> Sun</label>
+          </div>
+          <label class="tuner-knob">Time <output id="dial-clock" for="dial-time">19:30</output>
+            <input type="range" id="dial-time" min="0" max="1425" step="15" value="1170" aria-label="Time of day">
+          </label>
         </div>
 
         <div class="tuner-opts">
@@ -58,6 +74,7 @@
           <div class="eye" aria-hidden="true"><i id="tuner-eye"></i></div>
         </div>
         <div class="dial-list" id="dial-list" aria-label="Stations on the dial this year"></div>
+        <div class="dial-list dial-nofreq" id="dial-nofreq" aria-label="Stations on air this year with no frequency found"></div>
         <div class="tuner-view" aria-live="polite">
           <canvas id="tuner-static" width="220" height="70" aria-hidden="true"></canvas>
           <div class="tuner-card">
@@ -65,6 +82,7 @@
             <h3 class="display" id="tuner-title">Between stations</h3>
             <p id="tuner-text">Turn the knob.</p>
             <ul class="tuner-hist" id="tuner-hist"></ul>
+            <div class="tuner-sched" id="tuner-sched"></div>
           </div>
         </div>
         <p class="game-note">Frequencies and dates come from search extracts, listed with what could not be found in <a href="#dial-notes" class="accent">the notes below</a>. Pigman&rsquo;s dial numbers are decoration, and nothing there claims a real frequency. The hiss and tones are generated in your browser.</p>

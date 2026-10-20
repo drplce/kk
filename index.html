@@ -79,7 +79,7 @@
       <p class="label">Instrument &middot; the dial through time</p>
       <div class="letters-head">
         <h2 class="display">Tune in</h2>
-        <p>Pick a year and a city, choose AM or FM, and see which stations sat where on the dial. Marks along the year bar show the years something changed: a launch, a rename, a new frequency. A third band keeps the six shows from the Pigman Fat essay.</p>
+        <p>Pick a year, a city, a day and a time, choose AM or FM, and see which stations sat where on the dial and which programme was on. Marks along the year bar show the years something changed: a launch, a rename, a new frequency. Much is missing, and the page says so: a station with no frequency found is listed without a dial position, and a time with no programme found says that. A third band keeps the six shows from the Pigman Fat essay.</p>
       </div>
 
       <div class="tuner-set reveal" id="tuner-set" data-tuner>
@@ -99,6 +99,22 @@
           </div>
           <div class="time-ticks" id="time-ticks" aria-hidden="true"></div>
           <p class="time-event" id="time-event" aria-live="polite"></p>
+        </div>
+
+        <div class="clockbar">
+          <div class="opt" role="radiogroup" aria-label="Day">
+            <span class="label">Day</span>
+            <label class="check"><input type="radio" name="dial-day" value="Mon" checked> Mon</label>
+            <label class="check"><input type="radio" name="dial-day" value="Tue"> Tue</label>
+            <label class="check"><input type="radio" name="dial-day" value="Wed"> Wed</label>
+            <label class="check"><input type="radio" name="dial-day" value="Thu"> Thu</label>
+            <label class="check"><input type="radio" name="dial-day" value="Fri"> Fri</label>
+            <label class="check"><input type="radio" name="dial-day" value="Sat"> Sat</label>
+            <label class="check"><input type="radio" name="dial-day" value="Sun"> Sun</label>
+          </div>
+          <label class="tuner-knob">Time <output id="dial-clock" for="dial-time">19:30</output>
+            <input type="range" id="dial-time" min="0" max="1425" step="15" value="1170" aria-label="Time of day">
+          </label>
         </div>
 
         <div class="tuner-opts">
@@ -134,6 +150,7 @@
           <div class="eye" aria-hidden="true"><i id="tuner-eye"></i></div>
         </div>
         <div class="dial-list" id="dial-list" aria-label="Stations on the dial this year"></div>
+        <div class="dial-list dial-nofreq" id="dial-nofreq" aria-label="Stations on air this year with no frequency found"></div>
         <div class="tuner-view" aria-live="polite">
           <canvas id="tuner-static" width="220" height="70" aria-hidden="true"></canvas>
           <div class="tuner-card">
@@ -141,6 +158,7 @@
             <h3 class="display" id="tuner-title">Between stations</h3>
             <p id="tuner-text">Turn the knob.</p>
             <ul class="tuner-hist" id="tuner-hist"></ul>
+            <div class="tuner-sched" id="tuner-sched"></div>
           </div>
         </div>
         <p class="game-note">Frequencies and dates come from search extracts, listed with what could not be found in <a href="#dial-notes" class="accent">the notes below</a>. Pigman&rsquo;s dial numbers are decoration, and nothing there claims a real frequency. The hiss and tones are generated in your browser.</p>
@@ -150,7 +168,116 @@
 
   <hr class="rule">
 
-  <section id="dial-notes" class="dial-notes"><div class="wrap"><p class="label">Notes on the dial</p></div></section>
+  <section id="dial-notes" class="dial-notes">
+    <div class="wrap">
+      <p class="label">Notes on the dial</p>
+      <div class="letters-head">
+        <h2 class="display">What the dial knows, and what it does not</h2>
+        <p>Every frequency, year and programme on the tuner carries a source number and a confidence mark. Most of it is thin. This is how it was found and where it stops.</p>
+      </div>
+      <div class="reveal">
+        <p>Two rounds of research ran for this instrument: five agents on frequencies and stations, then seven on programme schedules, split by day-part and by day. About two hundred web searches were made in all, and every attempt to open a page failed, because the sites were blocked or did not resolve. So <b>everything here comes from search-result summaries</b>, most of them of Wikipedia pages or their mirrors, and quotations are the search tool&rsquo;s rendering, not the pages&rsquo; own words. Two searches that agree may therefore be one source twice, and the confidence marks say so. The schedule round ran out of its shared search allowance after a few searches each, so schedules are the thinnest layer: for most stations and years the dial says &ldquo;no programme found&rdquo; and means exactly that.</p>
+        <p>Where only a current frequency could be found, it is shown for 2026 alone. Where a station is known but its frequency is not, it appears in a separate row without a dial position, so nothing is placed on the dial that was not found. Frequencies on Pigman&rsquo;s dial are decoration.</p>
+      </div>
+
+      <div class="presenter-grid" style="margin-top:3rem">
+        <div class="reveal">
+          <p class="label" style="margin:0 0 1rem">What was checked</p>
+          <ul class="verify">
+            <li><span class="mark2">&#10003;</span><span class="k">Radio 702</span><span class="v">702 kHz AM from 28 June 1980, from Ga-Rankuwa; first FM broadcast on 92.7 MHz on 24 July 2006, after ICASA granted it on 27 March 2006. A legal document, an ICASA notice and two news items agree.</span></li>
+            <li><span class="mark2">&#10003;</span><span class="k">Capital 604</span><span class="v">On air from 26 December 1979 on 603 kHz, branded 604; switched off in 1996.</span></li>
+            <li><span class="mark2">&#10003;</span><span class="k">Radio Today</span><span class="v">An IBA medium-wave plan lists Johannesburg, 1485 kHz, 1 kW, Radio Today, 14 June 1996, and a July 1996 article agrees.</span></li>
+            <li><span class="mark2">&#10003;</span><span class="k">CapeTalk</span><span class="v">567 kHz from 14 October 1997.</span></li>
+            <li><span class="mark2">&#10003;</span><span class="k">1996 sale</span><span class="v">The IBA concluded the sale of six SABC regional stations on 20 September 1996, R521.1 million.</span></li>
+            <li><span class="mark2">&#10003;</span><span class="k">FM band</span><span class="v">ICASA gives the FM band as 87.5 to 108 MHz under the GE84 plan, in force from 1 July 1987. The dial&rsquo;s FM scale runs 87 to 109.</span></li>
+            <li><span class="mark2 open">?</span><span class="k">FM begins</span><span class="v">1 September 1961, 22 December 1961, Christmas Day 1961 and 1 January 1962 are all given. The dial marks 1961.</span></li>
+            <li><span class="mark2 open">?</span><span class="k">Renames</span><span class="v">5FM: 1992, or the early 1980s. Radio South Africa: 1985, or 1 January 1986. SAfm: 1995, or 1996. Radio Metro: 1 September or October 1986. All shown with the first date and the doubt noted.</span></li>
+            <li><span class="mark2 open">?</span><span class="k">702 AM end</span><span class="v">28 June 2007 in one source, after a year of AM and FM together; another says 2006.</span></li>
+            <li><span class="mark2 open">?</span><span class="k">East Coast</span><span class="v">Sold on 1 July 1994 per two sources; the IBA licensed its acquisition in 1996 and listed it among the six stations sold then.</span></li>
+            <li><span class="mark2 open">?</span><span class="k">Kfm, YFM, Heart</span><span class="v">Kfm may be an SABC station sold in 1996 or a 1997 licence. YFM is dated 1995 or 1997, and its 99.2 MHz rests on one list. Heart 104.9 dates from 2004 or 2006.</span></li>
+            <li><span class="mark2 open">?</span><span class="k">Radio Pulpit</span><span class="v">The station dates from 1981 in one article; another source adds 657 kHz at Meyerton in the early 1990s. Shown from about 1990.</span></li>
+            <li><span class="mark2 open">?</span><span class="k">Radio Metro 576</span><span class="v">The Meyerton 576 kHz transmitter carried Radio Metro until June 2011. The year Metro first used it was not found, so it is shown from the 1986 launch, marked as assumed.</span></li>
+            <li><span class="mark2 open">?</span><span class="k">Radio Bop</span><span class="v">Its medium-wave frequency is given as 1098 kHz and as 540 kHz. Left off the dial.</span></li>
+            <li><span class="mark2 open">?</span><span class="k">Schedules</span><span class="v">The Springbok Radio weekday pattern comes from one Wikipedia extract and is undated. SAfm&rsquo;s 2003 late slot, Friday Rock IT Scientists and Sunday Quiet Storm come from this site&rsquo;s presenter chapter and its IOL sources; the research could not find them again. PM Live (SAfm, 1998 and 2000) is a news programme, and is not PM Jive.</span></li>
+            <li><span class="mark2 open">?</span><span class="k">Rafe Lavine</span><span class="v">The career line under the year bar is this site&rsquo;s own presenter chapter. A 2013 post that may put him on Mix 93.8 was not reconciled with the chapter, which says he did not carry on there.</span></li>
+          </ul>
+        </div>
+        <div class="reveal">
+          <p class="label" style="margin:0 0 1rem">Not found, and not invented</p>
+          <ul class="verify">
+            <li><span class="mark2 open">&ndash;</span><span class="k">Springbok</span><span class="v">No medium-wave frequency for Springbok Radio in any city or year. Its pre-1976 and 1976 to 1985 dial is blank.</span></li>
+            <li><span class="mark2 open">&ndash;</span><span class="k">SABC AM</span><span class="v">No medium-wave frequency for the English Service, Radio South Africa, Radio 5 or Good Hope, and no SAfm frequency before the current listing. The only SABC medium-wave switch-off found is Radio Metro 576 in June 2011.</span></li>
+            <li><span class="mark2 open">&ndash;</span><span class="k">Regional FM</span><span class="v">Highveld before 1988, Good Hope, Port Natal and East Coast, Jacaranda and Radio Orion: no frequency by year, only current ranges for some.</span></li>
+            <li><span class="mark2 open">&ndash;</span><span class="k">PM Jive</span><span class="v">Reported by Trevor Worley as weekdays 2 to 4 on SAfm, with Beat the Beat at 2.20 and its answers at 2.45. Searches found no listing under either name. It is shown as years-unknown, never placed on a year.</span></li>
+            <li><span class="mark2 open">&ndash;</span><span class="k">The essay</span><span class="v">Of the essay&rsquo;s shows, only the titles <em>21</em> and <em>Venture</em> were found, as Springbok Radio quiz titles. No hosts, times or years for any of them, and nothing for <em>Skip show 22</em>, <em>Find the Job</em>, Mik Boaty, O&rsquo;Bryne and Shippey, or Pigman Fat.</span></li>
+            <li><span class="mark2 open">&ndash;</span><span class="k">Cities</span><span class="v">Only Johannesburg, Cape Town and Durban are offered, and the Cape Town and Durban data is the sparsest.</span></li>
+            <li><span class="mark2 open">&ndash;</span><span class="k">Next</span><span class="v">The sources that would fill most of this are blocked from where this was built: the World Radio TV Handbook and station-list archives, ICASA frequency annexes, the Web Archive&rsquo;s old schedule pages, and radio guides. A second pass from an open connection is planned.</span></li>
+          </ul>
+          <p class="label" style="margin:2rem 0 1rem">Corrections to earlier pages</p>
+          <ul class="verify">
+            <li><span class="mark2">&#10003;</span><span class="k">RockFest</span><span class="v">The presenter chapter said The RockFest on Radio Today lasted &ldquo;until the station stops&rdquo;. It was ended by the station&rsquo;s management in February 2009, per its host&rsquo;s history, and Radio Today did not stop. It also said the move to 93.8 FM was in November 2009; the history says early December. Both are now corrected there.</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="sources reveal">
+        <p class="label">Sources consulted, all as search-result extracts. The numbers on the dial point here.</p>
+        <ol class="dial-sources">
+          <li id="dial-src-w702"><a href="https://en.wikipedia.org/wiki/Radio_702">Wikipedia, Radio 702 (search extract)</a></li>
+          <li id="dial-src-ewn"><a href="https://www.ewn.co.za/2025/05/19/remembering-visionary-issie-kirsh-who-launched-702-a-platform-for-all-voices-in-1980s-apartheid-south-africa">EWN, remembering Issie Kirsh, 2025</a></li>
+          <li id="dial-src-mg06"><a href="https://mg.co.za/article/2006-03-24-talk-radio-702-to-move-fm-in-gauteng">Mail &amp; Guardian, Talk Radio 702 to move to FM, March 2006</a></li>
+          <li id="dial-src-gov06"><a href="https://www.gov.za/news/icasa-grants-radio-702-frequencies-27-mar-2006">gov.za, ICASA grants Radio 702 frequencies, 27 March 2006</a></li>
+          <li id="dial-src-cons"><a href="https://archive.wethepeoplesa.org/uploads/r/constitution-hill-trust-2/7/8/1/7815e95c2c3469bb1a5712a0a132e243794f3515308e1fba02bda5841f57952f/ITEM_NEG-0029-0005-_-127.pdf">Constitution Hill archive, legal document on 702 kHz</a></li>
+          <li id="dial-src-w604"><a href="https://en.wikipedia.org/wiki/Capital_Radio_604">Wikipedia, Capital Radio 604</a></li>
+          <li id="dial-src-mg96c"><a href="https://mg.co.za/article/1996-11-29-capital-radio-is-switched-off/">Mail &amp; Guardian, Capital Radio is switched off, 29 November 1996</a></li>
+          <li id="dial-src-iba99"><a href="https://www.polity.org.za/polity/govdocs/notices/1999/iba/mwplan1.html">IBA medium-wave plan, 1999 (polity.org.za)</a></li>
+          <li id="dial-src-mg96t"><a href="https://mg.co.za/article/1996-07-12-radio-today-targets-the-past/">Mail &amp; Guardian, Radio Today targets the past, July 1996</a></li>
+          <li id="dial-src-wcape"><a href="https://en.wikipedia.org/wiki/CapeTalk">Wikipedia, CapeTalk</a></li>
+          <li id="dial-src-w947"><a href="https://en.wikipedia.org/wiki/947_(radio_station)">Wikipedia, 947 (radio station)</a></li>
+          <li id="dial-src-sabcml"><a href="https://sabcmedialib.blogspot.com/2011/10/between-stations.html">SABC Media Libraries blog, Between stations</a></li>
+          <li id="dial-src-oldr"><a href="https://www.oldradio.com/archives/international/safrica.html">oldradio.com, South Africa history</a></li>
+          <li id="dial-src-iba96"><a href="https://www.polity.org.za/polity/govdocs/pr/1996/pr0920c.html">IBA press release, 20 September 1996</a></li>
+          <li id="dial-src-wsafm"><a href="https://en.wikipedia.org/wiki/SAfm">Wikipedia, SAfm</a></li>
+          <li id="dial-src-esafm"><a href="https://esat.sun.ac.za/index.php/SAfm">ESAT, SAfm</a></li>
+          <li id="dial-src-wspring"><a href="https://en.wikipedia.org/wiki/Springbok_Radio">Wikipedia, Springbok Radio</a></li>
+          <li id="dial-src-w5fm"><a href="https://en.wikipedia.org/wiki/5FM">Wikipedia, 5FM</a></li>
+          <li id="dial-src-wmetro"><a href="https://en.wikipedia.org/wiki/Metro_FM">Wikipedia, Metro FM</a></li>
+          <li id="dial-src-wr2000"><a href="https://en.wikipedia.org/wiki/Radio_2000">Wikipedia, Radio 2000</a></li>
+          <li id="dial-src-wecr"><a href="https://en.wikipedia.org/wiki/East_Coast_Radio_(South_Africa)">Wikipedia, East Coast Radio</a></li>
+          <li id="dial-src-wgh"><a href="https://en.wikipedia.org/wiki/Good_Hope_FM">Wikipedia, Good Hope FM</a></li>
+          <li id="dial-src-worion"><a href="https://en.wikipedia.org/wiki/Radio_Orion">Wikipedia, Radio Orion</a></li>
+          <li id="dial-src-wlotus"><a href="https://en.wikipedia.org/wiki/Lotus_FM">Wikipedia, Lotus FM</a></li>
+          <li id="dial-src-wbrix"><a href="https://en.wikipedia.org/wiki/Brixton_Tower">Wikipedia, Brixton Tower</a></li>
+          <li id="dial-src-wits"><a href="https://wiredspace.wits.ac.za/bitstreams/0a5d609d-0df1-4c55-b57f-0c90b5333c05/download">Wits University thesis citing Mishkind (2004)</a></li>
+          <li id="dial-src-saho"><a href="https://sahistory.org.za/dated-event/start-daily-television-transmissions">SAHO, start of daily television transmissions, 1976</a></li>
+          <li id="dial-src-icasa"><a href="https://icasa.org.za/legislation-and-regulations/inquiries/optimization-of-the-frequency-modulation-sound-broadcasting">ICASA, optimisation of FM sound broadcasting (87.5 to 108 MHz; GE84)</a></li>
+          <li id="dial-src-rher"><a href="https://www.radioheritage.net/Story387.asp">Radio Heritage, Meyerton medium-wave story</a></li>
+          <li id="dial-src-whot"><a href="https://en.wikipedia.org/wiki/Hot_1027">Wikipedia, Hot 1027 (Classic FM)</a></li>
+          <li id="dial-src-wkaya"><a href="https://en.wikipedia.org/wiki/Kaya_FM">Wikipedia, Kaya FM</a></li>
+          <li id="dial-src-wyfm"><a href="https://en.wikipedia.org/wiki/YFM">Wikipedia, YFM</a></li>
+          <li id="dial-src-sarr"><a href="https://sarockmusic.com/2010/02/02/the-history-of-rockfest-radio-by-leon-economides/">sarockmusic.com, The History of RockFest Radio, by Leon Economides</a></li>
+          <li id="dial-src-sarpl"><a href="https://sarockmusic.com/2010/02/03/playlist-monday-25-january-2010/">sarockmusic.com, playlist for Monday 25 January 2010</a></li>
+          <li id="dial-src-mpulp"><a href="https://themediaonline.co.za/2016/07/radio-pulpit-657am-turns-35">The Media Online, Radio Pulpit 657AM turns 35, 2016</a></li>
+          <li id="dial-src-mmix"><a href="https://themediaonline.co.za/2018/03/an-legendary-ingredient-in-joburgs-radio-mix">The Media Online, Mix 93.8, 2018</a></li>
+          <li id="dial-src-mytn"><a href="https://mytuner-radio.com/radio/safm-live-404786">MyTuner, SAfm listing (an aggregator)</a></li>
+          <li id="dial-src-brief"><a href="https://briefly.co.za/107472-list-top-20-south-african-radio-stations-frequencies.html">Briefly, list of station frequencies (a third-party list)</a></li>
+          <li id="dial-src-ika"><a href="https://iol.co.za/entertainment/whats-on/2004-03-30-gotta-keep-on-rocking/">IOL, Gotta keep on rocking, March 2004</a></li>
+          <li id="dial-src-iol03"><a href="https://iol.co.za/entertainment/whats-on/2003-11-24-djs-patrol-hits-durban/">IOL, DJ&rsquo;s patrol hits Durban, November 2003 (the SAfm schedule)</a></li>
+          <li id="dial-src-mgtl"><a href="https://mg.co.za/?p=303326">Mail &amp; Guardian, SAfm weekend cuts, September 2004</a></li>
+          <li id="dial-src-mg98"><a href="https://mg.co.za/?p=318794">Mail &amp; Guardian, SAfm PM Live, 1998 (summary only)</a></li>
+          <li id="dial-src-mg00"><a href="https://mg.co.za/?p=283992">Mail &amp; Guardian, SAfm review, 2000 (URL attribution uncertain)</a></li>
+          <li id="dial-src-tml19"><a href="https://themediaonline.co.za/2019/03/more-sabc-presenter-line-up-changes-safm-lesedi-fm-and-motsweding-fm">The Media Online, SABC presenter line-up changes, March 2019</a></li>
+          <li id="dial-src-ch24"><a href="https://www.channel24.co.za/The-Juice/News/702s-new-line-up-following-john-robbies-retirement-20161110">Channel24, 702&rsquo;s new line-up after John Robbie&rsquo;s retirement, 2016</a></li>
+          <li id="dial-src-sowo16"><a href="https://www.sowetanlive.co.za/entertainment/2016-04-05-paul-mtirara-not-moving-to-702/">Sowetan, Paul Mtirara not moving to 702, April 2016</a></li>
+          <li id="dial-src-sq"><a href="https://vintageradioshows.com/shows/squad-cars">Vintage Radio Shows, Squad Cars</a></li>
+          <li id="dial-src-etaxi"><a href="https://esat.sun.ac.za/index.php/Taxi!">ESAT, Taxi! (likely page)</a></li>
+          <li id="dial-src-bobc"><a href="https://en.wikipedia.org/wiki/Bob_Courtney">Wikipedia, Bob Courtney</a></li>
+          <li id="dial-src-mgh"><a href="https://mg.co.za/?p=306952">Mail &amp; Guardian, Heart 104.9, January 2006</a></li>
+          <li id="dial-src-chap"><a href="presenter.html">This site, chapter X (the presenter), which cites IOL and Mail &amp; Guardian</a></li>
+          <li id="dial-src-trev"><a href="broadcast.html">Trevor Worley, by message to the site owner, October 2026</a></li>
+          </ol>
+      </div>
+    </div>
+  </section>
 
   <hr class="rule">
 

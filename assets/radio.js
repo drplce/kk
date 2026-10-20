@@ -57,6 +57,7 @@
     var st = $('tuner-station'), ti = $('tuner-title'), tx = $('tuner-text'), hist = $('tuner-hist');
     var yr = $('dial-year'), yrange = $('dial-year-range'), marks = $('time-marks'), ticks = $('time-ticks'), tev = $('time-event');
     var tprev = $('time-prev'), tnext = $('time-next'), tplay = $('time-play'), list = $('dial-list'), bandLabel = $('dial-band-label');
+    var nofreq = $('dial-nofreq'), sched = $('tuner-sched'), trange = $('dial-time'), tout = $('dial-clock');
     if (!range || !needle || !scale || !st || !ti || !tx) return;
 
     var ESSAY = [
@@ -74,7 +75,8 @@
     };
     var CITY = { jhb: 'Johannesburg', cpt: 'Cape Town', dbn: 'Durban' };
     var yMin = D && D.meta ? D.meta.yearMin : 1950, yMax = D && D.meta ? D.meta.yearMax : 2026;
-    var year = D && D.meta && D.meta.defaultYear ? D.meta.defaultYear : 1995, band = 'AM', city = 'jhb';
+    var year = D && D.meta && D.meta.defaultYear ? D.meta.defaultYear : 2006, band = 'AM', city = 'jhb';
+    var day = 'Mon', tmin = 1170, forced = null, nofreqList = [];
     var items = [], tunedItem = null, tunedKey = '';
     var on = false, muted = false, ac = null, nGain, tGain, osc, master, playTimer = null;
 
@@ -82,6 +84,7 @@
     function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
     function srcLinks(ids) {
       if (!ids || !ids.length || !D || !D.sources) return '';
+      ids = ids.filter(function (id, i) { return ids.indexOf(id) === i; });
       return ' ' + ids.map(function (id) {
         var i; for (i = 0; i < D.sources.length; i++) if (D.sources[i].id === id) return '<a class="sref" href="#dial-src-' + esc(id) + '">[' + (i + 1) + ']</a>';
         return '';
@@ -134,9 +137,11 @@
     function yearEvents() {
       if (!tev) return;
       var ev = eventsFor().filter(function (e) { return e.y === year; });
-      if (ev.length) { tev.innerHTML = ev.map(function (e) { return '<b>' + e.y + '</b> ' + esc(e.text) + srcLinks(e.src); }).join('<br>'); return; }
+      var lav = (D.lavine || []).filter(function (l) { return l.from <= year && l.to >= year; }).map(function (l) { return esc(l.text); });
+      var lavHtml = lav.length ? '<br><span class="lav">Rafe Lavine in ' + year + ': ' + lav.join('; ') + '.</span>' : '';
+      if (ev.length) { tev.innerHTML = ev.map(function (e) { return '<b>' + e.y + '</b> ' + esc(e.text) + srcLinks(e.src); }).join('<br>') + lavHtml; return; }
       var later = eventsFor().filter(function (e) { return e.y > year; }).map(function (e) { return e.y; }).sort(function (a, b) { return a - b; })[0];
-      tev.textContent = 'No change recorded for ' + CITY[city] + ' in ' + year + '.' + (later ? ' The next mark is ' + later + '.' : '');
+      tev.innerHTML = esc('No change recorded for ' + CITY[city] + ' in ' + year + '.' + (later ? ' The next mark is ' + later + '.' : '')) + lavHtml;
     }
     function stepChange(dir) {
       var ys = eventsFor().map(function (e) { return e.y; }).filter(function (v, i, a) { return a.indexOf(v) === i; }).sort(function (a, b) { return a - b; }), i, t = null;
@@ -152,8 +157,9 @@
       var b = B[band], h = '', v, p, i;
       for (v = b.min; v <= b.max; v += b.minor) {
         p = ((v - b.min) / (b.max - b.min)) * 100;
-        var isMajor = (v - b.min) % b.major === 0 || v % b.major === 0;
-        h += '<span class="tick' + (isMajor ? ' big' : '') + '" style="left:' + p.toFixed(2) + '%">' + (isMajor && (band === 'FM' ? true : v % 100 === 0) ? '<em>' + b.lab(v) + '</em>' : '') + '</span>';
+        var isMajor = (v - b.min) % b.major === 0 || v % b.major === 0, narrow = window.innerWidth < 640;
+        var labelled = isMajor && (band === 'FM' ? (!narrow || (v / 20) % 2 === 0) : (v % 100 === 0 && (!narrow || (v / 100) % 2 === 0)));
+        h += '<span class="tick' + (isMajor ? ' big' : '') + '" style="left:' + p.toFixed(2) + '%">' + (labelled ? '<em>' + b.lab(v) + '</em>' : '') + '</span>';
       }
       items.forEach(function (it) { p = ((it.v - b.min) / (b.max - b.min)) * 100; h += '<span class="mark-st" style="left:' + p.toFixed(2) + '%" title="' + esc(it.name) + '"></span>'; });
       scale.innerHTML = h;
@@ -195,18 +201,76 @@
       tGain.gain.setTargetAtTime(on ? 0.05 * p * p : 0, t, 0.08);
       if (n.i >= 0) osc.frequency.setTargetAtTime(items[n.i].tone, t, 0.05);
     }
+    var DAYN = { Mon: 'Monday', Tue: 'Tuesday', Wed: 'Wednesday', Thu: 'Thursday', Fri: 'Friday', Sat: 'Saturday', Sun: 'Sunday' };
+    function pad(n) { return (n < 10 ? '0' : '') + n; }
+    function clock(m) { return pad(Math.floor(m / 60) % 24) + ':' + pad(m % 60); }
+    function toMin(x) { if (!x) return null; var p = x.split(':'); return parseInt(p[0], 10) * 60 + parseInt(p[1], 10); }
+    function inYears(x) { return (x.from == null || x.from <= year) && (x.to == null || x.to >= year); }
+    function alive(s) { return s.life[0] <= year && (s.life[1] == null || s.life[1] >= year); }
+    function slotsFor(s) {
+      var res = { now: [], day: [], other: [] };
+      (D.slots || []).forEach(function (x) {
+        if (x.station !== s.id) return;
+        if (x.undated) { res.other.push(x); return; }
+        if (!inYears(x)) return;
+        var a = toMin(x.s), b = toMin(x.e);
+        if (x.days && x.days.indexOf(day) >= 0 && a != null && b != null) {
+          res.day.push(x);
+          if (tmin >= a && tmin < Math.min(b, 1440)) res.now.push(x);
+        } else res.other.push(x);
+      });
+      res.day.sort(function (p, q) { return toMin(p.s) - toMin(q.s); });
+      return res;
+    }
+    function confTag(c) { return '<span class="conf conf-' + esc(c || 'low') + '">' + esc(c || 'low') + '</span>'; }
+    function slotLine(x) {
+      var t = x.s ? x.s + (x.e ? '–' + x.e : ' (end not found)') : 'time not found';
+      var yrs = x.undated ? 'years not known' : (x.from == null ? 'to ' + x.to : x.from === x.to ? String(x.from) : x.from + '–' + (x.to == null ? 'now' : x.to));
+      var dys = x.days ? (x.days.length === 5 && x.days[0] === 'Mon' && x.days[4] === 'Fri' ? 'Mon–Fri' : x.days.join(', ')) : 'days not stated';
+      return '<li><b>' + esc(t) + '</b> ' + esc(x.prog) + (x.who ? ' · ' + esc(x.who) : '') + ' <em>' + esc(dys + ', ' + yrs + (x.pattern ? ', undated pattern' : '')) + '</em> ' + confTag(x.conf) + (x.note ? '<br><span class="sched-note">' + esc(x.note) + '</span>' : '') + srcLinks(x.src) + '</li>';
+    }
+    function renderSched(s) {
+      if (!sched) return;
+      if (!D || !D.slots) { sched.innerHTML = ''; return; }
+      var r = slotsFor(s), h = '<p class="label">At ' + clock(tmin) + ' on ' + DAYN[day] + ', ' + year + '</p>';
+      if (r.now.length) h += '<ul class="sched-now">' + r.now.map(slotLine).join('') + '</ul>';
+      else h += '<p class="sched-none">No programme found for this time.</p>';
+      if (r.day.length) {
+        h += '<div class="sched-strip" aria-hidden="true">' + r.day.map(function (x) {
+          var a = toMin(x.s), b = Math.min(toMin(x.e), 1440);
+          return '<i title="' + esc(x.s + ' ' + x.prog) + '" style="left:' + (a / 14.4).toFixed(2) + '%;width:' + (Math.max(b - a, 10) / 14.4).toFixed(2) + '%"></i>';
+        }).join('') + '<b style="left:' + (tmin / 14.4).toFixed(2) + '%"></b></div>';
+        h += '<p class="label">' + DAYN[day] + ' this year, as far as found</p><ul class="sched-list">' + r.day.map(slotLine).join('') + '</ul>';
+      }
+      if (r.other.length) h += '<p class="label">Also found, not placed on this day and time</p><ul class="sched-list">' + r.other.map(slotLine).join('') + '</ul>';
+      sched.innerHTML = h;
+    }
     function card(it) {
       var b = B[band], h = '';
-      if (it.essay) { st.textContent = 'Pigman’s dial · stop ' + (items.indexOf(it) + 1) + ' of ' + items.length; ti.textContent = it.name; tx.textContent = it.essay.text; if (hist) hist.innerHTML = ''; return; }
-      st.textContent = b.fmt(it.v) + ' · ' + CITY[city] + ' · ' + year;
+      if (it.essay) { st.textContent = 'Pigman’s dial · stop ' + (items.indexOf(it) + 1) + ' of ' + items.length; ti.textContent = it.name; tx.textContent = it.essay.text; if (hist) hist.innerHTML = ''; if (sched) sched.innerHTML = ''; return; }
+      st.textContent = it.run ? b.fmt(it.v) + ' · ' + CITY[city] + ' · ' + year : 'Frequency not found · ' + year;
       ti.textContent = it.name;
-      tx.innerHTML = esc((it.st.blurb || '') + (it.run.note ? ' ' + it.run.note : '')) + srcLinks((it.run.src || []).concat(it.st.src || []));
+      tx.innerHTML = esc((it.st.blurb || '') + (it.run && it.run.note ? ' ' + it.run.note : '')) + (it.run ? ' ' + confTag(it.run.conf) : '') + srcLinks((it.run ? it.run.src || [] : []).concat(it.st.src || []));
       if (hist) {
         var evs = (D.events || []).filter(function (e) { return e.station === it.st.id; }).sort(function (a, c) { return a.y - c.y; });
         h = evs.map(function (e) { return '<li class="' + (e.y <= year ? 'past' : 'future') + '"><b>' + e.y + '</b> ' + esc(e.text) + srcLinks(e.src) + '</li>'; }).join('');
-        (it.st.lavine || []).forEach(function (l) { if (l.from <= year && l.to >= year) h += '<li class="lavine"><b>' + year + '</b> Rafe Lavine on air here (' + esc(l.text) + ').</li>'; });
+        (D.lavine || []).forEach(function (l) { if (l.station === it.st.id && l.from <= year && l.to >= year) h += '<li class="lavine"><b>' + year + '</b> Rafe Lavine on air here: ' + esc(l.text) + '.</li>'; });
         hist.innerHTML = h;
       }
+      renderSched(it.st);
+    }
+    function buildNoFreq() {
+      if (!nofreq) return;
+      nofreqList = [];
+      if (band !== 'FAT' && D && D.stations) {
+        nofreqList = D.stations.filter(function (s) {
+          if (!alive(s)) return false;
+          if (s.cities.indexOf('all') < 0 && s.cities.indexOf(city) < 0) return false;
+          return !s.runs.some(function (r) { return (r.city === 'all' || r.city === city) && r.from <= year && (r.to == null || r.to >= year); });
+        });
+      }
+      nofreq.innerHTML = nofreqList.length ? '<span class="label">Also on air in ' + year + ', no frequency found here</span>' + nofreqList.map(function (s, i) { return '<button type="button" class="chip chip-nf" data-n="' + i + '">' + esc(nameAt(s, year)) + '</button>'; }).join('') : '';
+      if (forced && nofreqList.indexOf(forced) < 0) forced = null;
     }
     function render() {
       var b = B[band], v = parseInt(range.value, 10);
@@ -216,11 +280,13 @@
       if (eye) eye.style.transform = 'scaleX(' + (1 - pr * 0.82).toFixed(3) + ')';
       root.style.setProperty('--tuned', pr.toFixed(3));
       var which = (on && n.i >= 0 && n.d <= b.tol) ? n.i : -1;
-      var key = band + city + year + ':' + which + ':' + on;
+      var key = band + city + year + day + tmin + ':' + which + ':' + on + ':' + (forced ? forced.id : '');
       if (key !== tunedKey) {
         tunedKey = key; tunedItem = which >= 0 ? items[which] : null;
         if (hist) hist.innerHTML = '';
-        if (!on) { st.textContent = 'Off'; ti.textContent = 'The set is off'; tx.textContent = 'Switch it on to warm the valves, then turn the knob or use the stop buttons.'; }
+        if (sched) sched.innerHTML = '';
+        if (forced) card({ st: forced, name: nameAt(forced, year), run: null, v: null });
+        else if (!on) { st.textContent = 'Off'; ti.textContent = 'The set is off'; tx.textContent = 'Switch it on to warm the valves, then turn the knob or use the stop buttons.'; }
         else if (which < 0) { st.textContent = 'Static'; ti.textContent = 'Between stations'; tx.textContent = items.length ? 'Turn the knob, or press Next stop.' : 'Nothing recorded on this band for this city and year.'; }
         else card(items[which]);
       }
@@ -228,7 +294,7 @@
     }
     function refresh() {
       items = itemsNow();
-      buildScale(); buildList(); yearEvents();
+      buildScale(); buildList(); buildNoFreq(); yearEvents();
       if (yr) yr.textContent = band === 'FAT' ? '—' : year;
       tunedKey = '';
       var b = B[band], v = parseInt(range.value, 10);
@@ -238,7 +304,8 @@
     function setBand(nb) {
       band = nb;
       var dated = band !== 'FAT';
-      [yrange, tprev, tnext, tplay].forEach(function (e) { if (e) e.disabled = !dated || !D; });
+      [yrange, tprev, tnext, tplay, trange].forEach(function (e) { if (e) e.disabled = !dated || !D; });
+      root.querySelectorAll('input[name="dial-day"]').forEach(function (r) { r.disabled = !dated; });
       if (!dated) stopPlay();
       items = itemsNow(); buildScale();
       range.value = items.length ? items[0].v : B[band].min + 20;
@@ -249,7 +316,7 @@
       var v = parseInt(range.value, 10), i, tgt = null;
       if (dir > 0) { for (i = 0; i < items.length; i++) if (items[i].v > v + 1) { tgt = items[i].v; break; } if (tgt === null) tgt = items[0].v; }
       else { for (i = items.length - 1; i >= 0; i--) if (items[i].v < v - 1) { tgt = items[i].v; break; } if (tgt === null) tgt = items[items.length - 1].v; }
-      range.value = tgt; render();
+      forced = null; range.value = tgt; render();
     }
 
     power.addEventListener('click', function () {
@@ -270,11 +337,11 @@
     });
     prev.addEventListener('click', function () { jump(-1); });
     next.addEventListener('click', function () { jump(1); });
-    range.addEventListener('input', render);
+    range.addEventListener('input', function () { forced = null; render(); });
     if (list) list.addEventListener('click', function (e) {
       var b = e.target.closest ? e.target.closest('.chip') : null;
       if (!b || !items[+b.getAttribute('data-i')]) return;
-      range.value = items[+b.getAttribute('data-i')].v; if (!on) { power.click(); } else { render(); }
+      forced = null; range.value = items[+b.getAttribute('data-i')].v; if (!on) { power.click(); } else { render(); }
     });
     if (yrange) yrange.addEventListener('input', function () { stopPlay(); setYear(parseInt(yrange.value, 10)); });
     if (marks) marks.addEventListener('click', function (e) { var t = e.target; if (t && t.getAttribute && t.getAttribute('data-y')) { stopPlay(); setYear(parseInt(t.getAttribute('data-y'), 10)); } });
@@ -288,8 +355,16 @@
     });
     root.querySelectorAll('input[name="dial-band"]').forEach(function (r) { r.addEventListener('change', function () { setBand(radioVal('dial-band')); }); });
     root.querySelectorAll('input[name="dial-city"]').forEach(function (r) { r.addEventListener('change', function () { city = radioVal('dial-city'); buildYearBar(); refresh(); }); });
+    if (nofreq) nofreq.addEventListener('click', function (e) {
+      var b = e.target.closest ? e.target.closest('.chip') : null;
+      if (!b || !nofreqList[+b.getAttribute('data-n')]) return;
+      forced = nofreqList[+b.getAttribute('data-n')]; render();
+    });
+    root.querySelectorAll('input[name="dial-day"]').forEach(function (r) { r.addEventListener('change', function () { day = radioVal('dial-day'); render(); }); });
+    if (trange) trange.addEventListener('input', function () { tmin = parseInt(trange.value, 10); if (tout) tout.textContent = clock(tmin); render(); });
+    if (trange) { trange.value = tmin; if (tout) tout.textContent = clock(tmin); }
     range.disabled = true; prev.disabled = true; next.disabled = true; mute.textContent = 'Sound on';
-    if (!D) { [yrange, tprev, tnext, tplay].forEach(function (e) { if (e) e.disabled = true; }); }
+    if (!D) { [yrange, tprev, tnext, tplay, trange].forEach(function (e) { if (e) e.disabled = true; }); }
 
     // the picture of the static, drawn only while the tuner is on screen
     if (cv && cv.getContext && !reduce) {

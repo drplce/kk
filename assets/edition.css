@@ -461,3 +461,32 @@ footer { border-top: 3px double var(--brass-d); }
 .tuner-set .time-event a.sref, .tuner-set .tuner-card a.sref { color: var(--lamp); }
 .dial-notes .verify .v a, .dial-notes .sources a { border-bottom: 1px solid var(--rule); }
 @media (max-width: 46rem) { .time-btns { margin-left: 0; } }
+
+/* ---------- time of day and the schedule ---------- */
+.clockbar { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 2.25rem; margin: 0.25rem 0 0.6rem; }
+.clockbar .opt { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem 0.9rem; }
+.clockbar .label { color: #CDB88C; margin: 0; }
+.clockbar .tuner-knob { flex: 1 1 16rem; }
+#dial-clock { font-family: var(--display); font-size: 1.4rem; color: var(--lamp); margin-left: 0.5rem; letter-spacing: 0; }
+.dial-nofreq { margin-top: -0.4rem; }
+.chip-nf { border-style: dashed; }
+.time-event .lav { display: inline-block; margin-top: 0.2rem; color: #FFD98A; }
+.tuner-sched { margin-top: 1rem; padding-top: 0.75rem; border-top: 2px dashed rgba(201, 160, 79, 0.45); }
+.tuner-sched .label { color: var(--lamp); margin: 0.6rem 0 0.3rem; }
+.sched-none { margin: 0.2rem 0; color: #E8C98B; font-style: italic; }
+.sched-now, .sched-list { list-style: none; margin: 0; padding: 0; }
+.sched-now li { padding: 0.5rem 0.7rem; background: rgba(255, 185, 56, 0.14); border-left: 4px solid var(--lamp); color: #FFF0CC; margin-bottom: 0.3rem; }
+.sched-list li { padding: 0.3rem 0; border-top: 1px dotted rgba(201, 160, 79, 0.35); color: #E8D8B4; font-size: 0.92rem; }
+.sched-list b, .sched-now b { font-family: var(--label); color: var(--lamp); margin-right: 0.4rem; font-weight: 400; }
+.sched-list em, .sched-now em { color: #CDB88C; font-size: 0.85em; }
+.sched-note { color: #CDB88C; font-size: 0.85rem; }
+.sched-strip { position: relative; height: 18px; margin: 0.6rem 0; background: #1F1409; border: 1px solid var(--brass-d); border-radius: 3px; }
+.sched-strip i { position: absolute; top: 2px; bottom: 2px; background: var(--brass); opacity: 0.8; border-radius: 2px; }
+.sched-strip b { position: absolute; top: -3px; bottom: -3px; width: 2px; background: #FF5B3A; box-shadow: 0 0 6px #FF5B3A; }
+.conf { display: inline-block; margin-left: 0.3rem; padding: 0 0.4rem; font: 0.62rem var(--label); letter-spacing: 0.08em; text-transform: uppercase; border: 1px solid currentColor; border-radius: 999px; vertical-align: middle; }
+.conf-high { color: #8BD99B; } .conf-medium { color: #E8C98B; } .conf-low { color: #F09A8B; }
+
+.dial-sources { margin: 0.5rem 0 0; padding-left: 2.2rem; columns: 2 24rem; column-gap: 2rem; }
+.dial-sources li { margin: 0 0 0.35rem; break-inside: avoid; color: var(--muted); font-size: 0.92rem; }
+.dial-sources a { border-bottom: 1px solid var(--rule); overflow-wrap: anywhere; }
+.dial-sources li:target { background: var(--accent-soft); }
