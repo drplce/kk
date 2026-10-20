@@ -37,9 +37,9 @@
       "slug": "pmf",
       "file": "pmf.html",
       "title": "Pig Man Fat · Kobus Kennedy",
-      "description": "Volume IV, a special edition of invented fiction: Pig Man Fat, a tall tale in the manner of Br'er Rabbit and the Jackal and Wolf stories, retold twelve times, with the real traditions behind it and what could not be found.",
+      "description": "Volume IV, a special edition on Pig Man Fat: the true origin, as told in a supplied essay on a radio quiz producer, then an invented tall tale in the manner of Br'er Rabbit, retold twelve times, with the real traditions behind it and what could not be found.",
       "spine": "Vol. IV · The Legend",
-      "sections": ["pmf", "pmf-tale", "pmf-retell", "pmf-kin"]
+      "sections": ["pmf", "pmf-origin", "pmf-tale", "pmf-retell", "pmf-kin"]
     },
     {
       "slug": "editions",

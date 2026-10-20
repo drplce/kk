@@ -47,11 +47,13 @@ Do not delete the recording, the source sections, or the editions log.
   the family. When something cannot be verified, the page says so in a
   "what was checked" or "not found" row. Never invent a date, a name, a quote,
   or a programme title. Unclear audio is labelled unclear.
-- One exception, by the owner's commission: Volume IV (Pig Man Fat, pmf.html,
-  Edition IX) is invented fiction. It is labelled as fiction on the page, its
-  chapter XVII holds the real facts, and nothing in it may be cited as a fact
-  elsewhere on the site. Do not extend the exception to any other page, and do
-  not treat PMF as a research subject for the monthly routine.
+- One exception, by the owner's commission: chapters XV and XVI of Volume IV
+  (Pig Man Fat, pmf.html, Edition IX) are invented fiction. They are labelled
+  as fiction on the page, and nothing in them may be cited as a fact elsewhere
+  on the site. Chapters XVII (real context) and XIX (the true origin, from an
+  essay the owner supplied and confirmed) are factual and follow the rules
+  above. Do not extend the exception to any other page, and do not treat PMF
+  as a research subject for the monthly routine.
 - Use they/them for anyone whose pronouns are not stated. Rafe Lavine is
   referred to as he in his own press coverage; that is fine.
 - Copy is plain, specific, and a little dry. Sentences carry a verb. No
