@@ -422,3 +422,42 @@ footer { border-top: 3px double var(--brass-d); }
 @media (max-width: 46rem) { .plate-row { grid-template-columns: 1fr; } .plate-row .plate-mic { max-width: 12rem; } }
 
 [hidden] { display: none !important; }
+
+/* ---------- the dial through time ---------- */
+.timebar { margin-bottom: 1.25rem; padding-bottom: 1rem; border-bottom: 1px dashed rgba(201, 160, 79, 0.45); }
+.time-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.5rem 1.25rem; }
+.time-head .label { color: #CDB88C; margin: 0; }
+#dial-year { font-family: var(--display); font-size: clamp(2.2rem, 6vw, 3.6rem); color: var(--lamp); line-height: 1; min-width: 4.2ch; text-shadow: 0 0 14px var(--lamp-glow); }
+.time-btns { margin-left: auto; display: flex; flex-wrap: wrap; }
+.time-track { position: relative; height: 3.3rem; margin-top: 0.4rem; }
+.time-marks { position: absolute; left: 0; right: 0; top: 0; height: 1.7rem; }
+.tmark { position: absolute; top: 0; width: 12px; height: 24px; margin-left: -6px; padding: 0; border: 0; background: none; cursor: pointer; }
+.tmark::before { content: ""; position: absolute; left: 5px; top: 0; width: 2px; height: 22px; background: var(--lamp); box-shadow: 0 0 6px var(--lamp); transition: height 120ms ease; }
+.tmark::after { content: ""; position: absolute; left: 7px; top: 0; border-left: 9px solid #E0452B; border-top: 5px solid transparent; border-bottom: 5px solid transparent; }
+.tmark:hover::before, .tmark:focus-visible::before { background: #FFF0C8; box-shadow: 0 0 10px #FFF0C8; }
+.tmark:focus-visible { outline: 2px solid #FFF0C8; outline-offset: 2px; }
+#dial-year-range { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; margin: 0; height: 1.6rem; accent-color: var(--lamp); }
+.time-ticks { position: relative; height: 1.1rem; font: 0.62rem var(--label); color: #CDB88C; }
+.time-ticks span { position: absolute; transform: translateX(-50%); }
+.time-event { margin: 0.5rem 0 0; color: #E8D8B4; min-height: 2.8rem; font-size: 1rem; }
+.time-event b { color: var(--lamp); font-family: var(--label); margin-right: 0.4rem; }
+.tuner-opts { display: flex; flex-wrap: wrap; gap: 0.5rem 2.25rem; margin: 0.6rem 0 0.8rem; }
+.tuner-opts .opt { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem 1rem; }
+.tuner-opts .label { color: #CDB88C; margin: 0; }
+.tuner-set .check { color: #E8D8B4; }
+.dial-band { position: absolute; right: 0.9rem; top: 0.4rem; margin: 0; font: 0.62rem var(--label); letter-spacing: 0.1em; color: var(--dial-lit); text-transform: uppercase; z-index: 2; }
+.dial-list { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0.25rem 0 1rem; align-items: center; min-height: 2rem; }
+.dial-list .label { color: #CDB88C; margin: 0 0.5rem 0 0; }
+.tuner-set .chip { background: #3B2415; color: #F1E3C4; border-color: var(--brass); }
+.tuner-set .chip:hover { background: var(--lamp); color: #2B1B10; }
+.dial-empty { color: #E8C98B; margin: 0.25rem 0 1rem; font-style: italic; }
+.tuner-hist { list-style: none; margin: 0.8rem 0 0; padding: 0; }
+.tuner-hist li { padding: 0.3rem 0; border-top: 1px dotted rgba(201, 160, 79, 0.35); color: #E8D8B4; font-size: 0.95rem; }
+.tuner-hist li.future { opacity: 0.5; }
+.tuner-hist li b { font-family: var(--label); color: var(--lamp); margin-right: 0.5rem; }
+.tuner-hist li.lavine { color: #FFD98A; }
+.sref { color: var(--lamp); font-size: 0.75em; vertical-align: super; text-decoration: none; margin-left: 0.1em; }
+.sref:hover { text-decoration: underline; }
+.tuner-set .time-event a.sref, .tuner-set .tuner-card a.sref { color: var(--lamp); }
+.dial-notes .verify .v a, .dial-notes .sources a { border-bottom: 1px solid var(--rule); }
+@media (max-width: 46rem) { .time-btns { margin-left: 0; } }

@@ -1,6 +1,6 @@
 /* Edition XI, Airwaves: the radio instruments.
  * Everything here is guarded, so each block does nothing on pages without its markup.
- * Contents: the scroll dial, the warm-up static, the tuner, and three games from the
+ * Contents: the scroll dial, the warm-up static, the tuner (a dial through time), and three games from the
  * essay in chapter XVIII (Skip show 22, Find the Job, Venture). All game content is
  * the site's own invention, written to fit the essay's descriptions.
  */
@@ -46,39 +46,131 @@
     frame();
   })();
 
-  // ---- the tuner
+  // ---- the tuner: a dial through time (data in assets/dial-data.js; the essay's six stops sit on a third band)
   (function () {
     var root = $('tuner-set');
     if (!root) return;
+    var D = window.DIAL || null;
     var range = $('tuner-range'), needle = $('tuner-needle'), scale = $('tuner-scale'), out = $('tuner-freq');
     var power = $('tuner-power'), mute = $('tuner-mute'), prev = $('tuner-prev'), next = $('tuner-next');
     var eye = $('tuner-eye'), cv = $('tuner-static');
-    var st = $('tuner-station'), ti = $('tuner-title'), tx = $('tuner-text');
+    var st = $('tuner-station'), ti = $('tuner-title'), tx = $('tuner-text'), hist = $('tuner-hist');
+    var yr = $('dial-year'), yrange = $('dial-year-range'), marks = $('time-marks'), ticks = $('time-ticks'), tev = $('time-event');
+    var tprev = $('time-prev'), tnext = $('time-next'), tplay = $('time-play'), list = $('dial-list'), bandLabel = $('dial-band-label');
     if (!range || !needle || !scale || !st || !ti || !tx) return;
-    var MIN = 520, MAX = 1620;
-    var S = [
-      { f: 600, tone: 262, name: 'Skip show 22', text: 'A copy of 21, the essay says, with the same rules and a quizmaster who read them his own way. The quick route to 22 was to get two 11s, and a very approximate answer could earn 11 points.' },
-      { f: 760, tone: 294, name: 'Find the Job', text: 'A clone of Just the Job, where a contestant has 20 questions to name someone’s occupation. Like 22, the essay says, it was riddled with inconsistency, and jobs were changed at will. It became a minor hit.' },
-      { f: 910, tone: 330, name: 'Venture, Boaty’s version', text: 'Mik Boaty, seeing how popular the original was, started his own. It was cash-strapped from the start. Contestants who finished with a negative score paid the debt on leaving, and an Unlucky Dip category cost a contestant the amount nominated.' },
-      { f: 1060, tone: 349, name: 'Venture, Fat’s version', text: 'Fat launched a take-over bid and found sponsorship from a huge, popular soft drink maker. Boaty sent his scorer round the audience with a hat at half time. Boaty’s version, the essay says, collapsed.' },
-      { f: 1250, tone: 392, name: 'Letters to the press', text: 'Listeners wrote in with mixed views. Few backed his methods. The complaints were favouritism, sponsors first, a sinister style, and competitions never to be won. The essay’s defence: a one-man show, with no producer or auditor to check the answers.' },
-      { f: 1450, tone: 440, name: 'Closing down', text: 'As television soaked up the sponsors’ time, Fat made a defiant attempt to keep the radio quizzes going, until the sponsorship ran out. The essay’s verdict: “Now there is nothing left except memories.”' }
-    ];
-    // dial scale: a tick every 20, a label every 100
-    var h = '', f, pct;
-    for (f = 540; f <= 1600; f += 20) {
-      pct = ((f - MIN) / (MAX - MIN)) * 100;
-      h += '<span class="tick' + (f % 100 === 0 ? ' big' : '') + '" style="left:' + pct.toFixed(2) + '%">' + (f % 100 === 0 ? '<em>' + f + '</em>' : '') + '</span>';
-    }
-    S.forEach(function (s) {
-      pct = ((s.f - MIN) / (MAX - MIN)) * 100;
-      h += '<span class="mark-st" style="left:' + pct.toFixed(2) + '%"></span>';
-    });
-    scale.innerHTML = h;
 
-    var on = false, muted = false, ac = null, nGain, tGain, osc, master, tuned = -1;
-    function nearest(v) { var bi = 0, bd = 1e9, i, d; for (i = 0; i < S.length; i++) { d = Math.abs(v - S[i].f); if (d < bd) { bd = d; bi = i; } } return { i: bi, d: bd }; }
-    function prox(v) { var n = nearest(v); return Math.max(0, 1 - n.d / 34); }
+    var ESSAY = [
+      { v: 600, tone: 262, name: 'Skip show 22', text: 'A copy of 21, the essay says, with the same rules and a quizmaster who read them his own way. The quick route to 22 was to get two 11s, and a very approximate answer could earn 11 points.' },
+      { v: 760, tone: 294, name: 'Find the Job', text: 'A clone of Just the Job, where a contestant has 20 questions to name someone’s occupation. Like 22, the essay says, it was riddled with inconsistency, and jobs were changed at will. It became a minor hit.' },
+      { v: 910, tone: 330, name: 'Venture, Boaty’s version', text: 'Mik Boaty, seeing how popular the original was, started his own. It was cash-strapped from the start. Contestants who finished with a negative score paid the debt on leaving, and an Unlucky Dip category cost a contestant the amount nominated.' },
+      { v: 1060, tone: 349, name: 'Venture, Fat’s version', text: 'Fat launched a take-over bid and found sponsorship from a huge, popular soft drink maker. Boaty sent his scorer round the audience with a hat at half time. Boaty’s version, the essay says, collapsed.' },
+      { v: 1250, tone: 392, name: 'Letters to the press', text: 'Listeners wrote in with mixed views. Few backed his methods. The complaints were favouritism, sponsors first, a sinister style, and competitions never to be won. The essay’s defence: a one-man show, with no producer or auditor to check the answers.' },
+      { v: 1450, tone: 440, name: 'Closing down', text: 'As television soaked up the sponsors’ time, Fat made a defiant attempt to keep the radio quizzes going, until the sponsorship ran out. The essay’s verdict: “Now there is nothing left except memories.”' }
+    ];
+    var B = {
+      AM: { min: 520, max: 1620, label: 'AM · kHz', fmt: function (v) { return v + ' kHz'; }, tol: 12, rng: 34, minor: 20, major: 100, lab: function (v) { return v; } },
+      FM: { min: 870, max: 1090, label: 'FM · MHz', fmt: function (v) { return (v / 10).toFixed(1) + ' MHz'; }, tol: 3, rng: 9, minor: 5, major: 20, lab: function (v) { return (v / 10).toFixed(0); } },
+      FAT: { min: 520, max: 1620, label: 'Pigman’s dial · decoration only', fmt: function (v) { return String(v); }, tol: 12, rng: 34, minor: 20, major: 100, lab: function (v) { return v; } }
+    };
+    var CITY = { jhb: 'Johannesburg', cpt: 'Cape Town', dbn: 'Durban' };
+    var yMin = D && D.meta ? D.meta.yearMin : 1950, yMax = D && D.meta ? D.meta.yearMax : 2026;
+    var year = D && D.meta && D.meta.defaultYear ? D.meta.defaultYear : 1995, band = 'AM', city = 'jhb';
+    var items = [], tunedItem = null, tunedKey = '';
+    var on = false, muted = false, ac = null, nGain, tGain, osc, master, playTimer = null;
+
+    function radioVal(name) { var r = root.querySelectorAll('input[name="' + name + '"]'), i; for (i = 0; i < r.length; i++) if (r[i].checked) return r[i].value; return ''; }
+    function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+    function srcLinks(ids) {
+      if (!ids || !ids.length || !D || !D.sources) return '';
+      return ' ' + ids.map(function (id) {
+        var i; for (i = 0; i < D.sources.length; i++) if (D.sources[i].id === id) return '<a class="sref" href="#dial-src-' + esc(id) + '">[' + (i + 1) + ']</a>';
+        return '';
+      }).join('');
+    }
+    function nameAt(s, y) {
+      var i, n = s.names || [];
+      for (i = 0; i < n.length; i++) if (n[i].from <= y && (n[i].to == null || n[i].to >= y)) return n[i].name;
+      return s.name;
+    }
+    function itemsNow() {
+      var res = [];
+      if (band === 'FAT') { ESSAY.forEach(function (e) { res.push({ v: e.v, name: e.name, tone: e.tone, essay: e }); }); return res; }
+      if (!D || !D.stations) return res;
+      D.stations.forEach(function (s) {
+        (s.runs || []).forEach(function (r) {
+          if (r.band !== band) return;
+          if (r.city !== 'all' && r.city !== city) return;
+          if (r.from > year || (r.to != null && r.to < year)) return;
+          res.push({ v: band === 'FM' ? Math.round(r.f * 10) : Math.round(r.f), name: nameAt(s, year), st: s, run: r });
+        });
+      });
+      res.sort(function (a, b) { return a.v - b.v; });
+      res.forEach(function (o, i) { o.tone = 196 + 22 * i; });
+      return res;
+    }
+    function eventsFor() {
+      if (!D || !D.events) return [];
+      return D.events.filter(function (e) { return e.city === 'all' || e.city === city; });
+    }
+    function pctYear(y) { return (y - yMin) / (yMax - yMin); }
+
+    // ---- the year bar
+    function buildYearBar() {
+      if (!marks || !yrange) return;
+      yrange.min = yMin; yrange.max = yMax; yrange.value = year;
+      var h = '', ev = eventsFor(), byYear = {};
+      ev.forEach(function (e) { (byYear[e.y] = byYear[e.y] || []).push(e); });
+      Object.keys(byYear).forEach(function (k) {
+        var y = parseInt(k, 10), t = byYear[k].map(function (e) { return e.text; }).join(' / ');
+        h += '<button type="button" class="tmark" data-y="' + y + '" style="left:calc(9px + (100% - 18px) * ' + pctYear(y).toFixed(4) + ')" aria-label="' + y + ': ' + esc(t) + '" title="' + y + ': ' + esc(t) + '"></button>';
+      });
+      marks.innerHTML = h;
+      if (ticks && !ticks.firstChild) {
+        var t = '', d;
+        for (d = Math.ceil(yMin / 10) * 10; d <= yMax; d += 10) t += '<span style="left:calc(9px + (100% - 18px) * ' + pctYear(d).toFixed(4) + ')">' + d + '</span>';
+        ticks.innerHTML = t;
+      }
+    }
+    function yearEvents() {
+      if (!tev) return;
+      var ev = eventsFor().filter(function (e) { return e.y === year; });
+      if (ev.length) { tev.innerHTML = ev.map(function (e) { return '<b>' + e.y + '</b> ' + esc(e.text) + srcLinks(e.src); }).join('<br>'); return; }
+      var later = eventsFor().filter(function (e) { return e.y > year; }).map(function (e) { return e.y; }).sort(function (a, b) { return a - b; })[0];
+      tev.textContent = 'No change recorded for ' + CITY[city] + ' in ' + year + '.' + (later ? ' The next mark is ' + later + '.' : '');
+    }
+    function stepChange(dir) {
+      var ys = eventsFor().map(function (e) { return e.y; }).filter(function (v, i, a) { return a.indexOf(v) === i; }).sort(function (a, b) { return a - b; }), i, t = null;
+      if (dir > 0) { for (i = 0; i < ys.length; i++) if (ys[i] > year) { t = ys[i]; break; } }
+      else { for (i = ys.length - 1; i >= 0; i--) if (ys[i] < year) { t = ys[i]; break; } }
+      if (t !== null) setYear(t);
+    }
+    function stopPlay() { if (playTimer) { clearInterval(playTimer); playTimer = null; } if (tplay) { tplay.setAttribute('aria-pressed', 'false'); tplay.textContent = 'Play through time'; } }
+    function setYear(y) { year = Math.max(yMin, Math.min(yMax, y)); if (yrange) yrange.value = year; refresh(); }
+
+    // ---- the dial
+    function buildScale() {
+      var b = B[band], h = '', v, p, i;
+      for (v = b.min; v <= b.max; v += b.minor) {
+        p = ((v - b.min) / (b.max - b.min)) * 100;
+        var isMajor = (v - b.min) % b.major === 0 || v % b.major === 0;
+        h += '<span class="tick' + (isMajor ? ' big' : '') + '" style="left:' + p.toFixed(2) + '%">' + (isMajor && (band === 'FM' ? true : v % 100 === 0) ? '<em>' + b.lab(v) + '</em>' : '') + '</span>';
+      }
+      items.forEach(function (it) { p = ((it.v - b.min) / (b.max - b.min)) * 100; h += '<span class="mark-st" style="left:' + p.toFixed(2) + '%" title="' + esc(it.name) + '"></span>'; });
+      scale.innerHTML = h;
+      if (bandLabel) bandLabel.textContent = b.label;
+      range.min = b.min; range.max = b.max; range.step = 1;
+    }
+    function buildList() {
+      if (!list) return;
+      if (!items.length) {
+        var msg = band === 'FAT' ? '' : (band === 'FM' && D && D.meta && D.meta.fmStart && year < D.meta.fmStart) ? 'No FM stations recorded in ' + year + '. ' + (D.meta.fmNote || '') : 'No ' + band + ' stations recorded for ' + CITY[city] + ' in ' + year + '. The research could not fill this gap.';
+        list.innerHTML = msg ? '<p class="dial-empty">' + esc(msg) + '</p>' : '';
+        return;
+      }
+      list.innerHTML = '<span class="label">On the dial' + (band === 'FAT' ? '' : ' in ' + year) + '</span>' + items.map(function (it, i) { return '<button type="button" class="chip" data-i="' + i + '">' + esc(it.name) + ' · ' + B[band].fmt(it.v) + '</button>'; }).join('');
+    }
+    function nearest(v) { var bi = -1, bd = 1e9, i, d; for (i = 0; i < items.length; i++) { d = Math.abs(v - items[i].v); if (d < bd) { bd = d; bi = i; } } return { i: bi, d: bd }; }
+    function prox(v) { var n = nearest(v), b = B[band]; return n.i < 0 ? 0 : Math.max(0, 1 - n.d / b.rng); }
     function startAudio() {
       if (ac) { if (ac.state === 'suspended') ac.resume(); return; }
       var AC = window.AudioContext || window.webkitAudioContext;
@@ -101,41 +193,74 @@
       var p = on ? prox(v) : 0, n = nearest(v), t = ac.currentTime;
       nGain.gain.setTargetAtTime(on ? 0.11 * (1 - p * 0.92) : 0, t, 0.06);
       tGain.gain.setTargetAtTime(on ? 0.05 * p * p : 0, t, 0.08);
-      osc.frequency.setTargetAtTime(S[n.i].tone, t, 0.05);
+      if (n.i >= 0) osc.frequency.setTargetAtTime(items[n.i].tone, t, 0.05);
+    }
+    function card(it) {
+      var b = B[band], h = '';
+      if (it.essay) { st.textContent = 'Pigman’s dial · stop ' + (items.indexOf(it) + 1) + ' of ' + items.length; ti.textContent = it.name; tx.textContent = it.essay.text; if (hist) hist.innerHTML = ''; return; }
+      st.textContent = b.fmt(it.v) + ' · ' + CITY[city] + ' · ' + year;
+      ti.textContent = it.name;
+      tx.innerHTML = esc((it.st.blurb || '') + (it.run.note ? ' ' + it.run.note : '')) + srcLinks((it.run.src || []).concat(it.st.src || []));
+      if (hist) {
+        var evs = (D.events || []).filter(function (e) { return e.station === it.st.id; }).sort(function (a, c) { return a.y - c.y; });
+        h = evs.map(function (e) { return '<li class="' + (e.y <= year ? 'past' : 'future') + '"><b>' + e.y + '</b> ' + esc(e.text) + srcLinks(e.src) + '</li>'; }).join('');
+        (it.st.lavine || []).forEach(function (l) { if (l.from <= year && l.to >= year) h += '<li class="lavine"><b>' + year + '</b> Rafe Lavine on air here (' + esc(l.text) + ').</li>'; });
+        hist.innerHTML = h;
+      }
     }
     function render() {
-      var v = parseInt(range.value, 10);
-      var p = (v - MIN) / (MAX - MIN);
-      needle.style.left = 'calc(18px + (100% - 36px) * ' + p.toFixed(4) + ')';
-      out.textContent = v;
+      var b = B[band], v = parseInt(range.value, 10);
+      needle.style.left = 'calc(18px + (100% - 36px) * ' + ((v - b.min) / (b.max - b.min)).toFixed(4) + ')';
+      out.textContent = b.fmt(v);
       var n = nearest(v), pr = on ? prox(v) : 0;
       if (eye) eye.style.transform = 'scaleX(' + (1 - pr * 0.82).toFixed(3) + ')';
       root.style.setProperty('--tuned', pr.toFixed(3));
-      var which = (on && n.d <= 12) ? n.i : -1;
-      if (which !== tuned) {
-        tuned = which;
-        if (!on) { st.textContent = 'Off'; ti.textContent = 'The set is off'; tx.textContent = 'Switch it on to warm the valves. The dial numbers are decoration; nothing here claims a real frequency.'; }
-        else if (which < 0) { st.textContent = 'Static'; ti.textContent = 'Between stations'; tx.textContent = 'Turn the knob, or press Next stop. The dial numbers are decoration; nothing here claims a real frequency.'; }
-        else { st.textContent = 'Dial ' + S[which].f + ' · stop ' + (which + 1) + ' of ' + S.length; ti.textContent = S[which].name; tx.textContent = S[which].text; }
+      var which = (on && n.i >= 0 && n.d <= b.tol) ? n.i : -1;
+      var key = band + city + year + ':' + which + ':' + on;
+      if (key !== tunedKey) {
+        tunedKey = key; tunedItem = which >= 0 ? items[which] : null;
+        if (hist) hist.innerHTML = '';
+        if (!on) { st.textContent = 'Off'; ti.textContent = 'The set is off'; tx.textContent = 'Switch it on to warm the valves, then turn the knob or use the stop buttons.'; }
+        else if (which < 0) { st.textContent = 'Static'; ti.textContent = 'Between stations'; tx.textContent = items.length ? 'Turn the knob, or press Next stop.' : 'Nothing recorded on this band for this city and year.'; }
+        else card(items[which]);
       }
       audioLevels(v);
     }
+    function refresh() {
+      items = itemsNow();
+      buildScale(); buildList(); yearEvents();
+      if (yr) yr.textContent = band === 'FAT' ? '—' : year;
+      tunedKey = '';
+      var b = B[band], v = parseInt(range.value, 10);
+      if (v < b.min || v > b.max) range.value = items.length ? items[0].v : b.min + 20;
+      render();
+    }
+    function setBand(nb) {
+      band = nb;
+      var dated = band !== 'FAT';
+      [yrange, tprev, tnext, tplay].forEach(function (e) { if (e) e.disabled = !dated || !D; });
+      if (!dated) stopPlay();
+      items = itemsNow(); buildScale();
+      range.value = items.length ? items[0].v : B[band].min + 20;
+      refresh();
+    }
     function jump(dir) {
+      if (!items.length) return;
       var v = parseInt(range.value, 10), i, tgt = null;
-      if (dir > 0) { for (i = 0; i < S.length; i++) if (S[i].f > v + 2) { tgt = S[i].f; break; } if (tgt === null) tgt = S[0].f; }
-      else { for (i = S.length - 1; i >= 0; i--) if (S[i].f < v - 2) { tgt = S[i].f; break; } if (tgt === null) tgt = S[S.length - 1].f; }
+      if (dir > 0) { for (i = 0; i < items.length; i++) if (items[i].v > v + 1) { tgt = items[i].v; break; } if (tgt === null) tgt = items[0].v; }
+      else { for (i = items.length - 1; i >= 0; i--) if (items[i].v < v - 1) { tgt = items[i].v; break; } if (tgt === null) tgt = items[items.length - 1].v; }
       range.value = tgt; render();
     }
+
     power.addEventListener('click', function () {
       on = !on;
       power.setAttribute('aria-pressed', on ? 'true' : 'false');
       power.textContent = on ? 'Switch off' : 'Switch on';
       root.classList.toggle('is-on', on);
-      mute.disabled = !on;
-      range.disabled = !on; prev.disabled = !on; next.disabled = !on;
+      mute.disabled = !on; range.disabled = !on; prev.disabled = !on; next.disabled = !on;
       if (on) startAudio();
       if (ac && master) master.gain.setTargetAtTime(muted ? 0 : 1, ac.currentTime, 0.03);
-      tuned = -2; render();
+      tunedKey = ''; render();
     });
     mute.addEventListener('click', function () {
       muted = !muted;
@@ -146,21 +271,39 @@
     prev.addEventListener('click', function () { jump(-1); });
     next.addEventListener('click', function () { jump(1); });
     range.addEventListener('input', render);
-    range.disabled = true; prev.disabled = true; next.disabled = true;
-    mute.textContent = 'Sound on';
+    if (list) list.addEventListener('click', function (e) {
+      var b = e.target.closest ? e.target.closest('.chip') : null;
+      if (!b || !items[+b.getAttribute('data-i')]) return;
+      range.value = items[+b.getAttribute('data-i')].v; if (!on) { power.click(); } else { render(); }
+    });
+    if (yrange) yrange.addEventListener('input', function () { stopPlay(); setYear(parseInt(yrange.value, 10)); });
+    if (marks) marks.addEventListener('click', function (e) { var t = e.target; if (t && t.getAttribute && t.getAttribute('data-y')) { stopPlay(); setYear(parseInt(t.getAttribute('data-y'), 10)); } });
+    if (tprev) tprev.addEventListener('click', function () { stopPlay(); stepChange(-1); });
+    if (tnext) tnext.addEventListener('click', function () { stopPlay(); stepChange(1); });
+    if (tplay) tplay.addEventListener('click', function () {
+      if (playTimer) { stopPlay(); return; }
+      if (year >= yMax) setYear(yMin);
+      tplay.setAttribute('aria-pressed', 'true'); tplay.textContent = 'Pause';
+      playTimer = setInterval(function () { if (year >= yMax) { stopPlay(); return; } setYear(year + 1); }, 420);
+    });
+    root.querySelectorAll('input[name="dial-band"]').forEach(function (r) { r.addEventListener('change', function () { setBand(radioVal('dial-band')); }); });
+    root.querySelectorAll('input[name="dial-city"]').forEach(function (r) { r.addEventListener('change', function () { city = radioVal('dial-city'); buildYearBar(); refresh(); }); });
+    range.disabled = true; prev.disabled = true; next.disabled = true; mute.textContent = 'Sound on';
+    if (!D) { [yrange, tprev, tnext, tplay].forEach(function (e) { if (e) e.disabled = true; }); }
 
     // the picture of the static, drawn only while the tuner is on screen
     if (cv && cv.getContext && !reduce) {
       var ctx = cv.getContext('2d'), timer = null, vis = true;
-      function draw() {
+      var draw = function () {
         var v = parseInt(range.value, 10), a = on ? Math.round(255 * (0.12 + 0.88 * (1 - prox(v)))) : 10;
         noise(ctx, cv.width, cv.height, a);
-      }
-      function loop() { if (vis && !timer) timer = setInterval(draw, 90); if (!vis && timer) { clearInterval(timer); timer = null; } }
+      };
+      var loop = function () { if (vis && !timer) timer = setInterval(draw, 90); if (!vis && timer) { clearInterval(timer); timer = null; } };
       if ('IntersectionObserver' in window) new IntersectionObserver(function (e) { vis = e[0].isIntersecting; loop(); }).observe(cv);
       loop(); draw();
     } else if (cv && cv.getContext) { noise(cv.getContext('2d'), cv.width, cv.height, 60); }
-    render();
+    buildYearBar();
+    setBand('AM');
   })();
 
   // ---- Skip show 22

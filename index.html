@@ -76,13 +76,46 @@
 
   <section id="tuner" class="tuner">
     <div class="wrap">
-      <p class="label">Instrument &middot; the tuner</p>
+      <p class="label">Instrument &middot; the dial through time</p>
       <div class="letters-head">
         <h2 class="display">Tune in</h2>
-        <p>Six stops on the dial, each one a stretch of the essay&rsquo;s story about Pigman Fat. Switch the set on, turn the knob, and listen for the gaps between them.</p>
+        <p>Pick a year and a city, choose AM or FM, and see which stations sat where on the dial. Marks along the year bar show the years something changed: a launch, a rename, a new frequency. A third band keeps the six shows from the Pigman Fat essay.</p>
       </div>
 
       <div class="tuner-set reveal" id="tuner-set" data-tuner>
+        <div class="timebar">
+          <div class="time-head">
+            <p class="label">The year</p>
+            <output id="dial-year" class="display" for="dial-year-range">1995</output>
+            <div class="time-btns">
+              <button type="button" class="knob-btn" id="time-prev">Earlier change</button>
+              <button type="button" class="knob-btn" id="time-next">Later change</button>
+              <button type="button" class="knob-btn" id="time-play" aria-pressed="false">Play through time</button>
+            </div>
+          </div>
+          <div class="time-track">
+            <div class="time-marks" id="time-marks"></div>
+            <input type="range" id="dial-year-range" min="1950" max="2026" step="1" value="1995" aria-label="Year">
+          </div>
+          <div class="time-ticks" id="time-ticks" aria-hidden="true"></div>
+          <p class="time-event" id="time-event" aria-live="polite"></p>
+        </div>
+
+        <div class="tuner-opts">
+          <div class="opt" role="radiogroup" aria-label="Band">
+            <span class="label">Band</span>
+            <label class="check"><input type="radio" name="dial-band" value="AM" checked> AM</label>
+            <label class="check"><input type="radio" name="dial-band" value="FM"> FM</label>
+            <label class="check"><input type="radio" name="dial-band" value="FAT"> Pigman&rsquo;s dial</label>
+          </div>
+          <div class="opt" role="radiogroup" aria-label="City">
+            <span class="label">City</span>
+            <label class="check"><input type="radio" name="dial-city" value="jhb" checked> Johannesburg</label>
+            <label class="check"><input type="radio" name="dial-city" value="cpt"> Cape Town</label>
+            <label class="check"><input type="radio" name="dial-city" value="dbn"> Durban</label>
+          </div>
+        </div>
+
         <div class="tuner-top">
           <button type="button" class="knob-btn" id="tuner-power" aria-pressed="false">Switch on</button>
           <button type="button" class="knob-btn" id="tuner-mute" aria-pressed="false" disabled>Sound off</button>
@@ -90,6 +123,7 @@
           <button type="button" class="knob-btn" id="tuner-next">Next stop</button>
         </div>
         <div class="dial" aria-hidden="true">
+          <p class="dial-band" id="dial-band-label">AM &middot; kHz</p>
           <div class="dial-scale" id="tuner-scale"></div>
           <i class="dial-needle" id="tuner-needle"></i>
         </div>
@@ -99,18 +133,24 @@
           </label>
           <div class="eye" aria-hidden="true"><i id="tuner-eye"></i></div>
         </div>
+        <div class="dial-list" id="dial-list" aria-label="Stations on the dial this year"></div>
         <div class="tuner-view" aria-live="polite">
           <canvas id="tuner-static" width="220" height="70" aria-hidden="true"></canvas>
           <div class="tuner-card">
             <p class="label" id="tuner-station">Static</p>
             <h3 class="display" id="tuner-title">Between stations</h3>
-            <p id="tuner-text">Turn the knob. The dial numbers are decoration; nothing here claims a real frequency.</p>
+            <p id="tuner-text">Turn the knob.</p>
+            <ul class="tuner-hist" id="tuner-hist"></ul>
           </div>
         </div>
-        <p class="game-note">Everything on the cards is the essay&rsquo;s account, as reported in <a href="pmf.html#origin" class="accent">chapter XVIII</a>. The hiss and tones are generated in your browser and are not recordings of anything.</p>
+        <p class="game-note">Frequencies and dates come from search extracts, listed with what could not be found in <a href="#dial-notes" class="accent">the notes below</a>. Pigman&rsquo;s dial numbers are decoration, and nothing there claims a real frequency. The hiss and tones are generated in your browser.</p>
       </div>
     </div>
   </section>
+
+  <hr class="rule">
+
+  <section id="dial-notes" class="dial-notes"><div class="wrap"><p class="label">Notes on the dial</p></div></section>
 
   <hr class="rule">
 
@@ -196,6 +236,7 @@
 </footer>
 
 <script src="assets/site.js"></script>
+<script src="assets/dial-data.js"></script>
 <script src="assets/radio.js"></script>
 </body>
 </html>

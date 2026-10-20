@@ -56,3 +56,8 @@ line through an item when an edition answers it, and say which.
 - ~~What is the truth behind the PMF story?~~ Answered 20 October 2026, Volume IV chapter XVIII, by an essay the owner supplied and confirmed ("The Battle of the airwaves"): a radio quiz producer surnamed Fat, nicknamed Pigman, pronounced Fett. Trevor Worley, who said he would send the truth, may still add to it.
 - Who was Pigman Fat by first name, and on which station, in which country and years did his quiz programmes run? Not in the essay; searches found nothing for Skip show 22, Find the Job, Mik Boaty and the rest.
 - Who is DTW, the author of "The Battle of the airwaves", and when and where was it published? Attributed to DTW as supplied; date and place unknown.
+
+## Edition XI addendum (owner request): the dial through time
+
+The owner asked for the tuner's dial to carry AM and FM, with researched stations and frequencies at different points in time, a date mover across the top, and marks on years when something changed (a rename, a new station). Five research agents, one angle each: SABC national and English services; SABC pop and regional services; independent commercial stations; the stations Rafe Lavine worked at; and the technical history of AM and FM in South Africa. All findings are search extracts and will be labelled so.
+
