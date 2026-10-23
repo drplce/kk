@@ -17,3 +17,10 @@ Times are UTC. Newest batch last.
 | T9 | in progress | No image will be committed unless its licence allows reuse. |
 | T10 to T14 | in progress | |
 | T15 | in progress | |
+
+## Batch 1, 2026-10-23 01:10 UTC
+
+| Task | State | Note |
+|------|-------|------|
+| T2 | done | T2-wikipedia.tsv, 323 rows from the raw wikitext of each page; the footnote behind each date is in the note. Not on Wikipedia at all: Radio in South Africa, History of broadcasting in South Africa, Radio Highveld, Radio Good Hope, Radio Port Natal, Radio Bop, Radio Today (SA), Mix 93.8. No page gives a frequency for Springbok Radio, Radio Orion, Radio 5's medium wave or Radio Highveld at launch. Capital Radio 604 transmitted on 603 kHz. Disagreements kept as separate rows (FM start 1961-09-01 vs 1961-12-22; YFM 1995 vs 1997; Radio Bop 1976 vs 1983; Radio Suid-Afrika 1985 vs 1986). |
+| All others | in progress | |
