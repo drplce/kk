@@ -54,7 +54,9 @@ Do not delete the recording, the source sections, or the editions log.
   on the site. Chapters XVII (real context) and XVIII (the true origin, from an
   essay the owner supplied and confirmed) are factual and follow the rules
   above. Do not extend the exception to any other page, and do not treat PMF
-  as a research subject for the monthly routine.
+  as a research subject for the monthly routine, except for the items the owner has queued in
+  EDITIONS.md under "Queued for the next edition": carry those into chapter XVIII as written there,
+  labelled as memory and rumour, never as established fact.
 - Use they/them for anyone whose pronouns are not stated. Rafe Lavine is
   referred to as he in his own press coverage; that is fine.
 - Copy is plain, specific, and a little dry. Sentences carry a verb. No

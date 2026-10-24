@@ -62,3 +62,27 @@ line through an item when an edition answers it, and say which.
 The owner asked for the tuner's dial to carry AM and FM, with researched stations and frequencies at different points in time, a date mover across the top, and marks on years when something changed (a rename, a new station). Five research agents, one angle each: SABC national and English services; SABC pop and regional services; independent commercial stations; the stations Rafe Lavine worked at; and the technical history of AM and FM in South Africa. All findings are search extracts and will be labelled so.
 
 Result of the dial research (Edition XI addendum): twelve agents, about two hundred searches, no page opened (every fetch failed). Frequencies are patchy and schedules thinner; both are labelled by confidence on the dial, with a notes section. The next step is a second pass from an open connection through the mailbox branch `wip/comms` (see its START-HERE.md); results there are to be folded into assets/dial-data.js with sources.
+
+## Queued for the next edition (owner's note, 24 October 2026)
+
+The owner read chapter XVIII's note that the surname Fat is said *Fett*, which is also how the Afrikaans
+word *vet* is said, and added two things from memory about Pigman Fat. Carry both into the next edition,
+as a short "From memory" part of chapter XVIII (Volume IV), under these rules:
+
+1. **Accent.** The owner recalls that Pigman Fat spoke with an Afrikaans accent: not very strong, but
+   distinctive. Source: the owner's own memory, one person, undated. Say exactly that. It fits the
+   essay's *Fett* and the site's own observation about *vet*, but it does not prove where the surname
+   comes from, and the page must not say it does. No other source says anything about his accent.
+2. **A brother called Pieman.** A rumour the owner heard and cannot verify. The owner thinks it sounds
+   like a nickname. Present it as an unverified rumour, in a "not verified" row, never as a fact and never
+   in running text as if it were established. Do not name or describe a real person beyond that.
+   Do not guess at a first name, a surname, a trade or a relationship.
+
+Research to attempt first (the local session has been asked too, see wip/comms): any South African radio
+or quiz figure nicknamed Pieman, Pigman or similar; any mention of a Fat or Vet quiz producer; any
+account of an accent. If nothing is found, say so in the "not found" row, and keep the rumour marked
+unverified.
+
+Open questions added: Did Pigman Fat have a brother, and was "Pieman" a name or a nickname? Where did the
+surname Fat come from, and is it a respelling of Afrikaans *vet*?
+
