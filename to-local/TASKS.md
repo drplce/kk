@@ -76,3 +76,24 @@ Work in this order. For each task, write one file under `from-local/` as describ
 15. The RockFest move to 93.8 FM: November or early December 2009. Whether Rafe Lavine presented on 93.8 /
     Mix 93.8 at any time, and whether the RockFest on Radio Today ended in February 2009 by management
     decision (one source) and whether Radio Today ever closed (a listing says it is still on 1485).
+
+## P5. Pigman Fat (added 24 October 2026)
+
+The owner recalls two things about the quiz producer in the essay "The Battle of the airwaves" (surname
+Fat, said "Fett", nicknamed "Pigman"): an Afrikaans accent, not strong but distinctive, and an unverified
+rumour of a brother called "Pieman" (possibly just a nickname). Please look, and report only what a
+source says:
+
+16. Any South African radio or quiz figure nicknamed Pieman, Pigman, Pig Man, or similar, with years and
+    station. Any quiz producer or presenter surnamed Fat or Vet, or described as "the Pigman". Try radio
+    memory sites, the Springbok Radio Preservation Society, SABC Media Libraries, forum threads (for
+    example the 4x4community "Springbokradio" thread), old newspapers, and Facebook or blog nostalgia
+    groups you can reach. Record the exact wording and URL.
+17. Any account of how he spoke (an accent, an Afrikaans-English mix), and any account of a brother.
+    If a source describes him, record it as written, with the date and the person who wrote it.
+    Do not infer a name, a relationship or a trade the source does not state.
+18. The origin of the surname Fat, and whether it is a respelling of Afrikaans "vet" (pronounced "fett").
+    Genealogy and surname dictionaries only if they actually say so.
+
+Use the same format as the schedule files, with the programme column left blank, or a plain notes file
+`from-local/T16-pigman.md` if the findings are not tabular. Say "not found" when it is not found.
