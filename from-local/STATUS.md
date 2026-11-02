@@ -166,3 +166,34 @@ was never opened, so it is logged as a lead, not a fact.
 | T8 | done, one gap | T8-lavine.tsv (76 rows), mostly from SAfm's own archived schedule (safm.co.za/programmes/schedules/complete.html, captures 2000-10-20, 2001-01-08, 2002-11-01, 2003-04-13). **PM Jive is confirmed in print**: "P.M. Jive", Rafe Lavine, weekdays 14:00 to 16:00, followed by P.M. Live at 16:00, in the 2000, 2001 and 2002 captures (local checked the 2002 capture directly). It is gone by April 2003, after SAfm's February 2003 move to news and talk. The Quiet Storm: Sundays 21:00 to 24:00, 2000 to 2003, ended September 2004 (Mail & Guardian, 2004-09-24). The 2003 weeknight slot is confirmed, weekdays 22:00 to 01:00 from the 2003-04-13 capture; the grid gives no title and Lavine calls it "Face The Music". Hotdog Radio on Radio Today: Fridays 20:00 to 22:00 from 2006-02-10, repeated Mondays, last seen March 2007. Solid Gold on 702: weekends 16:00 to 19:00 (Bizcommunity, 2011-02-04); he left in December 2014 (Bizcommunity, 2015-01-15). All schedule times are South African local time. **Beat the Beat: not found** in any SAfm schedule capture (PM Jive is a single entry with no inserts listed), in Lavine's own bio, or in about nine searches; the 14:20 question and 14:45 answers still rest on the former caller alone. Also not found: days and times for Radio 5's Hot Dog, Rock Classics and the Great Unknowns, and a "RockIt Scientist" title on any SAfm grid. Lavine's own informal bio on rock.co.za (it opens with a joke disclaimer calling it fiction, so rated low) gives Radio 5 from 1982, full-time from 1985, leaving at the end of 1990; an IOL article (403, not opened) is credited by search summaries with "702 in 1983, Radio 5 a year later". |
 | T15 | done | T15-rockfest.tsv (28 rows). (a) The RockFest moved to 93.8 on Monday 2009-12-07 (posts of 5 and 6 December 2009); a 2010 history says "early December 2009" and a 2012 post "since November 28, 2009" (kept as disagreeing rows). (b) No evidence that Lavine presented on 93.8: he is absent from the launch and early-2010 line-ups. (c) The February 2009 end by management decision is stated only by Alan Economides (post of 2009-12-20, under three days' notice); his own 2012 post counts "three and a half years" from early 2006, which disagrees. No second source. (d) No source says Radio Today closed; it faced a SARS closure threat in March 2004 and a name dispute in 2004 and 2005, was on AM in 2018, and is still listed on 1485 AM. |
 | T9 | done, nothing licensed | images/NOTES.md. Three candidates, none reusable: the SAfm presenter photo (SABC copyright, permission required), a 100-pixel RockFest thumbnail (all rights reserved), and a 1987 SABC TV clip on YouTube (no licence stated). Nothing on Wikimedia Commons. No image downloaded or committed. |
+
+## Batch 9, 2026-11-02 17:08 UTC
+
+| Task | State | Note |
+|------|-------|------|
+| T6 (SABC) | done | T6-wayback-sabc.tsv (1,045 schedule rows) and T6-wayback-sabc-freqs.tsv (316 frequency rows), all from the stations' own archived pages; times are South African local time. SAfm 1998 to 2015, 5FM 1999 to 2013, Good Hope FM 1998 to 2014, Lotus FM 1999 to 2012, Metro FM 1998 to 2014 (years with captures only). Frequency tables: 5FM 2000, 2001, 2006, 2009 (about 33 towns each); Metro FM 2001 and 2002 (15 sites); Good Hope FM 2004 and 2007 (8 transmitters); SAfm's 2014 frequency finder (127 towns). Lotus FM frequencies not found on any capture. |
+| T6 (commercial), T7 | in progress | |
+
+### PM Jive, now dated from SAfm's own pages
+
+| When | Slot | Source |
+|---|---|---|
+| before May 1998 | weekdays 15:00 to 16:00 | Lavine's SAfm profile page (capture 1998-06-24, page older than the schedule) |
+| June 1998 | weekdays from 15:00 | sched.htm, capture 1998-06-24 (local checked it directly); faq.htm says the show was extended to two hours and his Saturday show dropped |
+| February 2000 | Monday from 15:00 | monday.html, capture 2000-02-29 |
+| October 2000 | 15:00 to 17:00 on the show's own page, 14:00 to 16:00 on Complete Schedules ten days later | pm_jive.html (2000-10-20) and complete.html (2000-10-30): kept as disagreeing rows |
+| 2001 to November 2002 | weekdays 14:00 to 16:00 | complete schedules and his 2002 profile (batch 8; local checked the 2002 capture) |
+| April 2003 | gone; Afternoon Talk 13:30 to 16:00 | schedule/index.jsp |
+
+So the former caller's "weekdays 2 to 4" fits 2000 or 2001 to 2002, and the question at 14:20 could only fall in
+a 14:00 start. That is an inference about fit, not evidence that Beat the Beat ran then. Rafe Lavine appears
+on no SAfm page from 2004-10-19 (the October 2004 relaunch).
+
+How to read the T6 files:
+- Rows whose note begins "Not found:" are records of absence (Beat the Beat, Rock IT Scientists, Lavine on
+  5FM, Good Hope or Metro), not programme slots. Filter them out before drawing the dial. Their confidence
+  says how sure the absence is on the pages read.
+- Some day values go beyond Mon-Fri/Sat/Sun (Mon-Thu, Wed-Fri, "Sat, Sun") because the pages say so.
+- 5FM 2006 to 2008 and Good Hope 2011 to 2014 pages show one day only; that day is taken from the snapshot
+  date, said in the note. Some Good Hope day labels (2007, 2009, 2010) are inferred from list order (medium).
+- Where a page lists presenters by slot without programme titles, the programme column is blank.
