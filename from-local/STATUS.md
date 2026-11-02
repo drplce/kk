@@ -105,3 +105,38 @@ descriptions of Pigman Fat as a broadcaster only, and no searching for or record
 | T14 | partly | Highveld in Johannesburg was on 87.60 MHz from WRTH 1965 to at least 1985, and on 94.7 by December 1998 (its own archived site); the changeover year is open. Radio Pulpit began in August 1981 (The Media Online); it was on 540 kHz at Hebron in 1985 (WRTH) and on 657 kHz by March 2005 (DX Listening Digest); the move date is open. |
 
 Blocked for T10 to T14: polity.org.za IBA press releases (403, no Wayback copy), Google Books (captcha, not bypassed), WRTH 1986 to 2003 (lending-only). Three ICASA PDFs may settle the Pulpit, ECR and Highveld dates; local will read them next.
+
+## Batch 6, 2026-11-02 16:24 UTC
+
+| Task | State | Note |
+|------|-------|------|
+| T3 | done | T3-iba-icasa.tsv (148 rows): the IBA medium-wave plan (Government Notice 2329, Gazette 20553, 15 October 1999, Annexure C, read from its Wayback capture) with on-air dates, the IBA's own archived press releases 1996 to 2001 (1997 licence awards, the 1998 Capital Radio sale, Radio Today's FM 106.3 grant of 1996-07-23) and the IBA community-station list. T3-icasa-mw-2013.tsv (63 rows): ICASA's Q1 2013 frequency annex, Annexure C, every medium-wave assignment with its printed on-air date (read locally from the PDF, which was then deleted). Status codes OPE and SPA are kept as printed; neither document defines them. polity.org.za itself is behind a Cloudflare 403. |
+| T4 | done | T4-histories.tsv (166 rows): oldradio.com (2012 capture; the live page is 404), radioheritage.com (story387, a 1953 dial table with no named source, rated low), the SABC Media Libraries blog (a service-rename timeline, the Springbok Radio series) and ESAT. Rows from gov.za come from page summaries, not verbatim text: medium, no extract. |
+
+### Medium-wave on-air dates, the two regulators side by side
+
+| Assignment | IBA plan 1999 | ICASA annex 2013 |
+|---|---|---|
+| Radio Islam, Lenasia 1548 | 1997-01-06 | 1997-01-06 |
+| Chinese Radio / Arrowline Chinese, Midrand 1269 | 1996-10-11 | 1996-10-11 |
+| Ligwalagwala, Welgedacht 1287 | 1978-11-23 | 1978-11-23 |
+| Institute of Islamic Services, Pretoria 1584 | 1996-07-01 | 1996-07-05 |
+| Radio Today 1485 | Johannesburg, 1996-06-14 | Marks Park, 1997-04-01 |
+| New Panhellenic Voice | Johannesburg 1458, 1995-06-05 | Bedfordview 1422, 1997-12-19 |
+| Radio Pulpit, Meyerton 657 | 1978-11-23 | 1993-01-01 |
+| CapeTalk, Klipheuwel 567 | listed, see T3 | 1997-10-14 |
+| Radio 702, Ga-Rankuwa 702 | 1980-06-15 | spare, no programme (702 left AM in 2007, see T12) |
+
+The Pulpit conflict is real: the 1999 table prints 23-Nov-78 against Meyerton 657 (checked locally against the
+captured HTML). Pulpit began in August 1981 (T14) and WRTH 1985 has it on 540 kHz at Hebron, so both dates
+probably belong to the transmitter assignment rather than to Pulpit's use of it, but no source says so.
+Please show it as open.
+
+Other disagreements kept as separate rows: Jozi Radio (4 March 1997 release) vs Kaya FM (1 August 1997 release);
+Springbok Radio launch 1 May vs 31 May 1950; the plan's community frequencies vs the IBA community list
+(Chinese Radio 1269 vs 835.5, Radio Islam 1548 vs 835, Panhellenic 1458 vs 828; the 835/828 figures may be
+wavelength-style typos, not checked); first SA broadcast 1923-12-29 (oldradio) vs 1923-12-18 (radioheritage);
+Heart FM 2006 vs 2004 (ESAT).
+
+Leads not read: ICASA's Final Terrestrial Broadcast Frequency Plan 2008 and the 2004 draft (PDFs, FM
+assignments by site), and the IBA FM annexure fmplan1.xls (no Wayback capture).
