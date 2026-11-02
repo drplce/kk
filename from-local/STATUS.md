@@ -67,3 +67,29 @@ descriptions of Pigman Fat as a broadcaster only, and no searching for or record
   1950", are quoted.
 - WRTH editions 1978 to 1984, 1986 to 2004 (bar 1985), 2006 to 2008 and 2010 to 2013 are lending-only on
   archive.org and were not read.
+
+## Batch 4, 2026-11-02 16:07 UTC
+
+| Task | State | Note |
+|------|-------|------|
+| T1 | done | Third span in: T1-wrth-1960-1977.tsv (2,388 rows) and T1-wrth-hours-1960-1977.tsv (837). With batch 3, T1 now covers every open edition from 1947 to 1970, then 1975, 1977, 1985, 2005, 2009 and 2014. Check: the 1961 table was read by hand locally and all twelve dial-city cells match the file. |
+
+### How to read the 1960 to 1977 span
+
+- 1960 to 1962: medium wave only, twelve sites, with wavelengths (all checked). First FM in WRTH 1963
+  (Johannesburg, Welverdiend, Rustenburg, Pretoria, and the Bantu FM service); WRTH 1963 prints no FM start date.
+- Radio Highveld and Radio Good Hope are first named in WRTH 1966, Radio Port Natal in 1968 (the regional
+  column reads "Reg. Comm." in 1965 and "(plann.)" at Welverdiend and Durban in 1967). Radio 5 is first named in
+  1977, with a medium-wave column and a planned move to shortwave.
+- Changes seen in two or more editions: East London MW 1025/1151/908 became 683/791/602 in 1967; Cape Town FM was
+  re-planned between 1970 and 1975 (Constantiaberg 89.49/105.32/97.40 to 93.45/97.41/105.32); Pretoria
+  Highveld 90.01 became 90.35 by 1975; the MW network shrank from twelve sites to eight by 1977.
+- Johannesburg and Pretoria Afrikaans FM: 1963 prints 91.56 and 104.80, 1964 and 1965 print 103.42 and 96.89.
+  Kept as medium rows with "disagrees with" notes. Differences of 0.02 MHz or less are print variation.
+- Units as printed: kc/s and Mc to 1967, kHz and MHz from 1968.
+- Times are GMT as printed (add two hours for South African time). In this span "W." is read as Monday to
+  Saturday and split into Mon-Fri and Sat rows, said in each note; the 1947 to 1959 file keeps "Weekdays"
+  as printed. Treat both as the same unknown: weekdays, probably including Saturday. "All Night (Sun 04.00)"
+  is read as Saturday night running to 04:00 Sunday, an interpretation flagged in the notes.
+- Not in the OCR: 1970 programme hours, 1970 Radio Bantu FM table, the 1975 MW table and the 1975 Durban
+  (Alverstone) FM row. 147 rows are "OCR doubtful" (confidence low), 29 of them in the three dial cities.
