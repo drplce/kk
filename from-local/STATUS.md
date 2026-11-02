@@ -197,3 +197,47 @@ How to read the T6 files:
 - 5FM 2006 to 2008 and Good Hope 2011 to 2014 pages show one day only; that day is taken from the snapshot
   date, said in the note. Some Good Hope day labels (2007, 2009, 2010) are inferred from list order (medium).
 - Where a page lists presenters by slot without programme titles, the programme column is blank.
+
+## Batch 10, 2026-11-02 17:53 UTC: all tasks reported
+
+| Task | State | Note |
+|------|-------|------|
+| T6 (commercial) | done | T6-wayback-commercial.tsv (931 schedule rows) and T6-wayback-commercial-freqs.tsv (26). Talk Radio 702 line-ups for 2003 to 2014 (weekday, Saturday, Sunday; holiday-week pages skipped). Solid Gold on 702: Robin Clark, Saturdays and Sundays from 16:00, 2007 to June 2010; Rafe Lavine, Saturdays and Sundays 16:00 to 19:00, February 2011 to July 2014. Highveld Stereo line-ups 1999 (partial), 2001 to 2004, 2013, 2014, and its frequencies by area 2001 to 2003 (94.7 central Johannesburg, 94.0 Heidelberg, 95.2 Florida, 100.5 Roodepoort). Radio Today: "Rock Professor" Chris Prior, Thursdays 20:00 to 22:00, in the December 2008 RockFest table; Lavine is in no Radio Today schedule found. Not found: Radio Today line-ups 1998 to 2007 (the 2004 and 2005 site is a Flash splash), Highveld 2005 to 2012, 702 before 2003, and any line-up for Kfm, ECR, CapeTalk, Jacaranda, Kaya, YFM or Classic FM. |
+| T7 | done | T7-press-guides.tsv (377 schedule rows) and T7-press-facts.tsv (22). IOL's Durban radio guide of 2003-11-24 (read via Wayback): SAfm with Lavine weekdays from 22:00 and The Quiet Storm on Sundays at 21:00, plus East Coast Radio, Metro, Lotus, 5FM and P4 with frequencies. IOL "Gotta keep on rocking" (March 2004, read live): Rock IT Scientists with Leon Economides on Fridays (no time); Lavine's early shows, Rock 'n Horror on 702 (1983) and Hot Dog on Radio 5 (1984 to 1990). Mail & Guardian: PM Live weekdays 16:00 to 18:00 in April 2000; The Quiet Storm axed, September 2004. Bizcommunity 702 line-up changes 2007 to 2016. Not found: the 1998 "PM Live 5 to 7pm" slot (nearest: M&G, November 1997, announcing a joint SAfm and BBC "SA Live" for May 1998) and any Radio Orion schedule beyond Wikipedia's 21:30 start. |
+
+How to read T6 (commercial) and T7:
+- Listing pages print start times only, so 493 rows take their end from the next programme's start; each such
+  row's note says so. Times after midnight end on the next day. Day ranges are expanded to one row per day.
+- Rows whose note begins "Not found" are absence records, as in T6 (SABC).
+- Disagreements kept as rows: PM Live's start (named January 1998, against a "first anniversary" in April 2000);
+  SAfm's talk format (February 1998, M&G, against February 2003, SAfm's own statement); Rob Vember 19:00 to 22:00
+  in a 2009 article's text but 21:00 to 22:00 in its table; Lavine "fully retired" in 2009 (sarockmusic, low)
+  against 702 pages naming him until 2014.
+- Rows from 1485.org.za are live-site fetches (page metadata 2015 to 2017), not Wayback.
+
+## Summary, one line per task
+
+| Task | State |
+|------|-------|
+| T1 WRTH frequencies by year | done: every open edition 1947 to 1970, 1975, 1977, 1985, 2005, 2009, 2014; 1978 to 2004 (bar 1985) are lending-only |
+| T2 Wikipedia pages | done |
+| T3 IBA and ICASA documents | done: IBA MW plan 1999 and ICASA MW annex 2013 with on-air dates; ICASA's 2013 FM annex lists only changes |
+| T4 radio histories | done |
+| T5 Springbok Radio schedules | done |
+| T6 Wayback station line-ups | done: SABC stations and 702, Highveld, Radio Today; no line-ups for Kfm, ECR, CapeTalk, Jacaranda, Kaya, YFM, Classic FM |
+| T7 press radio guides | done; Radio Orion schedule not found |
+| T8 Rafe Lavine's programmes | done: PM Jive dated 1998 to 2002 from SAfm's own pages; Beat the Beat not found in print |
+| T9 photograph | done: nothing licensed for reuse; see images/NOTES.md |
+| T10 FM start | likely 22 December 1961, Brixton |
+| T11 renames | partly: Radio Metro settled (1 September 1986); Radio South Africa likely 1 January 1986; SAfm and 5FM dates open |
+| T12 702 AM end | settled: 28 June 2007 |
+| T13 ECR sale, Kfm | partly: ECR likely sold September 1996; Kfm's predecessor is Radio Kontrei; Kfm's launch year open |
+| T14 Highveld 94.7, Pulpit 657 | partly: both changeover years open; the regulators disagree on Pulpit's 657 on-air date |
+| T15 RockFest | done |
+| T16 Pigman, Pieman | not found |
+| T17 how he spoke | not found |
+| T18 the surname Fat | partly: no source says it respells "vet" |
+| T19 Twenty-One, Venture | partly: Venture's producer named (Bernard Lehman); no "Skip 21" or "Skip 22" anywhere |
+
+Files in from-local: 23 TSVs, 8,707 rows in all, plus images/NOTES.md. No source carries more
+than 40 quoted words across all files. Local is idle until new tasks appear in to-local/.
