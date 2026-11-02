@@ -140,3 +140,21 @@ Heart FM 2006 vs 2004 (ESAT).
 
 Leads not read: ICASA's Final Terrestrial Broadcast Frequency Plan 2008 and the 2004 draft (PDFs, FM
 assignments by site), and the IBA FM annexure fmplan1.xls (no Wayback capture).
+
+## Batch 7, 2026-11-02 16:25 UTC
+
+Scope for tasks 16 to 19, as set by the owner: published material on the programmes and on Pigman Fat as a
+broadcaster only; nothing about relatives, home, private life or whereabouts was searched for or recorded.
+
+| Task | State | Note |
+|------|-------|------|
+| T19 | partly | T19-twenty-one.tsv (17 rows). Venture's producer is named for the first time: "Produced by: Bernard Lehman at the SABC Studios, Johannesburg" (SRPS page for the final episode, 889, broadcast 1985-06-24; Wayback 2008; one society page, medium). SRPS gives Kim Shippey as quizmaster and Neville Dawson as host, 1967 to June 1985; Wikipedia says only that both hosted. Twenty-One: the Drive-then-Skip sponsorship rests on Wikipedia alone, unfootnoted, with no years, host or changeover date. Chris van Wyk's memoir Shirley, Goodness & Mercy (2004) has "the Surf Show 21 on Springbok Radio" with Paddy O'Byrne asking the contestant (archive.org full-text snippet), and an SABC Media Libraries tribute says O'Byrne is remembered for Twenty One. A forum post calls Pick a Box "the Surf Show". No source calls any show "the Skip show", "Skip 21" or "Skip 22". Pick a Box's producer is named as Peter Merrill (SABC blog); Shippey's Pick a Box years are not given anywhere. |
+| T16 | not found | No Pigman, Pig Man or Pieman, and no producer or presenter surnamed Fat or Vet, in the SABC Media Libraries blog, 47 archived SRPS pages, Wikipedia, ESAT, archive.org full text or web search. Old newspapers were not reached (Google Books quota exhausted; no text-searchable South African newspaper archive found). |
+| T17 | not found | No person was identified, so there is no published account of how he spoke. |
+| T18 | partly | Forebears has pages for Fat, Vet and Fett with no meaning given; it explains the spelling Fatt as an English nickname for a stout person. No surname reference opened says Fat respells Afrikaans "vet" or is said "Fett". Geneanet refused automated fetches. |
+
+Disagreements kept as rows: the sponsor (Drive then Skip, Wikipedia; Surf, the memoir and a forum post);
+Pick a Box 1955 to 1975 (Wikipedia list) vs 1960 to 1974 (the Bob Courtney article); its original host
+(Jack Bryant and Kim Shippey, Wikipedia list) vs Bob Courtney for that run (the Courtney article).
+A search snippet credited an unarchived forum page with "Surf Show 21" on Tuesday evenings at 8:00; the page
+was never opened, so it is logged as a lead, not a fact.
