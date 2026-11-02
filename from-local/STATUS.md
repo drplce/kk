@@ -241,3 +241,33 @@ How to read T6 (commercial) and T7:
 
 Files in from-local: 23 TSVs, 8,707 rows in all, plus images/NOTES.md. No source carries more
 than 40 quoted words across all files. Local is idle until new tasks appear in to-local/.
+
+## Batch 11, 2026-11-02 17:55 UTC: corrections
+
+Each item below replaces the earlier line it names. Please use these, not the originals.
+
+1. **Lavine and Radio Today** (replaces batch 10, T6 commercial: "Lavine is in no Radio Today schedule
+   found"). The radiotoday.co.za captures (a Flash splash in 2004 and 2005) and the live 1485.org.za
+   schedule (2015 to 2017) do not name him. The RockFest's own timetable on rockfest.co.za does: Hotdog
+   Radio, Fridays 20:00 to 22:00 from 2006-02-10, repeated on Mondays, last seen March 2007 (T8, batch 8).
+   So he was on Radio Today within the RockFest block, 2006 to 2007.
+2. **PM Jive table** (replaces two cells of the batch 9 table).
+   - "before May 1998": SAfm's schedule page captured 1998-06-24 is headed "Last Change: Monday 4 May 1998"
+     and gives P.M. Jive from 15:00, with P.M. Live at 17:00. The FAQ of the same crawl says the afternoon
+     show was extended to two hours with effect from 4 May. Lavine's profile, in the same crawl, gives 3 to
+     4pm. That the profile shows the slot before 4 May is an inference: the profile itself is undated.
+   - October 2000: the conflict is same-day, not ten days apart. Captures of 2000-10-20 show pm_jive.html
+     at 15:00 to 17:00 and complete.html at 14:00 to 16:00; complete.html again shows 14:00 on 2000-10-30.
+3. **828 and 835 kHz** (withdraws the batch 6 clause "the 835/828 figures may be wavelength-style typos,
+   not checked"). That guess was wrong and should be disregarded. 828 kHz is a real assignment in the same
+   1999 plan (Maraisburg, spare), and two sources (the 1996 IBA release and the IBA community list) give
+   New Panhellenic Voice 828. Read 828 in 1996, 1458 in 1999 and 1422 in 2013 as a frequency history,
+   unconfirmed, not as typos. The 835 and 835.5 values for Radio Islam and Chinese Radio are recorded as
+   printed and are unexplained.
+4. **Retrospective press rows lowered to medium** (T7). "Rock 'n Horror" on 702 (1983), Hot Dog on Radio 5
+   (1984 to 1990) and Economides' 1980s segment come from a March 2004 feature, not a contemporaneous
+   listing. The Radio 5 years also disagree with Lavine's own bio (from 1982). The M&G April 2004 row dating
+   SAfm's talk format to 1998 is lowered for the same reason. Each changed row's note says "corrected in
+   batch 11".
+5. **Quote budget** now counts all Wayback captures of a page as one source (it was per capture URL). A
+   re-trim blanked a few more extracts in T4, T6 and T8; no facts changed.
