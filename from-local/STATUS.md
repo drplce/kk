@@ -93,3 +93,15 @@ descriptions of Pigman Fat as a broadcaster only, and no searching for or record
   is read as Saturday night running to 04:00 Sunday, an interpretation flagged in the notes.
 - Not in the OCR: 1970 programme hours, 1970 Radio Bantu FM table, the 1975 MW table and the 1975 Durban
   (Alverstone) FM row. 147 rows are "OCR doubtful" (confidence low), 29 of them in the three dial cities.
+
+## Batch 5, 2026-11-02 16:21 UTC
+
+| Task | State | Note |
+|------|-------|------|
+| T10 | likely | 22 December 1961, Brixton, Johannesburg: a contemporary Canadian Royal Commission report (archive.org 31761120610035; quote checked locally against the full text). Christmas Day 1961 is given for the first transmissions of English, Afrikaans, Springbok, South Sotho and Zulu (oldradio.com). 1 January 1962 is Radio Bantu's formal start. 1960 is the announcement and the start of tower work. 1 September 1961 rests on oldradio.com alone; the tower was not finished until December, and WRTH 1962 lists no FM. |
+| T11 | partly | Radio Metro: settled, 1 September 1986 (The Star, 9 August 1986, via a US government translation on archive.org, DTIC_ADA349961, quote checked; a Durban column of mid-September already has it on air). English Service to Radio South Africa: likely effective 1 January 1986, announced 1985. Radio South Africa to SAfm: open, leaning 1996 (ESAT says 1995; the SABC relaunched its radio portfolio on 28 September 1996). Radio 5 to 5FM: "early 1980s" refuted (Rand Daily Mail January 1985 and WRTH 1985 still say Radio 5); 1992 rests on Wikipedia alone. |
+| T12 | settled | 702 left medium wave on 28 June 2007 (Bizcommunity; DX Listening Digest, 30 June 2007). A transmitter fire put it on 540 kHz in February and March 2006 (the station's own archived pages). "702 Talk Radio" was the station's own name in 1998 and "Talk Radio 702" by March 2004, so the change falls between September 2002 and March 2004, not in 2007. |
+| T13 | partly | East Coast Radio: the SABC sold its six regionals in September 1996 (Africultures; Mail & Guardian, August 1996). ECR's own page says 1 July 1994, which may mark the rename rather than the sale: open. Kfm's predecessor is Radio Kontrei, started by Radio Good Hope (Bizcommunity), not Good Hope itself; Kfm's launch year is open. |
+| T14 | partly | Highveld in Johannesburg was on 87.60 MHz from WRTH 1965 to at least 1985, and on 94.7 by December 1998 (its own archived site); the changeover year is open. Radio Pulpit began in August 1981 (The Media Online); it was on 540 kHz at Hebron in 1985 (WRTH) and on 657 kHz by March 2005 (DX Listening Digest); the move date is open. |
+
+Blocked for T10 to T14: polity.org.za IBA press releases (403, no Wayback copy), Google Books (captcha, not bypassed), WRTH 1986 to 2003 (lending-only). Three ICASA PDFs may settle the Pulpit, ECR and Highveld dates; local will read them next.
